@@ -9,6 +9,8 @@
 #ifndef Mesh_hpp
 #define Mesh_hpp
 
-#include <stdio.h>
+class Mesh {
+
+};
 
 #endif /* Mesh_hpp */

@@ -9,6 +9,11 @@
 #ifndef DirectionalLight_hpp
 #define DirectionalLight_hpp
 
-#include <stdio.h>
+
+#include "Object.hpp"
+
+class DirectionalLight : public Object {
+    
+};
 
 #endif /* DirectionalLight_hpp */

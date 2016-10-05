@@ -9,6 +9,33 @@
 #ifndef Material_hpp
 #define Material_hpp
 
-#include <stdio.h>
+#include <SFML/OpenGL.hpp>
+#include <string>
+
+#include "Texture.hpp"
+
+using namespace std;
+
+struct MaterialVertexShader {
+    const string src;
+    MaterialVertexShader(const string src) : src(src) {}
+};
+
+struct MaterialFragmentShader {
+    const string src;
+    MaterialFragmentShader(const string src) : src(src) {}
+};
+
+class Material {
+public:
+    Material(MaterialVertexShader vertShader, MaterialFragmentShader fragShader, bool link);
+    void use();
+    static Material* solid();
+    GLint getAttribLocation(const char* name);
+private:
+    Texture* tex;
+    const GLuint shaderProgram;
+    GLuint compileShader(GLenum type, const string& source);
+};
 
 #endif /* Material_hpp */

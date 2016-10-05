@@ -13,6 +13,18 @@
 		CD9D726A1DA44E54005D2B00 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = CD9D72691DA44E54005D2B00 /* nice_music.ogg */; };
 		CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726B1DA44E54005D2B00 /* sansation.ttf */; };
 		CD9D726E1DA44E54005D2B00 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726D1DA44E54005D2B00 /* icon.png */; };
+		CD9D72761DA450A3005D2B00 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72741DA450A3005D2B00 /* Scene.cpp */; };
+		CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72771DA450AC005D2B00 /* Mesh.cpp */; };
+		CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D727A1DA450B3005D2B00 /* Object.cpp */; };
+		CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D727D1DA450BB005D2B00 /* Texture.cpp */; };
+		CD9D72821DA450C3005D2B00 /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72801DA450C3005D2B00 /* Material.cpp */; };
+		CD9D72851DA450C9005D2B00 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72831DA450C9005D2B00 /* Camera.cpp */; };
+		CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72861DA450D4005D2B00 /* SpotLight.cpp */; };
+		CD9D728B1DA450DC005D2B00 /* DirectionalLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72891DA450DC005D2B00 /* DirectionalLight.cpp */; };
+		CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728C1DA450E4005D2B00 /* PointLight.cpp */; };
+		CD9D72911DA450F1005D2B00 /* TiledTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */; };
+		CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72921DA453F2005D2B00 /* Window.cpp */; };
+		CD9D72971DA46AC1005D2B00 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +37,29 @@
 		CD9D72691DA44E54005D2B00 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		CD9D726B1DA44E54005D2B00 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		CD9D726D1DA44E54005D2B00 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		CD9D72741DA450A3005D2B00 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Scene.cpp; path = ../../Scene.cpp; sourceTree = "<group>"; };
+		CD9D72751DA450A3005D2B00 /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Scene.hpp; path = ../../Scene.hpp; sourceTree = "<group>"; };
+		CD9D72771DA450AC005D2B00 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		CD9D72781DA450AC005D2B00 /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
+		CD9D727A1DA450B3005D2B00 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
+		CD9D727B1DA450B3005D2B00 /* Object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
+		CD9D727D1DA450BB005D2B00 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		CD9D727E1DA450BB005D2B00 /* Texture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
+		CD9D72801DA450C3005D2B00 /* Material.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Material.cpp; sourceTree = "<group>"; };
+		CD9D72811DA450C3005D2B00 /* Material.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Material.hpp; sourceTree = "<group>"; };
+		CD9D72831DA450C9005D2B00 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		CD9D72841DA450C9005D2B00 /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		CD9D72861DA450D4005D2B00 /* SpotLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotLight.cpp; sourceTree = "<group>"; };
+		CD9D72871DA450D4005D2B00 /* SpotLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SpotLight.hpp; sourceTree = "<group>"; };
+		CD9D72891DA450DC005D2B00 /* DirectionalLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectionalLight.cpp; sourceTree = "<group>"; };
+		CD9D728A1DA450DC005D2B00 /* DirectionalLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DirectionalLight.hpp; sourceTree = "<group>"; };
+		CD9D728C1DA450E4005D2B00 /* PointLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointLight.cpp; sourceTree = "<group>"; };
+		CD9D728D1DA450E4005D2B00 /* PointLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PointLight.hpp; sourceTree = "<group>"; };
+		CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TiledTexture.cpp; sourceTree = "<group>"; };
+		CD9D72901DA450F1005D2B00 /* TiledTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TiledTexture.hpp; sourceTree = "<group>"; };
+		CD9D72921DA453F2005D2B00 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
+		CD9D72931DA453F2005D2B00 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
+		CD9D72961DA46AC1005D2B00 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9D72971DA46AC1005D2B00 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +79,7 @@
 			children = (
 				CD9D725E1DA44E54005D2B00 /* locus */,
 				CD9D725D1DA44E54005D2B00 /* Products */,
+				CD9D72951DA46AC1005D2B00 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +99,28 @@
 				CD9D72641DA44E54005D2B00 /* main.cpp */,
 				CD9D72661DA44E54005D2B00 /* Resources */,
 				CD9D725F1DA44E54005D2B00 /* Supporting Files */,
+				CD9D72741DA450A3005D2B00 /* Scene.cpp */,
+				CD9D72751DA450A3005D2B00 /* Scene.hpp */,
+				CD9D72771DA450AC005D2B00 /* Mesh.cpp */,
+				CD9D72781DA450AC005D2B00 /* Mesh.hpp */,
+				CD9D727A1DA450B3005D2B00 /* Object.cpp */,
+				CD9D727B1DA450B3005D2B00 /* Object.hpp */,
+				CD9D727D1DA450BB005D2B00 /* Texture.cpp */,
+				CD9D727E1DA450BB005D2B00 /* Texture.hpp */,
+				CD9D72801DA450C3005D2B00 /* Material.cpp */,
+				CD9D72811DA450C3005D2B00 /* Material.hpp */,
+				CD9D72831DA450C9005D2B00 /* Camera.cpp */,
+				CD9D72841DA450C9005D2B00 /* Camera.hpp */,
+				CD9D72861DA450D4005D2B00 /* SpotLight.cpp */,
+				CD9D72871DA450D4005D2B00 /* SpotLight.hpp */,
+				CD9D72891DA450DC005D2B00 /* DirectionalLight.cpp */,
+				CD9D728A1DA450DC005D2B00 /* DirectionalLight.hpp */,
+				CD9D728C1DA450E4005D2B00 /* PointLight.cpp */,
+				CD9D728D1DA450E4005D2B00 /* PointLight.hpp */,
+				CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */,
+				CD9D72901DA450F1005D2B00 /* TiledTexture.hpp */,
+				CD9D72921DA453F2005D2B00 /* Window.cpp */,
+				CD9D72931DA453F2005D2B00 /* Window.hpp */,
 			);
 			path = locus;
 			sourceTree = "<group>";
@@ -83,6 +142,14 @@
 				CD9D726D1DA44E54005D2B00 /* icon.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		CD9D72951DA46AC1005D2B00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD9D72961DA46AC1005D2B00 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,8 +240,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9D72761DA450A3005D2B00 /* Scene.cpp in Sources */,
+				CD9D72821DA450C3005D2B00 /* Material.cpp in Sources */,
 				CD9D72651DA44E54005D2B00 /* main.cpp in Sources */,
+				CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */,
+				CD9D72851DA450C9005D2B00 /* Camera.cpp in Sources */,
+				CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */,
+				CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */,
+				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,
+				CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */,
+				CD9D72911DA450F1005D2B00 /* TiledTexture.cpp in Sources */,
+				CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */,
 				CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */,
+				CD9D728B1DA450DC005D2B00 /* DirectionalLight.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +384,7 @@
 				CD9D72731DA44E54005D2B00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

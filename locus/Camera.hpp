@@ -9,6 +9,10 @@
 #ifndef Camera_hpp
 #define Camera_hpp
 
-#include <stdio.h>
+#include "Object.hpp"
+
+class Camera : public Object {
+    
+};
 
 #endif /* Camera_hpp */

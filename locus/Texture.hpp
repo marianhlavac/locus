@@ -9,6 +9,8 @@
 #ifndef Texture_hpp
 #define Texture_hpp
 
-#include <stdio.h>
+class Texture {
+    
+};
 
 #endif /* Texture_hpp */

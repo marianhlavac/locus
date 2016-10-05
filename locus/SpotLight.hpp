@@ -9,6 +9,10 @@
 #ifndef SpotLight_hpp
 #define SpotLight_hpp
 
-#include <stdio.h>
+#include "Object.hpp"
+
+class SpotLight : public Object {
+    
+};
 
 #endif /* SpotLight_hpp */

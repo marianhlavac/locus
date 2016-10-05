@@ -9,6 +9,10 @@
 #ifndef TiledTexture_hpp
 #define TiledTexture_hpp
 
-#include <stdio.h>
+#include "Texture.hpp"
+
+class TiledTexture : public Texture {
+    
+};
 
 #endif /* TiledTexture_hpp */

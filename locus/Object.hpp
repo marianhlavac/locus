@@ -9,6 +9,23 @@
 #ifndef Object_hpp
 #define Object_hpp
 
-#include <stdio.h>
+#include <SFML/Graphics.hpp>
+
+#include "Mesh.hpp"
+#include "Material.hpp"
+
+class Object {
+public:
+    Object(Mesh& mesh, Material& material, sf::Vector3f position);
+    Material getMaterial();
+    void draw();
+private:
+    Mesh& mesh;
+    Material& material;
+    sf::Vector3f position;
+    sf::Vector3f rotation; // TODO: eeuuuggh, quaternion needed?
+    GLuint vao;
+    GLuint vbo;
+};
 
 #endif /* Object_hpp */

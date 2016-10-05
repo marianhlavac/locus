@@ -9,6 +9,11 @@
 #ifndef PointLight_hpp
 #define PointLight_hpp
 
-#include <stdio.h>
+
+#include "Object.hpp"
+
+class PointLight : public Object {
+    
+};
 
 #endif /* PointLight_hpp */
