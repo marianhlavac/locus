@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
 		CD9D72651DA44E54005D2B00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72641DA44E54005D2B00 /* main.cpp */; };
 		CD9D72681DA44E54005D2B00 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD9D72671DA44E54005D2B00 /* cute_image.jpg */; };
 		CD9D726A1DA44E54005D2B00 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = CD9D72691DA44E54005D2B00 /* nice_music.ogg */; };
 		CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726B1DA44E54005D2B00 /* sansation.ttf */; };
 		CD9D726E1DA44E54005D2B00 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726D1DA44E54005D2B00 /* icon.png */; };
-		CD9D72761DA450A3005D2B00 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72741DA450A3005D2B00 /* Scene.cpp */; };
 		CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72771DA450AC005D2B00 /* Mesh.cpp */; };
 		CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D727A1DA450B3005D2B00 /* Object.cpp */; };
 		CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D727D1DA450BB005D2B00 /* Texture.cpp */; };
@@ -28,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		CD85A1151DAD8308000511ED /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		CD9D725C1DA44E54005D2B00 /* locus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = locus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD9D72601DA44E54005D2B00 /* locus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "locus-Info.plist"; sourceTree = "<group>"; };
 		CD9D72611DA44E54005D2B00 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -37,8 +39,6 @@
 		CD9D72691DA44E54005D2B00 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		CD9D726B1DA44E54005D2B00 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		CD9D726D1DA44E54005D2B00 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		CD9D72741DA450A3005D2B00 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Scene.cpp; path = ../../Scene.cpp; sourceTree = "<group>"; };
-		CD9D72751DA450A3005D2B00 /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Scene.hpp; path = ../../Scene.hpp; sourceTree = "<group>"; };
 		CD9D72771DA450AC005D2B00 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
 		CD9D72781DA450AC005D2B00 /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
 		CD9D727A1DA450B3005D2B00 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 				CD9D72641DA44E54005D2B00 /* main.cpp */,
 				CD9D72661DA44E54005D2B00 /* Resources */,
 				CD9D725F1DA44E54005D2B00 /* Supporting Files */,
-				CD9D72741DA450A3005D2B00 /* Scene.cpp */,
-				CD9D72751DA450A3005D2B00 /* Scene.hpp */,
+				CD85A1141DAD8308000511ED /* Scene.cpp */,
+				CD85A1151DAD8308000511ED /* Scene.hpp */,
 				CD9D72771DA450AC005D2B00 /* Mesh.cpp */,
 				CD9D72781DA450AC005D2B00 /* Mesh.hpp */,
 				CD9D727A1DA450B3005D2B00 /* Object.cpp */,
@@ -240,7 +240,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD9D72761DA450A3005D2B00 /* Scene.cpp in Sources */,
 				CD9D72821DA450C3005D2B00 /* Material.cpp in Sources */,
 				CD9D72651DA44E54005D2B00 /* main.cpp in Sources */,
 				CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */,
@@ -248,6 +247,7 @@
 				CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */,
 				CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */,
 				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,
+				CD85A1161DAD8308000511ED /* Scene.cpp in Sources */,
 				CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */,
 				CD9D72911DA450F1005D2B00 /* TiledTexture.cpp in Sources */,
 				CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */,
