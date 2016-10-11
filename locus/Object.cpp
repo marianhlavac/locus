@@ -10,7 +10,7 @@
 
 #include "Object.hpp"
 
-Object::Object(Mesh& mesh, Material& material, sf::Vector3f position = sf::Vector3f(0,0,0)) : mesh(mesh), material(material) {
+Object::Object(Mesh& mesh, Material& material, sf::Vector3f position = sf::Vector3f(0,0,0), string name = "Object") : mesh(mesh), material(material), name(name) {
     GLfloat vertices[] = {
         -0.5f, -0.5f, 0.0f, // Left
         0.5f, -0.5f, 0.0f, // Right
@@ -38,4 +38,12 @@ void Object::draw() {
     glBindVertexArray(vao);
     glDrawArrays(GL_TRIANGLES, 0, 3);
     glBindVertexArray(0);
+}
+
+string Object::getName() const {
+    return name;
+}
+
+void Object::setName(string name) {
+    this->name = name;
 }

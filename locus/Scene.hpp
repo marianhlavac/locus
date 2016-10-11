@@ -20,12 +20,14 @@ class Scene {
 public:
     Scene(string name);
     string getName();
-    list<Object> getChildren();
-    Object getChildByName(string name);
-    void addChild(Object child);
+    list<Object*> getChildren();
+    Object* getChildByName(string const childName);
+    void addChild(Object* child);
+    void removeChild(Object* child);
+    void removeChildByName(string const childName);
 private:
     string name;
-    list<Object> children;
+    list<Object*> children;
 };
 
 #endif /* Scene_hpp */

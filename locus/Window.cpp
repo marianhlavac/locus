@@ -40,8 +40,8 @@ bool Window::pollEvent(sf::Event &event) {
 void Window::drawScene(Scene scene) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    for (Object obj : scene.getChildren()) {
-        obj.draw();
+    for (Object* obj : scene.getChildren()) {
+        obj->draw();
     }
     
     window.display();

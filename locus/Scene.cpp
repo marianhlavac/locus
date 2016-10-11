@@ -16,12 +16,12 @@ string Scene::getName() {
     return name;
 }
 
-list<Object> Scene::getChildren() {
+list<Object*> Scene::getChildren() {
     return children;
 }
 
-Object Scene::getChildByName(string childName) {
-    auto it = find(children.begin(), children.end(), childName);
+Object* Scene::getChildByName(string childName) {
+    auto it = find_if(children.begin(), children.end(), [&] (Object* const &p) { return p->getName() == childName; });
     
     if (it == children.end()) {
         throw runtime_error("There is no children named '" + childName + "' in scene '" + name + "'.");
@@ -30,6 +30,14 @@ Object Scene::getChildByName(string childName) {
     return *it;
 }
 
-void Scene::addChild(Object child) {
+void Scene::addChild(Object* child) {
     children.push_back(child);
+}
+
+void Scene::removeChild(Object* child) {
+    children.remove(child);
+}
+
+void Scene::removeChildByName(string childName) {
+    removeChild(getChildByName(childName));
 }

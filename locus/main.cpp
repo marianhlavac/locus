@@ -31,7 +31,7 @@ int main(int, char const**)
     Scene scene("The Scene");
     
     Mesh mesh;
-    Object obj(mesh, *Material::solid(), sf::Vector3f(0,0,0));
+    Object* obj = new Object(mesh, *Material::solid(), sf::Vector3f(0,0,0), "Mesh");
     scene.addChild(obj);
 
     while (window->isOpen())

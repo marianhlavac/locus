@@ -16,10 +16,13 @@
 
 class Object {
 public:
-    Object(Mesh& mesh, Material& material, sf::Vector3f position);
+    Object(Mesh& mesh, Material& material, sf::Vector3f position, string name);
     Material getMaterial();
     void draw();
+    string getName() const;
+    void setName(string name);
 private:
+    string name;
     Mesh& mesh;
     Material& material;
     sf::Vector3f position;
