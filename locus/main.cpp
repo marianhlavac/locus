@@ -22,35 +22,43 @@
 #include "Scene.hpp"
 #include "Object.hpp"
 
-// Here is a small helper for you! Have a look.
-#include "ResourcePath.hpp"
+//
+// TODO:
+//  - constantify all getters and setters and others.
+//  - maybe move small utilities like MeshShader, MeshShaderProgram etc.?
+//
 
-int main(int, char const**)
-{
-    Window *window = Window::createWindow(1366, 768);
-    Scene scene("The Scene");
+
+
+void init(Window* window) {
+    Scene* scene = new Scene("The Scene");
+    window->attachScene(scene);
     
-    Mesh mesh;
-    Object* obj = new Object(mesh, *Material::solid(), sf::Vector3f(0,0,0), "Mesh");
-    scene.addChild(obj);
+    Mesh* mesh = new Mesh();
+    Object* obj = new Object(mesh, Material::solid(), sf::Vector3f(0, 0, 0), "Mesh");
+    scene->addChild(obj);
+}
 
-    while (window->isOpen())
-    {
+void update(Window* window, sf::Time elapsed) {
+    window->draw();
+}
+
+int main(int, char const**) {
+    sf::Clock clock;
+    
+    Window *window = Window::createWindow(1366, 768);
+    init(window);
+    
+    while (window->isOpen()) {
         sf::Event event;
-        while (window->pollEvent(event))
-        {
-            // Close window: exit
-            if (event.type == sf::Event::Closed) {
-                window->close();
-            }
-
-            // Escape pressed: exit
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+        while (window->pollEvent(event)) {
+            // Close event
+            if (event.type == sf::Event::Closed || (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)) {
                 window->close();
             }
         }
-
-        window->drawScene(scene);
+        
+        update(window, clock.restart());
     }
 
     return EXIT_SUCCESS;

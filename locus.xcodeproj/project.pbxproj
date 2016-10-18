@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD1F11BB1DAD9334007A5C12 /* teapotData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1F11BA1DAD9334007A5C12 /* teapotData.cpp */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
 		CD9D72651DA44E54005D2B00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72641DA44E54005D2B00 /* main.cpp */; };
@@ -25,9 +26,11 @@
 		CD9D72911DA450F1005D2B00 /* TiledTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */; };
 		CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72921DA453F2005D2B00 /* Window.cpp */; };
 		CD9D72971DA46AC1005D2B00 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
+		CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = CDD5AE131DB58CFB00D35F30 /* Shaders */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD1F11BA1DAD9334007A5C12 /* teapotData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = teapotData.cpp; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		CD85A1151DAD8308000511ED /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		CD9D725C1DA44E54005D2B00 /* locus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = locus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +63,7 @@
 		CD9D72921DA453F2005D2B00 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
 		CD9D72931DA453F2005D2B00 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
 		CD9D72961DA46AC1005D2B00 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		CDD5AE131DB58CFB00D35F30 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,10 +140,12 @@
 		CD9D72661DA44E54005D2B00 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CDD5AE131DB58CFB00D35F30 /* Shaders */,
 				CD9D72671DA44E54005D2B00 /* cute_image.jpg */,
 				CD9D72691DA44E54005D2B00 /* nice_music.ogg */,
 				CD9D726B1DA44E54005D2B00 /* sansation.ttf */,
 				CD9D726D1DA44E54005D2B00 /* icon.png */,
+				CD1F11BA1DAD9334007A5C12 /* teapotData.cpp */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -211,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD9D726E1DA44E54005D2B00 /* icon.png in Resources */,
+				CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */,
 				CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */,
 				CD9D726A1DA44E54005D2B00 /* nice_music.ogg in Resources */,
 				CD9D72681DA44E54005D2B00 /* cute_image.jpg in Resources */,
@@ -244,6 +251,7 @@
 				CD9D72651DA44E54005D2B00 /* main.cpp in Sources */,
 				CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */,
 				CD9D72851DA450C9005D2B00 /* Camera.cpp in Sources */,
+				CD1F11BB1DAD9334007A5C12 /* teapotData.cpp in Sources */,
 				CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */,
 				CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */,
 				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,

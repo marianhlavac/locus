@@ -10,56 +10,39 @@
 
 using namespace std;
 
-Material::Material(MaterialVertexShader vertShader, MaterialFragmentShader fragShader, bool link = true) : shaderProgram(glCreateProgram()) {
-    GLuint vertexShader = compileShader(GL_VERTEX_SHADER, vertShader.src);
-    GLuint fragmentShader = compileShader(GL_FRAGMENT_SHADER, fragShader.src);
-    
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    if (link) {
-        glLinkProgram(shaderProgram);
-    }
-    
-    GLint success;
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-    if (!success) {
-        GLchar error[512];
-        glGetProgramInfoLog(shaderProgram, 512, NULL, error);
-        throw runtime_error(error);
-    }
-    
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader); // TODO: are you sure?
+std::string defL_solid_mat_vertex_shader1 =
+    "#version 410 core\n"
+    "layout (location = 0) in vec3 position;\n"
+    "void main() {\n"
+    "  gl_Position = vec4(position.x, position.y, position.z, 1.0);\n"
+    "}\n";
+
+std::string defL_solid_mat_fragment_shader1 =
+    "#version 410 core\n"
+    "out vec4 color;"
+    "void main() {\n"
+    "  color = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n"
+    "}\n";
+
+Material::Material(MeshShader* vertShader, MeshShader* fragShader, Texture* texture) : tex(texture) {
+    program = new MeshShaderProgram(vertShader, fragShader, true);
 }
 
-GLuint Material::compileShader(GLenum type, const string &source) {
-    GLuint shader;
-    shader = glCreateShader(type);
-    const char* sourcec = source.c_str();
-    glShaderSource(shader, 1, &sourcec, NULL);
-    glCompileShader(shader);
-    
-    GLint success;
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        GLchar error[512];
-        glGetShaderInfoLog(shader, 512, NULL, error);
-        throw runtime_error(error);
-    }
-    
-    return shader;
-}
-
-void Material::use() {
-    glUseProgram(shaderProgram);
+Material::~Material() {
+    delete program;
 }
 
 Material* Material::solid() {
-    MaterialVertexShader mvs("#version 410 core\nlayout (location = 0) in vec3 position; void main() { gl_Position = vec4(position.x, position.y, position.z, 1.0); }\n\0");
-    MaterialFragmentShader mfs("#version 410 core\nout vec4 color; void main() { color = vec4(0.8f, 0.8f, 0.8f, 1.0f); }\n\0");
-    return new Material(mvs, mfs, true);
+    MeshShader* vtxShader = new MeshShader(GL_VERTEX_SHADER, defL_solid_mat_vertex_shader1);
+    MeshShader* frgShader = new MeshShader(GL_FRAGMENT_SHADER, defL_solid_mat_fragment_shader1);
+    
+    return new Material(vtxShader, frgShader, nullptr);
 }
 
-GLint Material::getAttribLocation(const char* name) {
-    return glGetAttribLocation(shaderProgram, name);
+MeshShaderProgram* Material::getProgram() {
+    return program;
+}
+
+void Material::use() {
+    glUseProgram(program->id);
 }

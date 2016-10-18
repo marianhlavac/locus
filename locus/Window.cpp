@@ -10,10 +10,10 @@
 
 #include "Window.hpp"
 
-Window::Window(sf::Window& sfWindow, sf::Color& bkgColor) : window(sfWindow), color(bkgColor) {
-    glClearColor(0.2f, 0.1f, 0.3f, 1.0f);
+Window::Window(sf::Window* sfWindow, sf::Color* bkgColor) : window(sfWindow), color(bkgColor) {
+    glClearColor(0.2f, 0.75f, 0.3f, 1.0f);
     glEnable(GL_DEPTH_TEST);
-    sf::Vector2u windowSize = sfWindow.getSize();
+    sf::Vector2u windowSize = sfWindow->getSize();
     glViewport(0, 0, windowSize.x, windowSize.y);
 }
 
@@ -22,27 +22,35 @@ Window *Window::createWindow(int width, int height) {
     sf::Color* bkg = new sf::Color();
     sf::Window* win = new sf::Window(sf::VideoMode(width, height), "OpenGL", sf::Style::Default, settings);
     win->setVerticalSyncEnabled(true);
-    return new Window(*win, *bkg);
+    return new Window(win, bkg);
 }
 
 bool Window::isOpen() {
-    return window.isOpen();
+    return window->isOpen();
 }
 
 void Window::close() {
-    window.close();
+    window->close();
 }
 
 bool Window::pollEvent(sf::Event &event) {
-    return window.pollEvent(event);
+    return window->pollEvent(event);
 }
 
-void Window::drawScene(Scene scene) {
+void Window::draw() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    for (Object* obj : scene.getChildren()) {
+    for (Object* obj : scene->getChildren()) {
         obj->draw();
     }
     
-    window.display();
+    window->display();
+}
+
+sf::Window* Window::getWindow() {
+    return window;
+}
+
+void Window::attachScene(Scene *scene) {
+    this->scene = scene;
 }

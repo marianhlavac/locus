@@ -15,16 +15,18 @@
 
 class Window {
 public:
-    Window(sf::Window& sfWindow, sf::Color& bkgColor);
+    Window(sf::Window* sfWindow, sf::Color* bkgColor);
     static Window* createWindow(int width, int height);
-    sf::Window getWindow();
+    sf::Window* getWindow();
     bool isOpen();
     void close();
     bool pollEvent(sf::Event& event);
-    void drawScene(Scene scene);
+    void attachScene(Scene* scene);
+    void draw();
 private:
-    sf::Window& window;
-    sf::Color color;
+    sf::Window* window;
+    sf::Color* color;
+    Scene* scene;
 };
 
 #endif /* Window_hpp */

@@ -16,19 +16,17 @@
 
 class Object {
 public:
-    Object(Mesh& mesh, Material& material, sf::Vector3f position, string name);
-    Material getMaterial();
+    Object(Mesh* mesh, Material* material, sf::Vector3f position, string name);
+    Material* getMaterial();
     void draw();
     string getName() const;
     void setName(string name);
 private:
     string name;
-    Mesh& mesh;
-    Material& material;
+    Mesh* mesh;
+    Material* material;
     sf::Vector3f position;
     sf::Vector3f rotation; // TODO: eeuuuggh, quaternion needed?
-    GLuint vao;
-    GLuint vbo;
 };
 
 #endif /* Object_hpp */
