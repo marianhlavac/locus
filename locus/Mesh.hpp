@@ -12,6 +12,7 @@
 #include <SFML/OpenGL.hpp>
 #include <OpenGL/gl3.h>
 #include <string>
+#include <vector>
 
 #include "Material.hpp"
 
@@ -46,14 +47,17 @@ struct MeshVBO {
 
 class Mesh {
 public:
-    Mesh(Material* mat);
+    Mesh(vector<GLfloat> vertices, vector<GLuint> indices, Material* mat);
     void draw();
+    static Mesh* loadFromFile(const string & filename, Material* material);
 private:
     void createBuffer(GLuint* vbo, unsigned length, const GLvoid * data, GLenum target);
     Material* material;
     MeshVBO* verticesVbo;
     MeshVBO* indicesVbo;
     MeshVAO* vao;
+    unsigned vertexCount;
+    unsigned triangleCount;
 };
 
 #endif /* Mesh_hpp */

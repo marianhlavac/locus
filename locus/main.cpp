@@ -21,13 +21,14 @@
 #include "Window.hpp"
 #include "Scene.hpp"
 #include "Object.hpp"
+#include "ResourcePath.hpp"
 
 //
 // TODO:
 //  - constantify all getters and setters and others.
 //  - maybe move small utilities like MeshShader, MeshShaderProgram etc.?
 //  - un-std::-ize everytings
-
+//  - headers consistence and remove unnecessary
 //
 
 
@@ -36,7 +37,7 @@ void init(Window* window) {
     Scene* scene = new Scene("The Scene");
     window->attachScene(scene);
     
-    Mesh* mesh = new Mesh(Material::solid());
+    Mesh* mesh = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
     Object* obj = new Object(mesh, sf::Vector3f(0, 0, 0), "Mesh");
     scene->addChild(obj);
 }
