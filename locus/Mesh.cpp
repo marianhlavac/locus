@@ -7,7 +7,6 @@
 //
 
 #include "Mesh.hpp"
-#include "teapotData.cpp"
 
 Mesh::Mesh(Material* mat) : material(mat) {
     GLfloat vertices[] = {

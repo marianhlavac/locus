@@ -10,9 +10,7 @@
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
 		CD9D72651DA44E54005D2B00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72641DA44E54005D2B00 /* main.cpp */; };
-		CD9D726A1DA44E54005D2B00 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = CD9D72691DA44E54005D2B00 /* nice_music.ogg */; };
 		CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726B1DA44E54005D2B00 /* sansation.ttf */; };
-		CD9D726E1DA44E54005D2B00 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726D1DA44E54005D2B00 /* icon.png */; };
 		CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72771DA450AC005D2B00 /* Mesh.cpp */; };
 		CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D727A1DA450B3005D2B00 /* Object.cpp */; };
 		CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D727D1DA450BB005D2B00 /* Texture.cpp */; };
@@ -35,9 +33,7 @@
 		CD9D72611DA44E54005D2B00 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		CD9D72631DA44E54005D2B00 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		CD9D72641DA44E54005D2B00 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		CD9D72691DA44E54005D2B00 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		CD9D726B1DA44E54005D2B00 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		CD9D726D1DA44E54005D2B00 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		CD9D72771DA450AC005D2B00 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
 		CD9D72781DA450AC005D2B00 /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
 		CD9D727A1DA450B3005D2B00 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
@@ -137,9 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD5AE131DB58CFB00D35F30 /* Shaders */,
-				CD9D72691DA44E54005D2B00 /* nice_music.ogg */,
 				CD9D726B1DA44E54005D2B00 /* sansation.ttf */,
-				CD9D726D1DA44E54005D2B00 /* icon.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -210,10 +204,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD9D726E1DA44E54005D2B00 /* icon.png in Resources */,
 				CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */,
 				CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */,
-				CD9D726A1DA44E54005D2B00 /* nice_music.ogg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
