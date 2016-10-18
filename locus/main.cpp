@@ -26,6 +26,8 @@
 // TODO:
 //  - constantify all getters and setters and others.
 //  - maybe move small utilities like MeshShader, MeshShaderProgram etc.?
+//  - un-std::-ize everytings
+
 //
 
 
@@ -34,8 +36,8 @@ void init(Window* window) {
     Scene* scene = new Scene("The Scene");
     window->attachScene(scene);
     
-    Mesh* mesh = new Mesh();
-    Object* obj = new Object(mesh, Material::solid(), sf::Vector3f(0, 0, 0), "Mesh");
+    Mesh* mesh = new Mesh(Material::solid());
+    Object* obj = new Object(mesh, sf::Vector3f(0, 0, 0), "Mesh");
     scene->addChild(obj);
 }
 

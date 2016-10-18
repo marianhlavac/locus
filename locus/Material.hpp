@@ -12,6 +12,7 @@
 #include <SFML/OpenGL.hpp>
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <map>
 
 #include "Texture.hpp"
 
@@ -60,16 +61,21 @@ struct MeshShaderProgram {
 
 class Material {
 public:
-    Material(MeshShader* vertexShader, MeshShader* fragmentShader, Texture* texture);
+    Material(MeshShader* vertexShader, MeshShader* fragmentShader, vector<string> & attributes, vector<string> & uniforms);
     ~Material();
     static Material* solid();
-    GLint getAttribLocation(const char* name);
     MeshShaderProgram* getProgram();
+    GLint getAttribLocation(const std::string& name);
+    GLint getUniformLocation(const std::string& name);
+    vector<string> getAllAttribs();
+    vector<string> getAllUniforms();
     void use();
 private:
-    Texture* tex;
     MeshShaderProgram* program;
-    sf::Shader* shader;
+    map<std::string, GLuint> attribLocations;
+    map<std::string, GLuint> uniformLocations;
+    void saveAttribLocation(const std::string& name);
+    void saveUniformLocation(const std::string& name);
 };
 
 #endif /* Material_hpp */

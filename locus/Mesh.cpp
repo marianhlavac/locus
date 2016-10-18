@@ -9,23 +9,32 @@
 #include "Mesh.hpp"
 #include "teapotData.cpp"
 
-#include "Material.hpp"
-
-Mesh::Mesh() {
+Mesh::Mesh(Material* mat) : material(mat) {
     GLfloat vertices[] = {
-        -0.5f, -0.5f, 0.0f, // Left
-        0.5f, -0.5f, 0.0f, // Right
-        0.0f,  0.5f, 0.0f  // Top
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f,  0.5f, 0.0f,
+        0.0f,  -1.0f, 0.0f
+    };
+    
+    GLuint indices[] = {
+        0, 1, 2,
+        0, 1, 3
     };
     
     vao = new MeshVAO();
     vao->bind();
+    
     verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, vertices, sizeof(vertices));
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
-    glEnableVertexAttribArray(0);
+    verticesVbo->addAttrib(mat->getAttribLocation("position"), 3, GL_FLOAT, 0, (void*)0);
+    
+    indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, indices, sizeof(indices));
+    
+    vao->unbind();
 }
 
 void Mesh::draw() {
+    material->use();
     vao->bind();
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0);
 }

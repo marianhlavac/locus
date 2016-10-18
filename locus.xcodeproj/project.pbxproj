@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD1F11BB1DAD9334007A5C12 /* teapotData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1F11BA1DAD9334007A5C12 /* teapotData.cpp */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
 		CD9D72651DA44E54005D2B00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72641DA44E54005D2B00 /* main.cpp */; };
-		CD9D72681DA44E54005D2B00 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD9D72671DA44E54005D2B00 /* cute_image.jpg */; };
 		CD9D726A1DA44E54005D2B00 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = CD9D72691DA44E54005D2B00 /* nice_music.ogg */; };
 		CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726B1DA44E54005D2B00 /* sansation.ttf */; };
 		CD9D726E1DA44E54005D2B00 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726D1DA44E54005D2B00 /* icon.png */; };
@@ -30,7 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CD1F11BA1DAD9334007A5C12 /* teapotData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = teapotData.cpp; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		CD85A1151DAD8308000511ED /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		CD9D725C1DA44E54005D2B00 /* locus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = locus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,7 +35,6 @@
 		CD9D72611DA44E54005D2B00 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		CD9D72631DA44E54005D2B00 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		CD9D72641DA44E54005D2B00 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		CD9D72671DA44E54005D2B00 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
 		CD9D72691DA44E54005D2B00 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		CD9D726B1DA44E54005D2B00 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		CD9D726D1DA44E54005D2B00 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -141,11 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				CDD5AE131DB58CFB00D35F30 /* Shaders */,
-				CD9D72671DA44E54005D2B00 /* cute_image.jpg */,
 				CD9D72691DA44E54005D2B00 /* nice_music.ogg */,
 				CD9D726B1DA44E54005D2B00 /* sansation.ttf */,
 				CD9D726D1DA44E54005D2B00 /* icon.png */,
-				CD1F11BA1DAD9334007A5C12 /* teapotData.cpp */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -220,7 +214,6 @@
 				CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */,
 				CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */,
 				CD9D726A1DA44E54005D2B00 /* nice_music.ogg in Resources */,
-				CD9D72681DA44E54005D2B00 /* cute_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +244,6 @@
 				CD9D72651DA44E54005D2B00 /* main.cpp in Sources */,
 				CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */,
 				CD9D72851DA450C9005D2B00 /* Camera.cpp in Sources */,
-				CD1F11BB1DAD9334007A5C12 /* teapotData.cpp in Sources */,
 				CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */,
 				CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */,
 				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,

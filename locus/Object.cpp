@@ -10,16 +10,10 @@
 
 #include "Object.hpp"
 
-Object::Object(Mesh* mesh, Material* material, sf::Vector3f position = sf::Vector3f(0,0,0), string name = "Object") : mesh(mesh), material(material), name(name) {
+Object::Object(Mesh* mesh, sf::Vector3f position = sf::Vector3f(0,0,0), string name = "Object") : mesh(mesh), name(name) {
     
 }
-
-Material* Object::getMaterial() {
-    return material;
-}
-
 void Object::draw() {
-    material->use();
     mesh->draw();
 }
 
