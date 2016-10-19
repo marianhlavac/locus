@@ -22,6 +22,7 @@ Window *Window::createWindow(int width, int height) {
     sf::Color* bkg = new sf::Color();
     sf::Window* win = new sf::Window(sf::VideoMode(width, height), "OpenGL", sf::Style::Default, settings);
     win->setVerticalSyncEnabled(true);
+    win->setFramerateLimit(30);
     return new Window(win, bkg);
 }
 
