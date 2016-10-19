@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */; };
 		CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */; };
+		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
 		CD6A6AC21DB6D12B00D35933 /* cone.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD6A6AC11DB6D12B00D35933 /* cone.obj */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
@@ -68,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */,
 				CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */,
 				CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */,
 			);

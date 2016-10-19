@@ -6,6 +6,8 @@
 //  Copyright © 2016 majko. All rights reserved.
 //
 
+#include <vector>
+
 #include "Material.hpp"
 
 using namespace std;

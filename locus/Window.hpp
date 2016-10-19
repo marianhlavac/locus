@@ -9,21 +9,23 @@
 #ifndef Window_hpp
 #define Window_hpp
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 #include "Scene.hpp"
 
 class Window {
 public:
-    Window(sf::Window* sfWindow, sf::Color* bkgColor);
-    static Window* createWindow(int width, int height);
-    sf::Window* getWindow();
-    bool isOpen();
-    void close();
-    bool pollEvent(sf::Event& event);
+    Window(int width, int height);
+    GLFWwindow* getWindow();
     void attachScene(Scene* scene);
+    void activate();
     void draw();
+    bool hasBeenClosed();
 private:
-    sf::Window* window;
-    sf::Color* color;
+    int width;
+    int height;
+    GLFWwindow* window;
     Scene* scene;
 };
 

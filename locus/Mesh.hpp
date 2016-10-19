@@ -9,6 +9,9 @@
 #ifndef Mesh_hpp
 #define Mesh_hpp
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 #include <string>
 #include <vector>
 

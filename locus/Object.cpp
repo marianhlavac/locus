@@ -6,11 +6,11 @@
 //  Copyright © 2016 majko. All rights reserved.
 //
 
-#include <OpenGL/gl3.h>
+
 
 #include "Object.hpp"
 
-Object::Object(Mesh* mesh, sf::Vector3f position = sf::Vector3f(0,0,0), string name = "Object") : mesh(mesh), name(name) {
+Object::Object(Mesh* mesh, vec3 position = vec3(0), string name = "Object") : mesh(mesh), name(name) {
     
 }
 void Object::draw() {

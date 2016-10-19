@@ -1,5 +1,7 @@
-
+#include <GL/glew.h>
+#include <GL/glew.h>
 #include <glm/glm.hpp>
+#include <iostream>
 
 #include "Window.hpp"
 #include "Scene.hpp"
@@ -14,38 +16,56 @@
 //  - headers consistence and remove unnecessary
 //
 
-
+using namespace glm;
+using namespace std;
 
 void init(Window* window) {
     Scene* scene = new Scene("The Scene");
     window->attachScene(scene);
     
     Mesh* mesh = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
-    Object* obj = new Object(mesh, sf::Vector3f(0, 0, 0), "Mesh");
+    Object* obj = new Object(mesh, vec3(0, 0, 0), "Mesh");
     scene->addChild(obj);
 }
 
-void update(Window* window, sf::Time elapsed) {
+void update() {
+    
+}
+
+void render(Window* window) {
     window->draw();
+    glfwPollEvents();
 }
 
 int main(int, char const**) {
-    sf::Clock clock;
+    // Init GLFW
+    if (!glfwInit()) {
+        cerr << "Failed to init GLFW" << endl;
+        return EXIT_FAILURE;
+    }
     
-    Window *window = Window::createWindow(1366, 768);
+    // Create new window
+    Window *window = new Window(1366, 768);
+    window->activate();
+    
+    // Init GLEW
+    glewExperimental = true;
+    
+    if (glewInit() != GLEW_OK) {
+        cerr << "Failed to init GLEW" << endl;
+        glfwTerminate();
+        return EXIT_FAILURE;
+    }
+    
+    // Init application
     init(window);
     
-    while (window->isOpen()) {
-        sf::Event event;
-        while (window->pollEvent(event)) {
-            // Close event
-            if (event.type == sf::Event::Closed || (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)) {
-                window->close();
-            }
-        }
-        
-        update(window, clock.restart());
+    // Application loop, update then render
+    while (!window->hasBeenClosed()) {
+        update();
+        render(window);
     }
 
+    glfwTerminate();
     return EXIT_SUCCESS;
 }

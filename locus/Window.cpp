@@ -6,36 +6,37 @@
 //  Copyright © 2016 majko. All rights reserved.
 //
 
-#include <SFML/OpenGL.hpp>
-
 #include "Window.hpp"
 
-Window::Window(sf::Window* sfWindow, sf::Color* bkgColor) : window(sfWindow), color(bkgColor) {
+Window::Window(int width, int height) : width(width), height(height) {
+    glfwWindowHint(GLFW_SAMPLES, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    
+    window = glfwCreateWindow(width, height, "OpenGL", NULL, NULL);
+    if (!window) {
+        glfwTerminate();
+    }
+    
+    glfwSwapInterval(1);
+}
+
+GLFWwindow* Window::getWindow() {
+    return window;
+}
+
+void Window::attachScene(Scene *scene) {
+    this->scene = scene;
+}
+
+void Window::activate() {
+    glfwMakeContextCurrent(window);
+    
+    
     glClearColor(0.2f, 0.75f, 0.3f, 1.0f);
     glEnable(GL_DEPTH_TEST);
-    sf::Vector2u windowSize = sfWindow->getSize();
-    glViewport(0, 0, windowSize.x, windowSize.y);
-}
-
-Window *Window::createWindow(int width, int height) {
-    sf::ContextSettings settings(24, 0, 4, 4, 1);
-    sf::Color* bkg = new sf::Color();
-    sf::Window* win = new sf::Window(sf::VideoMode(width, height), "OpenGL", sf::Style::Default, settings);
-    win->setVerticalSyncEnabled(true);
-    win->setFramerateLimit(30);
-    return new Window(win, bkg);
-}
-
-bool Window::isOpen() {
-    return window->isOpen();
-}
-
-void Window::close() {
-    window->close();
-}
-
-bool Window::pollEvent(sf::Event &event) {
-    return window->pollEvent(event);
 }
 
 void Window::draw() {
@@ -45,13 +46,9 @@ void Window::draw() {
         obj->draw();
     }
     
-    window->display();
+    glfwSwapBuffers(window);
 }
 
-sf::Window* Window::getWindow() {
-    return window;
-}
-
-void Window::attachScene(Scene *scene) {
-    this->scene = scene;
+bool Window::hasBeenClosed() {
+    return glfwWindowShouldClose(window);
 }
