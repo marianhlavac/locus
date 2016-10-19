@@ -13,6 +13,7 @@
 #include <list>
 
 #include "Object.hpp"
+#include "Camera.hpp"
 
 using namespace std;
 
@@ -25,9 +26,12 @@ public:
     void addChild(Object* child);
     void removeChild(Object* child);
     void removeChildByName(string const childName);
+    void attachCamera(Camera* camera);
+    void draw();
 private:
     string name;
     list<Object*> children;
+    Camera* camera;
 };
 
 #endif /* Scene_hpp */

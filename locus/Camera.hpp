@@ -11,8 +11,13 @@
 
 #include "Object.hpp"
 
+#include <glm/glm.hpp>
+
+using namespace glm;
+
 class Camera : public Object {
-    
+public:
+    Camera(string name, vec3 position, vec3 rotation);
 };
 
 #endif /* Camera_hpp */

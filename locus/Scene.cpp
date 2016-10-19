@@ -8,7 +8,9 @@
 
 #include "Scene.hpp"
 
-Scene::Scene(string name) : name(name) {
+using namespace std;
+
+Scene::Scene(string name) : name(name), camera(nullptr) {
     
 }
 
@@ -40,4 +42,20 @@ void Scene::removeChild(Object* child) {
 
 void Scene::removeChildByName(string childName) {
     removeChild(getChildByName(childName));
+}
+
+void Scene::attachCamera(Camera *camera) {
+    this->camera = camera;
+}
+
+void Scene::draw() {
+    if (camera == nullptr) {
+        throw runtime_error("No camera attached to scene");
+    }
+    
+    mat4 viewMatrix = camera->getTransformationMatrix();
+    
+    for (Object* obj : children) {
+        obj->draw(viewMatrix);
+    }
 }

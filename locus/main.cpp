@@ -23,6 +23,9 @@ void init(Window* window) {
     Scene* scene = new Scene("The Scene");
     window->attachScene(scene);
     
+    Camera* camera = new Camera("Default Camera", vec3(0, 0, 0), vec3(0));
+    scene->attachCamera(camera);
+    
     Mesh* mesh = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
     Object* obj = new Object(mesh, vec3(0, 0, 0), "Mesh");
     scene->addChild(obj);
