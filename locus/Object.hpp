@@ -9,7 +9,6 @@
 #ifndef Object_hpp
 #define Object_hpp
 
-#include <SFML/Graphics.hpp>
 
 #include "Mesh.hpp"
 #include "Material.hpp"

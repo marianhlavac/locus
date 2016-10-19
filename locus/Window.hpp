@@ -9,8 +9,6 @@
 #ifndef Window_hpp
 #define Window_hpp
 
-#include <SFML/Graphics.hpp>
-
 #include "Scene.hpp"
 
 class Window {

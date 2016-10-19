@@ -9,8 +9,6 @@
 #ifndef Mesh_hpp
 #define Mesh_hpp
 
-#include <SFML/OpenGL.hpp>
-#include <OpenGL/gl3.h>
 #include <string>
 #include <vector>
 

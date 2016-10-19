@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */; };
+		CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */; };
 		CD6A6AC21DB6D12B00D35933 /* cone.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD6A6AC11DB6D12B00D35933 /* cone.obj */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
@@ -22,11 +24,12 @@
 		CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728C1DA450E4005D2B00 /* PointLight.cpp */; };
 		CD9D72911DA450F1005D2B00 /* TiledTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */; };
 		CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72921DA453F2005D2B00 /* Window.cpp */; };
-		CD9D72971DA46AC1005D2B00 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
 		CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = CDD5AE131DB58CFB00D35F30 /* Shaders */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../usr/local/Cellar/glfw3/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
+		CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
 		CD6A6AC11DB6D12B00D35933 /* cone.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cone.obj; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		CD85A1151DAD8308000511ED /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
@@ -65,7 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD9D72971DA46AC1005D2B00 /* OpenGL.framework in Frameworks */,
+				CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */,
+				CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +148,8 @@
 		CD9D72951DA46AC1005D2B00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */,
+				CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */,
 				CD9D72961DA46AC1005D2B00 /* OpenGL.framework */,
 			);
 			name = Frameworks;
@@ -159,7 +165,7 @@
 				CD9D72571DA44E54005D2B00 /* Sources */,
 				CD9D72581DA44E54005D2B00 /* Frameworks */,
 				CD9D72591DA44E54005D2B00 /* Resources */,
-				CD9D725A1DA44E54005D2B00 /* ShellScript */,
+				CD9D725A1DA44E54005D2B00 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -216,13 +222,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CD9D725A1DA44E54005D2B00 /* ShellScript */ = {
+		CD9D725A1DA44E54005D2B00 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +355,11 @@
 			buildSettings = {
 				INFOPLIST_FILE = "locus/locus-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw3/3.2.1/lib,
+					/usr/local/Cellar/glew/2.0.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -357,6 +369,11 @@
 			buildSettings = {
 				INFOPLIST_FILE = "locus/locus-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw3/3.2.1/lib,
+					/usr/local/Cellar/glew/2.0.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -9,8 +9,6 @@
 #ifndef Material_hpp
 #define Material_hpp
 
-#include <SFML/OpenGL.hpp>
-#include <SFML/Graphics.hpp>
 #include <string>
 #include <map>
 
