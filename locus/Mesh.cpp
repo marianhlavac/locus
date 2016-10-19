@@ -29,7 +29,7 @@ Mesh::Mesh(vector<GLfloat> vertices, vector<GLuint> indices, Material* mat) : ma
     triangleCount = indices.size();
 }
 
-void Mesh::draw() {
+void Mesh::draw(mat4 transform) {
     material->use();
     vao->bind();
     glDrawElements(GL_TRIANGLES, triangleCount * 3, GL_UNSIGNED_INT, (void*)0);

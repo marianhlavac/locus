@@ -31,6 +31,10 @@ void Window::attachScene(Scene *scene) {
     this->scene = scene;
 }
 
+Scene* Window::getAttachedScene() {
+    return scene;
+}
+
 void Window::activate() {
     glfwMakeContextCurrent(window);
     
@@ -39,13 +43,11 @@ void Window::activate() {
     glEnable(GL_DEPTH_TEST);
 }
 
-void Window::draw() {
+void Window::beginDraw() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    for (Object* obj : scene->getChildren()) {
-        obj->draw();
-    }
-    
+}
+
+void Window::endDraw() {
     glfwSwapBuffers(window);
 }
 

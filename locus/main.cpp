@@ -7,6 +7,7 @@
 #include "Scene.hpp"
 #include "Object.hpp"
 #include "ResourcePath.hpp"
+#include "Camera.hpp"
 
 //
 // TODO:
@@ -27,7 +28,7 @@ void init(Window* window) {
     scene->attachCamera(camera);
     
     Mesh* mesh = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
-    Object* obj = new Object(mesh, vec3(0, 0, 0), "Mesh");
+    Object* obj = new Object(mesh, "Mesh", vec3(0), vec3(0), vec3(0));
     scene->addChild(obj);
 }
 
@@ -36,7 +37,9 @@ void update() {
 }
 
 void render(Window* window) {
-    window->draw();
+    window->beginDraw();
+    window->getAttachedScene()->draw();
+    window->endDraw();
     glfwPollEvents();
 }
 

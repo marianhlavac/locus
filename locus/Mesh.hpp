@@ -12,10 +12,14 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include <glm/glm.hpp>
+
 #include <string>
 #include <vector>
 
 #include "Material.hpp"
+
+using namespace glm;
 
 struct MeshVAO {
     MeshVAO() {
@@ -49,7 +53,7 @@ struct MeshVBO {
 class Mesh {
 public:
     Mesh(vector<GLfloat> vertices, vector<GLuint> indices, Material* mat);
-    void draw();
+    void draw(mat4 transform);
     static Mesh* loadFromFile(const string & filename, Material* material);
 private:
     void createBuffer(GLuint* vbo, unsigned length, const GLvoid * data, GLenum target);

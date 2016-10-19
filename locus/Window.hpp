@@ -19,8 +19,10 @@ public:
     Window(int width, int height);
     GLFWwindow* getWindow();
     void attachScene(Scene* scene);
+    Scene* getAttachedScene();
     void activate();
-    void draw();
+    void beginDraw();
+    void endDraw();
     bool hasBeenClosed();
 private:
     int width;
