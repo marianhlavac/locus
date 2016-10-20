@@ -33,7 +33,7 @@ void init(Window* window) {
     
     // Add cone
     Mesh* meshCone = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
-    Object* obj = new Object(meshCone, "Cone", vec3(0), vec3(0), vec3(0));
+    Object* obj = new Object(meshCone, "Cone", vec3(0), vec3(0), vec3(0.5f));
     scene->addChild(obj);
 }
 

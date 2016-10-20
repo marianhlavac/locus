@@ -56,5 +56,5 @@ void Object::setScale(vec3 scale) {
 }
 
 mat4 Object::getTransformationMatrix() {
-    return translate(position) * orientate4(rotation)/* * glm::scale(scale)*/;
+    return translate(position) * orientate4(rotation) * glm::scale(scale);
 }
