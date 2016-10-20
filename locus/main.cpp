@@ -33,13 +33,8 @@ void init(Window* window) {
     
     // Add cone
     Mesh* meshCone = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
-    Object* obj = new Object(meshCone, "Cone", vec3(0.5f, 0, 0), vec3(0), vec3(0));
+    Object* obj = new Object(meshCone, "Cone", vec3(0), vec3(0), vec3(0));
     scene->addChild(obj);
-    
-    // Add donut
-    Mesh* meshDonut = Mesh::loadFromFile(resourcePath() + "donut.obj", Material::solid());
-    Object* obj2 = new Object(meshDonut, "Donut", vec3(-0.5f, 0, 0), vec3(0), vec3(0));
-    scene->addChild(obj2);
 }
 
 void update(Window* window) {
@@ -48,10 +43,6 @@ void update(Window* window) {
     // Rotate cone
     Object* obj = sc->getChildByName("Cone");
     obj->setRotation(vec3(kek, kek, kek));
-    
-    // Rotate donut
-    Object* obj2 = sc->getChildByName("Donut");
-    obj2->setRotation(vec3(kek, kek, kek));
     
     kek += 0.01f;
 }

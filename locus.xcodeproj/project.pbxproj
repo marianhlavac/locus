@@ -10,7 +10,6 @@
 		CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */; };
 		CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */; };
 		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
-		CD4E42741DB91D32009BE167 /* donut.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD4E42731DB91D32009BE167 /* donut.obj */; };
 		CD6A6AC21DB6D12B00D35933 /* cone.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD6A6AC11DB6D12B00D35933 /* cone.obj */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
@@ -32,7 +31,6 @@
 /* Begin PBXFileReference section */
 		CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../usr/local/Cellar/glfw3/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
 		CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
-		CD4E42731DB91D32009BE167 /* donut.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = donut.obj; sourceTree = "<group>"; };
 		CD6A6AC11DB6D12B00D35933 /* cone.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cone.obj; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		CD85A1151DAD8308000511ED /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		CD9D72661DA44E54005D2B00 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CD4E42731DB91D32009BE167 /* donut.obj */,
 				CD6A6AC11DB6D12B00D35933 /* cone.obj */,
 				CDD5AE131DB58CFB00D35F30 /* Shaders */,
 				CD9D726B1DA44E54005D2B00 /* sansation.ttf */,
@@ -218,7 +215,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD4E42741DB91D32009BE167 /* donut.obj in Resources */,
 				CD6A6AC21DB6D12B00D35933 /* cone.obj in Resources */,
 				CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */,
 				CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */,
