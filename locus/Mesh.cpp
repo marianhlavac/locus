@@ -33,7 +33,7 @@ void Mesh::draw(mat4 transform) {
     material->use();
     material->setUniformMf4("mvp", transform);
     vao->bind();
-    glDrawElements(GL_LINES, triangleCount * 3, GL_UNSIGNED_INT, (void*)0);
+    glDrawElements(GL_TRIANGLES, triangleCount * 3, GL_UNSIGNED_INT, (void*)0);
 }
 
 Mesh* Mesh::loadFromFile(const string & filename, Material* material) {
@@ -69,9 +69,9 @@ Mesh* Mesh::loadFromFile(const string & filename, Material* material) {
             ss2 >> vtx2;
             ss3 >> vtx3;
             
-            indices.push_back(vtx1);
-            indices.push_back(vtx2);
-            indices.push_back(vtx3);
+            indices.push_back(vtx1 - 1);
+            indices.push_back(vtx2 - 1);
+            indices.push_back(vtx3 - 1);
         }
     }
     
