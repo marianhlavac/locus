@@ -25,12 +25,13 @@ Mesh::Mesh(vector<GLfloat> vertices, vector<GLuint> indices, Material* mat) : ma
     
     vao->unbind();
     
-    vertexCount = vertices.size();
-    triangleCount = indices.size();
+    vertexCount = vertices.size() / 3;
+    triangleCount = indices.size() / 3;
 }
 
 void Mesh::draw(mat4 transform) {
     material->use();
+    material->setUniformMf4("mvp", transform);
     vao->bind();
     glDrawElements(GL_TRIANGLES, triangleCount * 3, GL_UNSIGNED_INT, (void*)0);
 }
