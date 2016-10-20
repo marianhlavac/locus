@@ -12,12 +12,15 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include <glm/glm.hpp>
+
 #include <string>
 #include <map>
 
 #include "Texture.hpp"
 
 using namespace std;
+using namespace glm;
 
 struct MeshShader {
     MeshShader(GLenum type, const std::string src) {
@@ -70,6 +73,7 @@ public:
     GLint getUniformLocation(const std::string& name);
     vector<string> getAllAttribs();
     vector<string> getAllUniforms();
+    void setUniformMf4(const std::string& name, mat4 value);
     void use();
 private:
     MeshShaderProgram* program;

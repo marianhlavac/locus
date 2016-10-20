@@ -20,7 +20,7 @@ Object::Object(string name, vec3 position, vec3 rotation, vec3 scale) : mesh(nul
 }
 
 void Object::draw(mat4 viewTransformationMatrix) {
-    mesh->draw(viewTransformationMatrix * getTransformationMatrix());
+    mesh->draw(getTransformationMatrix());
 }
 
 string Object::getName() const {
@@ -44,17 +44,17 @@ vec3 Object::getScale() {
 }
 
 void Object::setPosition(vec3 position) {
-    position = position;
+    this->position = position;
 }
 
 void Object::setRotation(vec3 rotation) {
-    rotation = rotation;
+    this->rotation = rotation;
 }
 
 void Object::setScale(vec3 scale) {
-    scale = scale;
+    this->scale = scale;
 }
 
 mat4 Object::getTransformationMatrix() {
-    return translate(position) * orientate4(rotation) * glm::scale(scale);
+    return translate(position) * orientate4(rotation)/* * glm::scale(scale)*/;
 }

@@ -15,8 +15,9 @@ using namespace std;
 std::string defL_solid_mat_vertex_shader1 =
     "#version 410 core\n"
     "layout (location = 0) in vec3 position;\n"
+    "uniform mat4 mvp;\n"
     "void main() {\n"
-    "  gl_Position = vec4(position.x, position.y, position.z, 1.0);\n"
+    "  gl_Position = mvp * vec4(position, 1.0);\n"
     "}\n";
 
 std::string defL_solid_mat_fragment_shader1 =
@@ -50,7 +51,9 @@ Material* Material::solid() {
         "position"
     };
     
-    vector<std::string> uniforms = { };
+    vector<std::string> uniforms = {
+        "mvp"
+    };
     
     return new Material(vtxShader, frgShader, attribs, uniforms);
 }
@@ -97,4 +100,8 @@ MeshShaderProgram* Material::getProgram() {
 
 void Material::use() {
     glUseProgram(program->id);
+}
+
+void Material::setUniformMf4(const std::string &name, mat4 value) {
+    glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &value[0][0]);
 }
