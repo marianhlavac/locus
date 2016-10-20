@@ -3,6 +3,8 @@
 #include <glm/glm.hpp>
 #include <iostream>
 
+#include <ctime>
+
 #include "Window.hpp"
 #include "Scene.hpp"
 #include "Object.hpp"
@@ -20,6 +22,8 @@
 using namespace glm;
 using namespace std;
 
+float kek = 0.0f;
+
 void init(Window* window) {
     Scene* scene = new Scene("The Scene");
     window->attachScene(scene);
@@ -27,13 +31,29 @@ void init(Window* window) {
     Camera* camera = new Camera("Default Camera", vec3(0, 0, 0), vec3(0));
     scene->attachCamera(camera);
     
-    Mesh* mesh = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
-    Object* obj = new Object(mesh, "Mesh", vec3(0), vec3(0), vec3(0));
+    // Add cone
+    Mesh* meshCone = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
+    Object* obj = new Object(meshCone, "Cone", vec3(0.5f, 0, 0), vec3(0), vec3(0));
     scene->addChild(obj);
+    
+    // Add donut
+    Mesh* meshDonut = Mesh::loadFromFile(resourcePath() + "donut.obj", Material::solid());
+    Object* obj2 = new Object(meshDonut, "Donut", vec3(-0.5f, 0, 0), vec3(0), vec3(0));
+    scene->addChild(obj2);
 }
 
-void update() {
+void update(Window* window) {
+    Scene* sc = window->getAttachedScene();
     
+    // Rotate cone
+    Object* obj = sc->getChildByName("Cone");
+    obj->setRotation(vec3(kek, kek, kek));
+    
+    // Rotate donut
+    Object* obj2 = sc->getChildByName("Donut");
+    obj2->setRotation(vec3(kek, kek, kek));
+    
+    kek += 0.01f;
 }
 
 void render(Window* window) {
@@ -51,7 +71,7 @@ int main(int, char const**) {
     }
     
     // Create new window
-    Window *window = new Window(1366, 768);
+    Window *window = new Window(1280, 720);
     window->activate();
     
     // Init GLEW
@@ -68,7 +88,7 @@ int main(int, char const**) {
     
     // Application loop, update then render
     while (!window->hasBeenClosed()) {
-        update();
+        update(window);
         render(window);
     }
 
