@@ -18,6 +18,8 @@ using namespace glm;
 class Camera : public Object {
 public:
     Camera(string name, vec3 position, vec3 rotation);
+    mat4 getViewMatrix();
+    mat4 getProjectionMatrix();
 };
 
 #endif /* Camera_hpp */

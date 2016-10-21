@@ -27,6 +27,7 @@ public:
     void removeChild(Object* child);
     void removeChildByName(string const childName);
     void attachCamera(Camera* camera);
+    Camera* getAttachedCamera();
     void draw();
 private:
     string name;

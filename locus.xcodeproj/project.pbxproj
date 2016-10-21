@@ -12,6 +12,7 @@
 		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
 		CD6A6AC21DB6D12B00D35933 /* cone.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD6A6AC11DB6D12B00D35933 /* cone.obj */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
+		CD9C958A1DB9966E001E1912 /* sofa.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD9C95891DB9966E001E1912 /* sofa.obj */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
 		CD9D72651DA44E54005D2B00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72641DA44E54005D2B00 /* main.cpp */; };
 		CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726B1DA44E54005D2B00 /* sansation.ttf */; };
@@ -34,6 +35,7 @@
 		CD6A6AC11DB6D12B00D35933 /* cone.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cone.obj; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		CD85A1151DAD8308000511ED /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
+		CD9C95891DB9966E001E1912 /* sofa.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sofa.obj; sourceTree = "<group>"; };
 		CD9D725C1DA44E54005D2B00 /* locus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = locus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD9D72601DA44E54005D2B00 /* locus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "locus-Info.plist"; sourceTree = "<group>"; };
 		CD9D72611DA44E54005D2B00 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				CD6A6AC11DB6D12B00D35933 /* cone.obj */,
+				CD9C95891DB9966E001E1912 /* sofa.obj */,
 				CDD5AE131DB58CFB00D35F30 /* Shaders */,
 				CD9D726B1DA44E54005D2B00 /* sansation.ttf */,
 			);
@@ -217,6 +220,7 @@
 			files = (
 				CD6A6AC21DB6D12B00D35933 /* cone.obj in Resources */,
 				CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */,
+				CD9C958A1DB9966E001E1912 /* sofa.obj in Resources */,
 				CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

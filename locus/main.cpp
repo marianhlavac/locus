@@ -28,12 +28,16 @@ void init(Window* window) {
     Scene* scene = new Scene("The Scene");
     window->attachScene(scene);
     
-    Camera* camera = new Camera("Default Camera", vec3(0, 0, 0), vec3(0));
+    Camera* camera = new Camera("Default Camera", vec3(0, 0, 0), vec3(0, 0, 0));
     scene->attachCamera(camera);
     
     // Add cone
-    Mesh* meshCone = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
-    Object* obj = new Object(meshCone, "Cone", vec3(0), vec3(0), vec3(0.5f));
+    /*Mesh* meshCone = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
+    Object* obj = new Object(meshCone, "Cone", vec3(0, 0, -1), vec3(0), vec3(0.1f));
+    scene->addChild(obj);*/
+    
+    Mesh* meshSofa = Mesh::loadFromFile(resourcePath() + "sofa.obj", Material::solid());
+    Object* obj = new Object(meshSofa, "Sofa", vec3(0, 0, 0), vec3(0), vec3(0.1f));
     scene->addChild(obj);
 }
 
@@ -41,10 +45,14 @@ void update(Window* window) {
     Scene* sc = window->getAttachedScene();
     
     // Rotate cone
-    Object* obj = sc->getChildByName("Cone");
-    obj->setRotation(vec3(kek, kek, kek));
+    Object* obj = sc->getChildByName("Sofa");
+    obj->setRotation(vec3(kek, kek, kek*6));
+    
+    Camera* cam = sc->getAttachedCamera();
+    cam->setPosition(vec3(0, 0, sin(kek) * 0.25 - 0.5));
     
     kek += 0.01f;
+    if (kek > 360) kek = 360;
 }
 
 void render(Window* window) {

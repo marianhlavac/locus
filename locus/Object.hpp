@@ -19,7 +19,7 @@ class Object {
 public:
     Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale);
     Object(string name, vec3 position, vec3 rotation, vec3 scale);
-    void draw(mat4 viewTransformationMatrix);
+    void draw(mat4 viewProjectionMatrix);
     string getName() const;
     void setName(string name);
     vec3 getPosition();

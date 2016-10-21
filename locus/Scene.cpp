@@ -48,14 +48,18 @@ void Scene::attachCamera(Camera *camera) {
     this->camera = camera;
 }
 
+Camera* Scene::getAttachedCamera() {
+    return camera;
+}
+
 void Scene::draw() {
     if (camera == nullptr) {
         throw runtime_error("No camera attached to scene");
     }
     
-    mat4 viewMatrix = camera->getTransformationMatrix();
+    mat4 viewProjectionMatrix = camera->getProjectionMatrix() * camera->getViewMatrix();
     
     for (Object* obj : children) {
-        obj->draw(viewMatrix);
+        obj->draw(viewProjectionMatrix);
     }
 }
