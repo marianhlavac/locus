@@ -17,6 +17,7 @@
 #include <string>
 #include <vector>
 
+#include "WavefrontParser.hpp"
 #include "Material.hpp"
 
 using namespace glm;
@@ -52,7 +53,7 @@ struct MeshVBO {
 
 class Mesh {
 public:
-    Mesh(vector<GLfloat> vertices, vector<GLuint> indices, Material* mat);
+    Mesh(WavefrontParserResult* parsed, Material* mat);
     void draw(mat4 transform);
     static Mesh* loadFromFile(const string & filename, Material* material);
 private:
@@ -61,8 +62,8 @@ private:
     MeshVBO* verticesVbo;
     MeshVBO* indicesVbo;
     MeshVAO* vao;
-    unsigned vertexCount;
-    unsigned triangleCount;
+    long vertexCount;
+    long triangleCount;
 };
 
 #endif /* Mesh_hpp */

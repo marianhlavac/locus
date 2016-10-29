@@ -10,6 +10,8 @@
 		CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */; };
 		CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */; };
 		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
+		CD5CDDFF1DC3BD2B006B12A9 /* Small Lamp.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD5CDDFE1DC3BD2B006B12A9 /* Small Lamp.obj */; };
+		CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */; };
 		CD6A6AC21DB6D12B00D35933 /* cone.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD6A6AC11DB6D12B00D35933 /* cone.obj */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9C958A1DB9966E001E1912 /* sofa.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD9C95891DB9966E001E1912 /* sofa.obj */; };
@@ -32,6 +34,9 @@
 /* Begin PBXFileReference section */
 		CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../usr/local/Cellar/glfw3/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
 		CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
+		CD5CDDFE1DC3BD2B006B12A9 /* Small Lamp.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Small Lamp.obj"; sourceTree = "<group>"; };
+		CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavefrontParser.cpp; sourceTree = "<group>"; };
+		CD5CDE011DC3CAFE006B12A9 /* WavefrontParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WavefrontParser.hpp; sourceTree = "<group>"; };
 		CD6A6AC11DB6D12B00D35933 /* cone.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cone.obj; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		CD85A1151DAD8308000511ED /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
@@ -127,6 +132,8 @@
 				CD9D72901DA450F1005D2B00 /* TiledTexture.hpp */,
 				CD9D72921DA453F2005D2B00 /* Window.cpp */,
 				CD9D72931DA453F2005D2B00 /* Window.hpp */,
+				CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */,
+				CD5CDE011DC3CAFE006B12A9 /* WavefrontParser.hpp */,
 			);
 			path = locus;
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 		CD9D72661DA44E54005D2B00 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD5CDDFE1DC3BD2B006B12A9 /* Small Lamp.obj */,
 				CD6A6AC11DB6D12B00D35933 /* cone.obj */,
 				CD9C95891DB9966E001E1912 /* sofa.obj */,
 				CDD5AE131DB58CFB00D35F30 /* Shaders */,
@@ -187,7 +195,7 @@
 		CD9D72531DA44E54005D2B00 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = majko;
 				TargetAttributes = {
 					CD9D725B1DA44E54005D2B00 = {
@@ -222,6 +230,7 @@
 				CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */,
 				CD9C958A1DB9966E001E1912 /* sofa.obj in Resources */,
 				CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */,
+				CD5CDDFF1DC3BD2B006B12A9 /* Small Lamp.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +267,7 @@
 				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,
 				CD85A1161DAD8308000511ED /* Scene.cpp in Sources */,
 				CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */,
+				CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */,
 				CD9D72911DA450F1005D2B00 /* TiledTexture.cpp in Sources */,
 				CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */,
 				CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */,
@@ -271,14 +281,31 @@
 		CD9D726F1DA44E54005D2B00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks/,
 					"$(inherited)",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
 					"$(inherited)",
@@ -288,6 +315,7 @@
 					"$(inherited)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"$(SFML_SYSTEM)",
@@ -315,14 +343,30 @@
 		CD9D72701DA44E54005D2B00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks/,
 					"$(inherited)",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
 					"$(inherited)",
@@ -367,6 +411,7 @@
 					/usr/local/Cellar/glfw3/3.2.1/lib,
 					/usr/local/Cellar/glew/2.0.0/lib,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.majko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -382,6 +427,7 @@
 					/usr/local/Cellar/glfw3/3.2.1/lib,
 					/usr/local/Cellar/glew/2.0.0/lib,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.majko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
