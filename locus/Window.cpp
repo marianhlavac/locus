@@ -20,6 +20,8 @@ Window::Window(int width, int height) : width(width), height(height) {
         glfwTerminate();
     }
     
+    glfwSetWindowUserPointer(window, this);
+    
     glfwSwapInterval(1);
 }
 

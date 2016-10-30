@@ -1,9 +1,8 @@
 #include <GL/glew.h>
-#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 #include <glm/glm.hpp>
 #include <iostream>
-
-#include <ctime>
 
 #include "WavefrontParser.hpp"
 #include "Window.hpp"
@@ -35,23 +34,39 @@ void init(Window* window) {
     Camera* camera = new Camera("Default Camera", vec3(0, 0, -1), vec3(0, 0, 0));
     scene->attachCamera(camera);
     
-    // Add cone
-    /*Mesh* meshCone = Mesh::loadFromFile(resourcePath() + "cone.obj", Material::solid());
-    Object* obj = new Object(meshCone, "Cone", vec3(0, 0, -1), vec3(0), vec3(0.1f));
-    scene->addChild(obj);*/
-    
-    Mesh* mesh = new Mesh(WavefrontParser::parse(resourcePath() + "Small Lamp.obj"), Material::solid());
-    Object* obj = new Object(mesh, "Model", vec3(0, 0, 0), vec3(0), vec3(1));
+    Mesh* mesh = new Mesh(WavefrontParser::parse(resourcePath() + "untitled.obj"), Material::solid());
+    Object* obj = new Object(mesh, "Model", vec3(0, 0, 0), vec3(0), vec3(0.25f));
     scene->addChild(obj);
 }
 
 //
 // update
 //
-void update(Window* window, double timeElapsed) {
+void update(Window* window, double timeElapsed, double timeDelta) {
     Scene* sc = window->getAttachedScene();
     
-    sc->getChildByName("Model")->setRotation(vec3(0, 0, timeElapsed));
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_RIGHT) == GLFW_PRESS){
+        sc->getChildByName("Model")->setRotation(vec3(0, 0, sc->getChildByName("Model")->getRotation().z + timeDelta));
+    }
+    
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_LEFT) == GLFW_PRESS){
+        sc->getChildByName("Model")->setRotation(vec3(0, 0, sc->getChildByName("Model")->getRotation().z - timeDelta));
+    }
+    
+    
+}
+
+
+
+void keyFun(GLFWwindow* glfwwindow, int key, int scancode, int action, int mods) {
+    Window* window = reinterpret_cast<Window *>(glfwGetWindowUserPointer(glfwwindow));
+    Scene* sc = window->getAttachedScene();
+                                                 
+    if (key == GLFW_KEY_UP && action == GLFW_RELEASE) {
+        sc->getChildByName("Model")->setPosition(vec3(0, 0, 0));
+    }
+    
+    cout << "keyfun" << endl;
 }
 
 // ---
@@ -64,6 +79,8 @@ void render(Window* window) {
 }
 
 int main(int, char const**) {
+    double lastTime = glfwGetTime();
+    
     // Init GLFW
     if (!glfwInit()) {
         cerr << "Failed to init GLFW" << endl;
@@ -88,9 +105,17 @@ int main(int, char const**) {
     
     // Application loop, update then render
     while (!window->hasBeenClosed()) {
-        update(window, glfwGetTime());
+        double elapsed = glfwGetTime();
+        
+        update(window, elapsed, elapsed - lastTime);
         render(window);
+        
+        if (((int)(elapsed*100) % (int)50) == 0) cout << "FPS: " << 1 / (elapsed - lastTime) << endl;
+        
+        lastTime = elapsed;
     }
+    
+    glfwSetKeyCallback(window->getWindow(), keyFun);
 
     glfwTerminate();
     return EXIT_SUCCESS;

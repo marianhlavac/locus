@@ -10,6 +10,7 @@
 		CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */; };
 		CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */; };
 		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
+		CD3A3FB01DC576B5009761B8 /* untitled.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD3A3FAF1DC576B5009761B8 /* untitled.obj */; };
 		CD5CDDFF1DC3BD2B006B12A9 /* Small Lamp.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD5CDDFE1DC3BD2B006B12A9 /* Small Lamp.obj */; };
 		CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */; };
 		CD6A6AC21DB6D12B00D35933 /* cone.obj in Resources */ = {isa = PBXBuildFile; fileRef = CD6A6AC11DB6D12B00D35933 /* cone.obj */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../usr/local/Cellar/glfw3/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
 		CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
+		CD3A3FAF1DC576B5009761B8 /* untitled.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = untitled.obj; path = ../../../Desktop/untitled.obj; sourceTree = "<group>"; };
 		CD5CDDFE1DC3BD2B006B12A9 /* Small Lamp.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Small Lamp.obj"; sourceTree = "<group>"; };
 		CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavefrontParser.cpp; sourceTree = "<group>"; };
 		CD5CDE011DC3CAFE006B12A9 /* WavefrontParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WavefrontParser.hpp; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		CD9D72661DA44E54005D2B00 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD3A3FAF1DC576B5009761B8 /* untitled.obj */,
 				CD5CDDFE1DC3BD2B006B12A9 /* Small Lamp.obj */,
 				CD6A6AC11DB6D12B00D35933 /* cone.obj */,
 				CD9C95891DB9966E001E1912 /* sofa.obj */,
@@ -230,6 +233,7 @@
 				CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */,
 				CD9C958A1DB9966E001E1912 /* sofa.obj in Resources */,
 				CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */,
+				CD3A3FB01DC576B5009761B8 /* untitled.obj in Resources */,
 				CD5CDDFF1DC3BD2B006B12A9 /* Small Lamp.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
