@@ -43,8 +43,20 @@ void init(Window* window) {
     scene->addChild(room);
     
     Mesh* sofaMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Sofa.obj"), Material::solid());
-    Object* sofa = new Object(sofaMesh, "Sofa", vec3(0, 0, 0));
+    Object* sofa = new Object(sofaMesh, "Sofa", vec3(-4.6f, 0, -3.0f), vec3(0, 0, radians(90.0f)));
     scene->addChild(sofa);
+    
+    Mesh* tableMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Living Room Table.obj"), Material::solid());
+    Object* table = new Object(tableMesh, "Living Room Table", vec3(0.0f, 0, -3.0f), vec3(0));
+    scene->addChild(table);
+    
+    Mesh* tvStandMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV stand.obj"), Material::solid());
+    Object* tvStand = new Object(tvStandMesh, "TV Stand", vec3(5.1f, 0, -3.0f), vec3(0, 0, radians(-90.0f)));
+    scene->addChild(tvStand);
+    
+    Mesh* tvMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV.obj"), Material::solid());
+    Object* tv = new Object(tvMesh, "TV", vec3(5.1f, 0.8f, -3.0f), vec3(0, 0, radians(-90.0f)));
+    scene->addChild(tv);
 }
 
 //
