@@ -10,6 +10,7 @@
 #include "Object.hpp"
 #include "ResourcePath.hpp"
 #include "Camera.hpp"
+#include "FreeCamera.hpp"
 
 //
 // TODO:
@@ -31,7 +32,7 @@ void init(Window* window) {
     Scene* scene = new Scene("The Scene");
     window->attachScene(scene);
     
-    Camera* camera = new Camera("Default Camera", vec3(0, 0, -1), vec3(0, 0, 0));
+    Camera* camera = new FreeCamera("Default Free Camera", vec3(0, 0, -1));
     scene->attachCamera(camera);
     
     Mesh* mesh = new Mesh(WavefrontParser::parse(resourcePath() + "untitled.obj"), Material::solid());
@@ -45,28 +46,8 @@ void init(Window* window) {
 void update(Window* window, double timeElapsed, double timeDelta) {
     Scene* sc = window->getAttachedScene();
     
-    if (glfwGetKey(window->getWindow(), GLFW_KEY_RIGHT) == GLFW_PRESS){
-        sc->getChildByName("Model")->setRotation(vec3(0, 0, sc->getChildByName("Model")->getRotation().z + timeDelta));
-    }
+    ((FreeCamera*)sc->getAttachedCamera())->update(window);  
     
-    if (glfwGetKey(window->getWindow(), GLFW_KEY_LEFT) == GLFW_PRESS){
-        sc->getChildByName("Model")->setRotation(vec3(0, 0, sc->getChildByName("Model")->getRotation().z - timeDelta));
-    }
-    
-    
-}
-
-
-
-void keyFun(GLFWwindow* glfwwindow, int key, int scancode, int action, int mods) {
-    Window* window = reinterpret_cast<Window *>(glfwGetWindowUserPointer(glfwwindow));
-    Scene* sc = window->getAttachedScene();
-                                                 
-    if (key == GLFW_KEY_UP && action == GLFW_RELEASE) {
-        sc->getChildByName("Model")->setPosition(vec3(0, 0, 0));
-    }
-    
-    cout << "keyfun" << endl;
 }
 
 // ---
@@ -100,6 +81,8 @@ int main(int, char const**) {
         return EXIT_FAILURE;
     }
     
+    glfwSetInputMode(window->getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    
     // Init application
     init(window);
     
@@ -114,8 +97,6 @@ int main(int, char const**) {
         
         lastTime = elapsed;
     }
-    
-    glfwSetKeyCallback(window->getWindow(), keyFun);
 
     glfwTerminate();
     return EXIT_SUCCESS;

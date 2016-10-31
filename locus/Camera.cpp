@@ -17,7 +17,7 @@ Camera::Camera(string name, vec3 position, vec3 rotation) : Object(name, positio
 }
 
 mat4 Camera::getViewMatrix() {
-    return translate(getPosition());
+    return rotate(getRotation().y, vec3(0.0f, 1.0f, 0.0f)) * rotate(getRotation().x, vec3(1.0f, 0.0f, 0.0f)) * translate(getPosition());
 }
 
 mat4 Camera::getProjectionMatrix() {

@@ -24,6 +24,8 @@ public:
     void beginDraw();
     void endDraw();
     bool hasBeenClosed();
+    int getWidth();
+    int getHeight();
 private:
     int width;
     int height;

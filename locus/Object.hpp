@@ -33,7 +33,7 @@ public:
     void setRotation(vec3 rotation);
     void setScale(vec3 scale);
     mat4 getTransformationMatrix();
-private:
+protected:
     string name;
     Mesh* mesh;
     vec3 position;

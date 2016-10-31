@@ -57,3 +57,11 @@ void Window::endDraw() {
 bool Window::hasBeenClosed() {
     return glfwWindowShouldClose(window);
 }
+
+int Window::getWidth() {
+    return width;
+}
+
+int Window::getHeight() {
+    return height;
+}
