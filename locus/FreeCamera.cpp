@@ -27,11 +27,11 @@ void FreeCamera::update(Window* window) {
     view = vec2(-xpos / window->getWidth(), ypos / window->getHeight()) * MOUSE_SENSITIVITY;
     direction = vec3(cos(view.y) * sin(view.x), sin(view.y), cos(view.y) * cos(view.x));
     
-    if (glfwGetKey(window->getWindow(), GLFW_KEY_UP) == GLFW_PRESS) {
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_W) == GLFW_PRESS) {
         if (velocity < MAX_VELOCITY) velocity += 0.05f;
     }
     
-    if (glfwGetKey(window->getWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_S) == GLFW_PRESS) {
         if (velocity > -MAX_VELOCITY) velocity -= 0.05f;
     }
     

@@ -23,6 +23,10 @@
 using namespace glm;
 using namespace std;
 
+Camera* freeCamera = new FreeCamera("Default Free Camera", vec3(0, 0, -1));
+Camera* topCamera = new Camera("Top Camera", vec3(0.1f, 10.0f, 0.0f), vec3(0.0f));
+Camera* insideCamera = new Camera("Inside Camera", vec3(5.0f, 5.0f, 7.0f), vec3(0.0f));
+
 // ---
 
 //
@@ -32,12 +36,15 @@ void init(Window* window) {
     Scene* scene = new Scene("The Scene");
     window->attachScene(scene);
     
-    Camera* camera = new FreeCamera("Default Free Camera", vec3(0, 0, -1));
-    scene->attachCamera(camera);
+    scene->attachCamera(insideCamera);
     
-    Mesh* mesh = new Mesh(WavefrontParser::parse(resourcePath() + "untitled.obj"), Material::solid());
-    Object* obj = new Object(mesh, "Model", vec3(0, 0, 0), vec3(0), vec3(0.25f));
-    scene->addChild(obj);
+    Mesh* roomMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Room.obj"), Material::solid());
+    Object* room = new Object(roomMesh, "Room", vec3(0, 0, 0));
+    scene->addChild(room);
+    
+    Mesh* sofaMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Sofa.obj"), Material::solid());
+    Object* sofa = new Object(sofaMesh, "Sofa", vec3(0, 0, 0));
+    scene->addChild(sofa);
 }
 
 //
@@ -46,7 +53,25 @@ void init(Window* window) {
 void update(Window* window, double timeElapsed, double timeDelta) {
     Scene* sc = window->getAttachedScene();
     
-    ((FreeCamera*)sc->getAttachedCamera())->update(window);  
+    // camera sel
+    
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_1) == GLFW_PRESS) {
+        sc->attachCamera(topCamera);
+    }
+    
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_2) == GLFW_PRESS) {
+        sc->attachCamera(insideCamera);
+    }
+    
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_3) == GLFW_PRESS) {
+        sc->attachCamera(freeCamera);
+    }
+    
+    // free camera update
+    
+    if (sc->getAttachedCamera() == freeCamera) {
+        ((FreeCamera*)sc->getAttachedCamera())->update(window);
+    }
     
 }
 

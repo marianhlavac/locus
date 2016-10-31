@@ -12,12 +12,12 @@
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-Camera::Camera(string name, vec3 position, vec3 rotation) : Object(name, position, rotation, vec3(1.0f)) {
+Camera::Camera(string name, vec3 position, vec3 center) : Object(name, position, vec3(0.0f), vec3(1.0f)), center(center) {
     
 }
 
 mat4 Camera::getViewMatrix() {
-    return rotate(getRotation().y, vec3(0.0f, 1.0f, 0.0f)) * rotate(getRotation().x, vec3(1.0f, 0.0f, 0.0f)) * translate(getPosition());
+    return lookAt(position, center, vec3(0, 1, 0));
 }
 
 mat4 Camera::getProjectionMatrix() {
