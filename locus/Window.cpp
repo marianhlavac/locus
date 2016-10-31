@@ -41,7 +41,7 @@ void Window::activate() {
     glfwMakeContextCurrent(window);
     
     
-    glClearColor(0.2f, 0.75f, 0.3f, 1.0f);
+    glClearColor(0.27f, 0.46f, 0.76f, 1.0f);
     glEnable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
 }
