@@ -32,5 +32,6 @@ void Mesh::draw(mat4 transform) {
     material->use();
     material->setUniformMf4("mvp", transform);
     vao->bind();
-    glDrawElements(GL_LINES, (GLsizei)triangleCount * 3, GL_UNSIGNED_INT, (void*)0);
+    glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+    glDrawElements(GL_TRIANGLES, (GLsizei)triangleCount * 3, GL_UNSIGNED_INT, (void*)0);
 }
