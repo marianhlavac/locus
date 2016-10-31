@@ -15,7 +15,23 @@ Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale
     
 }
 
+Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation) : mesh(mesh), name(name), position(position), rotation(rotation), scale(vec3(1)) {
+    
+}
+
+Object::Object(Mesh* mesh, string name, vec3 position) : mesh(mesh), name(name), position(position), rotation(vec3(0)), scale(vec3(1)) {
+    
+}
+
 Object::Object(string name, vec3 position, vec3 rotation, vec3 scale) : mesh(nullptr), name(name), position(position), rotation(rotation), scale(scale) {
+    
+}
+
+Object::Object(string name, vec3 position, vec3 rotation) : mesh(nullptr), name(name), position(position), rotation(rotation), scale(vec3(1)) {
+    
+}
+
+Object::Object(string name, vec3 position) : mesh(nullptr), name(name), position(position), rotation(vec3(0)), scale(vec3(1)) {
     
 }
 

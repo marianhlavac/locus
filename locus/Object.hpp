@@ -18,7 +18,11 @@ using namespace glm;
 class Object {
 public:
     Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale);
+    Object(Mesh* mesh, string name, vec3 position, vec3 rotation);
+    Object(Mesh* mesh, string name, vec3 position);
     Object(string name, vec3 position, vec3 rotation, vec3 scale);
+    Object(string name, vec3 position, vec3 rotation);
+    Object(string name, vec3 position);
     void draw(mat4 viewProjectionMatrix);
     string getName() const;
     void setName(string name);
