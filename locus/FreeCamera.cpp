@@ -13,7 +13,7 @@
 
 #include <glm/gtx/transform.hpp>
 
-#define MOUSE_SENSITIVITY 4.0f
+#define MOUSE_SENSITIVITY 0.005f
 #define MAX_VELOCITY 2.0f
 
 FreeCamera::FreeCamera(string name, vec3 position) : Camera(name, position, vec3(0)) {
@@ -24,7 +24,7 @@ void FreeCamera::update(Window* window) {
     double xpos, ypos;
     glfwGetCursorPos(window->getWindow(), &xpos, &ypos);
     
-    view = vec2(-xpos / window->getWidth(), ypos / window->getHeight()) * MOUSE_SENSITIVITY;
+    view += vec2(-xpos + window->getWidth()/2, -ypos + window->getHeight()/2) * MOUSE_SENSITIVITY;
     direction = vec3(cos(view.y) * sin(view.x), sin(view.y), cos(view.y) * cos(view.x));
     
     if (glfwGetKey(window->getWindow(), GLFW_KEY_W) == GLFW_PRESS) {
@@ -38,6 +38,8 @@ void FreeCamera::update(Window* window) {
     position += velocity * direction;
     if (velocity < 0) velocity -= velocity * 0.10f;
     else if (velocity > 0) velocity -= velocity * 0.10f;
+    
+    glfwSetCursorPos(window->getWindow(), window->getWidth() / 2, window->getHeight() / 2);
 }
 
 mat4 FreeCamera::getViewMatrix() {

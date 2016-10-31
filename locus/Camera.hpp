@@ -17,11 +17,15 @@ using namespace glm;
 
 class Camera : public Object {
 public:
-    Camera(string name, vec3 position, vec3 center);
+    Camera(string name, vec3 position, vec2 view);
     virtual mat4 getViewMatrix();
     mat4 getProjectionMatrix();
-private:
-    vec3 center;
+    vec3 getDirection();
+    vec2 getView();
+    void setView(vec2 view);
+protected:
+    vec2 view;
+    vec3 direction;
 };
 
 #endif /* Camera_hpp */

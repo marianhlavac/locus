@@ -23,8 +23,6 @@ public:
     void update(Window* window);
     mat4 getViewMatrix() override;
 private:
-    vec2 view;
-    vec3 direction;
     float velocity;
 };
 
