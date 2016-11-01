@@ -160,6 +160,7 @@
 		CD9D72951DA46AC1005D2B00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */,
 				CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */,
 				CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */,
 				CD9D72961DA46AC1005D2B00 /* OpenGL.framework */,
