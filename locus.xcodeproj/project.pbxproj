@@ -25,6 +25,7 @@
 		CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728C1DA450E4005D2B00 /* PointLight.cpp */; };
 		CD9D72911DA450F1005D2B00 /* TiledTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */; };
 		CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72921DA453F2005D2B00 /* Window.cpp */; };
+		CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */; };
 		CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = CDD5AE131DB58CFB00D35F30 /* Shaders */; };
 		CDFB6BEF1DC7DFE20066112E /* Models in Resources */ = {isa = PBXBuildFile; fileRef = CDFB6BEE1DC7DFE20066112E /* Models */; };
 		CDFB6BF21DC7E7D20066112E /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDFB6BF01DC7E7D20066112E /* FreeCamera.cpp */; };
@@ -64,6 +65,7 @@
 		CD9D72921DA453F2005D2B00 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
 		CD9D72931DA453F2005D2B00 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
 		CD9D72961DA46AC1005D2B00 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjsoncpp.1.7.7.dylib; path = ../../../../usr/local/Cellar/jsoncpp/1.7.7/lib/libjsoncpp.1.7.7.dylib; sourceTree = "<group>"; };
 		CDD5AE131DB58CFB00D35F30 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		CDFB6BEE1DC7DFE20066112E /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		CDFB6BF01DC7E7D20066112E /* FreeCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCamera.cpp; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */,
 				CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */,
 				CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */,
 				CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */,
@@ -409,6 +412,7 @@
 					"$(inherited)",
 					/usr/local/Cellar/glfw3/3.2.1/lib,
 					/usr/local/Cellar/glew/2.0.0/lib,
+					/usr/local/Cellar/jsoncpp/1.7.7/lib,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.majko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +429,7 @@
 					"$(inherited)",
 					/usr/local/Cellar/glfw3/3.2.1/lib,
 					/usr/local/Cellar/glew/2.0.0/lib,
+					/usr/local/Cellar/jsoncpp/1.7.7/lib,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.majko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -4,6 +4,8 @@
 #include <glm/glm.hpp>
 #include <iostream>
 
+#include <json/json.h>
+
 #include "WavefrontParser.hpp"
 #include "Window.hpp"
 #include "Scene.hpp"
