@@ -18,13 +18,13 @@ Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
     vao->bind();
     
     verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->buffer[0], parsed->vertices.size() * sizeof(GLfloat));
-    verticesVbo->addAttrib(mat->getAttribLocation("position"), 3, GL_FLOAT, 8, (void*)0);
+    verticesVbo->addAttrib(mat->getAttribLocation("position"), 3, GL_FLOAT, 8, 0);
     
     indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, &parsed->indices[0], parsed->indices.size() * sizeof(GLuint));
     
     vao->unbind();
     
-    vertexCount = parsed->vertices.size() / 3;
+    vertexCount = parsed->indices.size();
     triangleCount = parsed->indices.size() / 3;
 }
 
@@ -33,5 +33,5 @@ void Mesh::draw(mat4 transform) {
     material->setUniformMf4("mvp", transform);
     vao->bind();
     glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-    glDrawElements(GL_TRIANGLES, (GLsizei)triangleCount * 3, GL_UNSIGNED_INT, (void*)0);
+    glDrawElements(GL_TRIANGLES, (GLsizei)vertexCount, GL_UNSIGNED_INT, (void*)0);
 }

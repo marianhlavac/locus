@@ -45,6 +45,7 @@ struct MeshVBO {
         glBindBuffer(target, id);
     }
     void addAttrib(GLuint location, GLint size, GLenum type, GLsizei stride, const GLvoid* ptr) {
+        bind(GL_ELEMENT_ARRAY_BUFFER); // is this correct?
         glEnableVertexAttribArray(location);
         glVertexAttribPointer(location, size, type, GL_FALSE, stride * sizeof(GLfloat), ptr);
     }

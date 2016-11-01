@@ -31,11 +31,12 @@ WavefrontParserResult* WavefrontParser::parse(const string& filename) {
         if (type == "v") parseVertex(ss, result);
         if (type == "vt") parseUV(ss, result);
         if (type == "vn") parseNormal(ss, result);
-        if (type == "f") parseFace(ss, result);
-        
-        result->indices.push_back(i++);
-        result->indices.push_back(i++);
-        result->indices.push_back(i++);
+        if (type == "f") {
+            parseFace(ss, result);
+            result->indices.push_back(i++);
+            result->indices.push_back(i++);
+            result->indices.push_back(i++);
+        }
     }
 
     return result;
