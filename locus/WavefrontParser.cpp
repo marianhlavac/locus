@@ -20,6 +20,8 @@ WavefrontParserResult* WavefrontParser::parse(const string& filename) {
     ifstream file(filename);
     string line;
     
+    GLuint i = 0;
+    
     while (getline(file, line)) {
         stringstream ss(line);
         
@@ -30,36 +32,31 @@ WavefrontParserResult* WavefrontParser::parse(const string& filename) {
         if (type == "vt") parseUV(ss, result);
         if (type == "vn") parseNormal(ss, result);
         if (type == "f") parseFace(ss, result);
+        
+        result->indices.push_back(i++);
+        result->indices.push_back(i++);
+        result->indices.push_back(i++);
     }
 
     return result;
 }
 
 void WavefrontParser::parseVertex(stringstream& ss, WavefrontParserResult* resultOut) {
-    for (int i = 0; i < 3; i++) {
-        float val;
-        ss >> val;
-        
-        resultOut->vertices.push_back(val);
-    }
+    float x, y, z;
+    ss >> x >> y >> z;
+    resultOut->vertices.push_back(vec3(x, y, z));
 }
 
 void WavefrontParser::parseNormal(stringstream& ss, WavefrontParserResult* resultOut) {
-    for (int i = 0; i < 3; i++) {
-        float val;
-        ss >> val;
-        
-        resultOut->normals.push_back(val);
-    }
+    float x, y, z;
+    ss >> x >> y >> z;
+    resultOut->normals.push_back(vec3(x, y, z));
 }
 
 void WavefrontParser::parseUV(stringstream& ss, WavefrontParserResult* resultOut) {
-    for (int i = 0; i < 2; i++) {
-        float val;
-        ss >> val;
-        
-        resultOut->uvs.push_back(val);
-    }
+    float x, y;
+    ss >> x >> y;
+    resultOut->uvs.push_back(vec2(x, y));
 }
 
 void WavefrontParser::parseFace(stringstream& ss, WavefrontParserResult* resultOut) {
@@ -70,10 +67,34 @@ void WavefrontParser::parseFace(stringstream& ss, WavefrontParserResult* resultO
     
     for (int i = 0; i < 3; i++) {
         uint vtx, norm, uv;
-        sss[i] >> vtx >> norm >> uv;
+        char slash;
+        sss[i] >> vtx >> slash >> norm >> slash >> uv;
         
-        resultOut->vertexIndices.push_back(vtx - INDICES_OFFSET);
-        resultOut->normalIndices.push_back(norm - INDICES_OFFSET);
-        resultOut->uvIndices.push_back(uv - INDICES_OFFSET);
+        pushInBuffer(resultOut->buffer, resultOut->vertices[vtx - INDICES_OFFSET]);
+        pushInBuffer(resultOut->buffer, resultOut->normals[norm - INDICES_OFFSET]);
+        pushInBuffer(resultOut->buffer, resultOut->uvs[uv - INDICES_OFFSET]);
     }
 }
+                                    
+void WavefrontParser::pushInBuffer(vector<GLfloat>& vec, GLfloat first, GLfloat second) {
+    vec.push_back(first);
+    vec.push_back(second);
+}
+
+void WavefrontParser::pushInBuffer(vector<GLfloat>& vec, GLfloat first, GLfloat second, GLfloat third) {
+    vec.push_back(first);
+    vec.push_back(second);
+    vec.push_back(third);
+}
+
+void WavefrontParser::pushInBuffer(vector<GLfloat>& vec, vec3 first) {
+    vec.push_back(first.x);
+    vec.push_back(first.y);
+    vec.push_back(first.z);
+}
+
+void WavefrontParser::pushInBuffer(vector<GLfloat>& vec, vec2 first) {
+    vec.push_back(first.x);
+    vec.push_back(first.y);
+}
+

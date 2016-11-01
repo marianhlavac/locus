@@ -17,15 +17,15 @@ Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
     vao = new MeshVAO();
     vao->bind();
     
-    verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->vertices[0], parsed->vertices.size() * sizeof(GLfloat));
-    verticesVbo->addAttrib(mat->getAttribLocation("position"), 3, GL_FLOAT, 0, (void*)0);
+    verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->buffer[0], parsed->vertices.size() * sizeof(GLfloat));
+    verticesVbo->addAttrib(mat->getAttribLocation("position"), 3, GL_FLOAT, 8, (void*)0);
     
-    indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, &parsed->vertexIndices[0], parsed->vertexIndices.size() * sizeof(GLuint));
+    indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, &parsed->indices[0], parsed->indices.size() * sizeof(GLuint));
     
     vao->unbind();
     
     vertexCount = parsed->vertices.size() / 3;
-    triangleCount = parsed->vertexIndices.size() / 3;
+    triangleCount = parsed->indices.size() / 3;
 }
 
 void Mesh::draw(mat4 transform) {

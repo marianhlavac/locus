@@ -43,7 +43,7 @@ void Window::activate() {
     
     glClearColor(0.27f, 0.46f, 0.76f, 1.0f);
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+    glDisable(GL_CULL_FACE);
 }
 
 void Window::beginDraw() {

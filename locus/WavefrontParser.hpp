@@ -20,12 +20,11 @@ using namespace glm;
 using namespace std;
 
 struct WavefrontParserResult {
-    vector<GLfloat> vertices;
-    vector<GLfloat> normals;
-    vector<GLfloat> uvs;
-    vector<GLuint> vertexIndices;
-    vector<GLuint> normalIndices;
-    vector<GLuint> uvIndices;
+    vector<vec3> vertices;
+    vector<vec3> normals;
+    vector<vec2> uvs;
+    vector<GLfloat> buffer;
+    vector<GLuint> indices;
 };
 
 class WavefrontParser {
@@ -36,6 +35,10 @@ private:
     static void parseNormal(stringstream& ss, WavefrontParserResult* resultOut);
     static void parseUV(stringstream& ss, WavefrontParserResult* resultOut);
     static void parseFace(stringstream& ss, WavefrontParserResult* resultOut);
+    static void pushInBuffer(vector<GLfloat>& vec, GLfloat first, GLfloat second);
+    static void pushInBuffer(vector<GLfloat>& vec, GLfloat first, GLfloat second, GLfloat third);
+    static void pushInBuffer(vector<GLfloat>& vec, vec3 first);
+    static void pushInBuffer(vector<GLfloat>& vec, vec2 first);
 };
 
 #endif /* WavefrontParser_hpp */

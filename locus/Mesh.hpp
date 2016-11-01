@@ -46,7 +46,7 @@ struct MeshVBO {
     }
     void addAttrib(GLuint location, GLint size, GLenum type, GLsizei stride, const GLvoid* ptr) {
         glEnableVertexAttribArray(location);
-        glVertexAttribPointer(location, size, type, GL_FALSE, stride, ptr);
+        glVertexAttribPointer(location, size, type, GL_FALSE, stride * sizeof(GLfloat), ptr);
     }
     GLuint id;
 };
