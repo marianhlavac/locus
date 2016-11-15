@@ -17,7 +17,7 @@ Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
     vao = new MeshVAO();
     vao->bind();
     
-    verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->buffer[0], parsed->vertices.size() * sizeof(GLfloat));
+    verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->buffer[0], parsed->buffer.size() * sizeof(GLfloat));
     verticesVbo->addAttrib(mat->getAttribLocation("position"), 3, GL_FLOAT, 8, 0);
     
     indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, &parsed->indices[0], parsed->indices.size() * sizeof(GLuint));
@@ -32,6 +32,7 @@ void Mesh::draw(mat4 transform) {
     material->use();
     material->setUniformMf4("mvp", transform);
     vao->bind();
+    indicesVbo->bind(GL_ELEMENT_ARRAY_BUFFER);
     glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
     glDrawElements(GL_TRIANGLES, (GLsizei)vertexCount, GL_UNSIGNED_INT, (void*)0);
 }
