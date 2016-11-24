@@ -11,27 +11,27 @@
 
 #include "Object.hpp"
 
-Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale) : mesh(mesh), name(name), position(position), rotation(rotation), scale(scale) {
+Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale) : mesh(mesh), name(name), position(position), rotation(fquat(rotation)), scale(scale) {
     
 }
 
-Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation) : mesh(mesh), name(name), position(position), rotation(rotation), scale(vec3(1)) {
+Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation) : mesh(mesh), name(name), position(position), rotation(fquat(rotation)), scale(vec3(1)) {
     
 }
 
-Object::Object(Mesh* mesh, string name, vec3 position) : mesh(mesh), name(name), position(position), rotation(vec3(0)), scale(vec3(1)) {
+Object::Object(Mesh* mesh, string name, vec3 position) : mesh(mesh), name(name), position(position), scale(vec3(1)) {
     
 }
 
-Object::Object(string name, vec3 position, vec3 rotation, vec3 scale) : mesh(nullptr), name(name), position(position), rotation(rotation), scale(scale) {
+Object::Object(string name, vec3 position, vec3 rotation, vec3 scale) : mesh(nullptr), name(name), position(position), rotation(fquat(rotation)), scale(scale) {
     
 }
 
-Object::Object(string name, vec3 position, vec3 rotation) : mesh(nullptr), name(name), position(position), rotation(rotation), scale(vec3(1)) {
+Object::Object(string name, vec3 position, vec3 rotation) : mesh(nullptr), name(name), position(position), rotation(fquat(rotation)), scale(vec3(1)) {
     
 }
 
-Object::Object(string name, vec3 position) : mesh(nullptr), name(name), position(position), rotation(vec3(0)), scale(vec3(1)) {
+Object::Object(string name, vec3 position) : mesh(nullptr), name(name), position(position), scale(vec3(1)) {
     
 }
 
@@ -51,7 +51,7 @@ vec3 Object::getPosition() {
     return position;
 }
 
-vec3 Object::getRotation() {
+fquat Object::getRotation() {
     return rotation;
 }
 
@@ -63,8 +63,12 @@ void Object::setPosition(vec3 position) {
     this->position = position;
 }
 
-void Object::setRotation(vec3 rotation) {
+void Object::setRotation(fquat rotation) {
     this->rotation = rotation;
+}
+
+void Object::setRotation(vec3 eulerAngles) {
+    this->rotation = quat(eulerAngles);
 }
 
 void Object::setScale(vec3 scale) {
@@ -72,5 +76,5 @@ void Object::setScale(vec3 scale) {
 }
 
 mat4 Object::getTransformationMatrix() {
-    return translate(position) * orientate4(rotation) * glm::scale(scale);
+    return translate(position) * toMat4(rotation) * glm::scale(scale);
 }

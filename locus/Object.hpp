@@ -10,6 +10,7 @@
 #define Object_hpp
 
 #include <glm/glm.hpp>
+#include <glm/gtx/quaternion.hpp>
 
 #include "Mesh.hpp"
 #include "Material.hpp"
@@ -27,17 +28,18 @@ public:
     string getName() const;
     void setName(string name);
     vec3 getPosition();
-    vec3 getRotation();
+    quat getRotation();
     vec3 getScale();
     void setPosition(vec3 position);
-    void setRotation(vec3 rotation);
+    void setRotation(quat rotation);
+    void setRotation(vec3 eulerAngles);
     void setScale(vec3 scale);
     mat4 getTransformationMatrix();
 protected:
     string name;
     Mesh* mesh;
     vec3 position;
-    vec3 rotation;
+    fquat rotation;
     vec3 scale;
 };
 
