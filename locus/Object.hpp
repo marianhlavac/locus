@@ -31,7 +31,7 @@ public:
     quat getRotation();
     vec3 getScale();
     void setPosition(vec3 position);
-    void setRotation(quat rotation);
+    void setRotation(fquat rotation);
     void setRotation(vec3 eulerAngles);
     void setScale(vec3 scale);
     mat4 getTransformationMatrix();

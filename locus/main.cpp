@@ -110,6 +110,7 @@ void update(Window* window, double timeElapsed, double timeDelta) {
         ((FreeCamera*)sc->getAttachedCamera())->update(window);
     }
     
+    insideCamera->rotateBy(vec3(0, timeDelta, 0));
 }
 
 // ---

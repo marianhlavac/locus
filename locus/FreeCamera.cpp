@@ -7,6 +7,7 @@
 //
 
 #include "FreeCamera.hpp"
+#include <glm/gtc/quaternion.hpp>
 
 FreeCamera::FreeCamera(string name, vec3 position, vec3 rotation) : Camera(name, position, rotation), velocity(0) {
 }
@@ -15,20 +16,29 @@ void FreeCamera::update(Window* window) {
     double xpos, ypos;
     glfwGetCursorPos(window->getWindow(), &xpos, &ypos);
     
-    setRotation(vec3(ypos / 100.0f, xpos / 100.0f, 0));
+    fquat rot;
+    
+    rot = rotate(rot, (float)xpos / window->getWidth() * MOUSE_SENSITIVITY, vec3(0, 1, 0));
+    rot = rotate(rot, (float)ypos / window->getHeight() * MOUSE_SENSITIVITY, vec3(1, 0, 0) * rot);
+    
+    setRotation(rot);
     
     if (glfwGetKey(window->getWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-        if (velocity < MAX_VELOCITY) velocity += 0.05f;
+        if (velocity.y < MAX_VELOCITY) velocity.y += 0.05f;
     }
     
     if (glfwGetKey(window->getWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-        if (velocity > -MAX_VELOCITY) velocity -= 0.05f;
+        if (velocity.y > -MAX_VELOCITY) velocity.y -= 0.05f;
     }
     
-    vec3 direction = rotation * vec3(0, 1, 0);
-    position += velocity * direction;
-    if (velocity < 0) velocity -= velocity * 0.10f;
-    else if (velocity > 0) velocity -= velocity * 0.10f;
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+        if (velocity.x < MAX_VELOCITY) velocity.x += 0.05f;
+    }
     
-    glfwSetCursorPos(window->getWindow(), window->getWidth() / 2, window->getHeight() / 2);
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_D) == GLFW_PRESS) {
+        if (velocity.x > -MAX_VELOCITY) velocity.x -= 0.05f;
+    }
+    
+    position += vec3(velocity.x, 0, velocity.y) * rotation;
+    if (length(velocity) < 0 || length(velocity) > 0) velocity = velocity * (1 - FRICTION);
 }

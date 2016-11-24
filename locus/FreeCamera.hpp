@@ -9,18 +9,20 @@
 #ifndef FreeCamera_hpp
 #define FreeCamera_hpp
 
-#define MOUSE_SENSITIVITY 0.005f
+#define MOUSE_SENSITIVITY 4.0f
 #define MAX_VELOCITY 2.0f
+#define FRICTION 0.09f
 
 #include "Camera.hpp"
 #include "Window.hpp"
+#include <glm/gtc/quaternion.hpp>
 
 class FreeCamera : public Camera {
 public:
     FreeCamera(string name, vec3 position, vec3 rotation);
     void update(Window* window);
 private:
-    float velocity;
+    vec2 velocity;
 };
 
 #endif /* FreeCamera_hpp */
