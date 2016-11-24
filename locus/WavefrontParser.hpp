@@ -23,7 +23,8 @@ struct WavefrontParserResult {
     vector<vec3> vertices;
     vector<vec3> normals;
     vector<vec2> uvs;
-    vector<GLfloat> buffer;
+    vector<vector<GLfloat>> bufferItems;
+    vector<GLfloat> flatBuffer;
     vector<GLuint> indices;
 };
 
@@ -35,10 +36,8 @@ private:
     static void parseNormal(stringstream& ss, WavefrontParserResult* resultOut);
     static void parseUV(stringstream& ss, WavefrontParserResult* resultOut);
     static void parseFace(stringstream& ss, WavefrontParserResult* resultOut);
-    static void pushInBuffer(vector<GLfloat>& vec, GLfloat first, GLfloat second);
-    static void pushInBuffer(vector<GLfloat>& vec, GLfloat first, GLfloat second, GLfloat third);
-    static void pushInBuffer(vector<GLfloat>& vec, vec3 first);
-    static void pushInBuffer(vector<GLfloat>& vec, vec2 first);
+    static vector<GLfloat> createBufferItem(GLfloat x, GLfloat y, GLfloat z, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat s, GLfloat t);
+    static long findOrInsertToBuffer(vector<GLfloat> bufferItem, WavefrontParserResult* resultOut);
 };
 
 #endif /* WavefrontParser_hpp */

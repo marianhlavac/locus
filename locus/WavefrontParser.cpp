@@ -20,8 +20,6 @@ WavefrontParserResult* WavefrontParser::parse(const string& filename) {
     ifstream file(filename);
     string line;
     
-    GLuint i = 0;
-    
     while (getline(file, line)) {
         stringstream ss(line);
         
@@ -31,12 +29,12 @@ WavefrontParserResult* WavefrontParser::parse(const string& filename) {
         if (type == "v") parseVertex(ss, result);
         if (type == "vt") parseUV(ss, result);
         if (type == "vn") parseNormal(ss, result);
-        if (type == "f") {
-            parseFace(ss, result);
-            result->indices.push_back(i++);
-            result->indices.push_back(i++);
-            result->indices.push_back(i++);
-        }
+        if (type == "f") parseFace(ss, result);
+    }
+    
+    // Flatten buffer
+    for (vector<GLfloat> bufferItem : result->bufferItems) {
+        result->flatBuffer.insert(result->flatBuffer.end(), bufferItem.begin(), bufferItem.end());
     }
 
     return result;
@@ -67,35 +65,37 @@ void WavefrontParser::parseFace(stringstream& ss, WavefrontParserResult* resultO
     stringstream sss[] = { stringstream(s1), stringstream(s2), stringstream(s3) };
     
     for (int i = 0; i < 3; i++) {
-        uint vtx, norm, uv;
+        uint vtxid, normid, uvid;
         char slash;
-        sss[i] >> vtx >> slash >> norm >> slash >> uv;
+        sss[i] >> vtxid >> slash >> normid >> slash >> uvid;
         
-        pushInBuffer(resultOut->buffer, resultOut->vertices[vtx - INDICES_OFFSET]);
-        pushInBuffer(resultOut->buffer, resultOut->normals[norm - INDICES_OFFSET]);
-        pushInBuffer(resultOut->buffer, resultOut->uvs[uv - INDICES_OFFSET]);
+        vec3 vtx = resultOut->vertices[vtxid - 1];
+        vec3 norm = resultOut->normals[normid - 1];
+        vec2 uv = resultOut->uvs[uvid - 1];
+        
+        vector<GLfloat> bufferItem = createBufferItem(vtx.x, vtx.y, vtx.z, norm.x, norm.y, norm.z, uv.s, uv.t);
+        
+        resultOut->indices.push_back((GLuint)findOrInsertToBuffer(bufferItem, resultOut));
     }
 }
+
+vector<GLfloat> WavefrontParser::createBufferItem(GLfloat x, GLfloat y, GLfloat z, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat s, GLfloat t) {
+    vector<GLfloat> item = {
+        x, y, z, nx, ny, nz, s, t
+    };
+    return item;
+}
                                     
-void WavefrontParser::pushInBuffer(vector<GLfloat>& vec, GLfloat first, GLfloat second) {
-    vec.push_back(first);
-    vec.push_back(second);
-}
-
-void WavefrontParser::pushInBuffer(vector<GLfloat>& vec, GLfloat first, GLfloat second, GLfloat third) {
-    vec.push_back(first);
-    vec.push_back(second);
-    vec.push_back(third);
-}
-
-void WavefrontParser::pushInBuffer(vector<GLfloat>& vec, vec3 first) {
-    vec.push_back(first.x);
-    vec.push_back(first.y);
-    vec.push_back(first.z);
-}
-
-void WavefrontParser::pushInBuffer(vector<GLfloat>& vec, vec2 first) {
-    vec.push_back(first.x);
-    vec.push_back(first.y);
+long WavefrontParser::findOrInsertToBuffer(vector<GLfloat> bufferItem, WavefrontParserResult *resultOut) {
+    auto result = find_if(resultOut->bufferItems.begin(), resultOut->bufferItems.end(), [&] (const vector<GLfloat> i) {
+        return i == bufferItem;
+    });
+    
+    if (result == resultOut->bufferItems.end()) {
+        resultOut->bufferItems.push_back(bufferItem);
+        return std::distance(resultOut->bufferItems.begin(), resultOut->bufferItems.end()) - 1;
+    } else {
+        return std::distance(resultOut->bufferItems.begin(), result);
+    }
 }
 
