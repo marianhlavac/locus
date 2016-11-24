@@ -35,6 +35,7 @@ public:
     void setRotation(vec3 eulerAngles);
     void setScale(vec3 scale);
     mat4 getTransformationMatrix();
+    void rotateBy(vec3 eulerAngles);
 protected:
     string name;
     Mesh* mesh;

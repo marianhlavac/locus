@@ -27,8 +27,8 @@
 		CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72921DA453F2005D2B00 /* Window.cpp */; };
 		CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */; };
 		CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = CDD5AE131DB58CFB00D35F30 /* Shaders */; };
+		CDDD34251DE679A300D52AED /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDDD34231DE679A300D52AED /* FreeCamera.cpp */; };
 		CDFB6BEF1DC7DFE20066112E /* Models in Resources */ = {isa = PBXBuildFile; fileRef = CDFB6BEE1DC7DFE20066112E /* Models */; };
-		CDFB6BF21DC7E7D20066112E /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDFB6BF01DC7E7D20066112E /* FreeCamera.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,9 +67,9 @@
 		CD9D72961DA46AC1005D2B00 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjsoncpp.1.7.7.dylib; path = ../../../../usr/local/Cellar/jsoncpp/1.7.7/lib/libjsoncpp.1.7.7.dylib; sourceTree = "<group>"; };
 		CDD5AE131DB58CFB00D35F30 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
+		CDDD34231DE679A300D52AED /* FreeCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCamera.cpp; sourceTree = "<group>"; };
+		CDDD34241DE679A300D52AED /* FreeCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FreeCamera.hpp; sourceTree = "<group>"; };
 		CDFB6BEE1DC7DFE20066112E /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
-		CDFB6BF01DC7E7D20066112E /* FreeCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCamera.cpp; sourceTree = "<group>"; };
-		CDFB6BF11DC7E7D20066112E /* FreeCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FreeCamera.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +124,8 @@
 				CD9D72811DA450C3005D2B00 /* Material.hpp */,
 				CD9D72831DA450C9005D2B00 /* Camera.cpp */,
 				CD9D72841DA450C9005D2B00 /* Camera.hpp */,
-				CDFB6BF01DC7E7D20066112E /* FreeCamera.cpp */,
-				CDFB6BF11DC7E7D20066112E /* FreeCamera.hpp */,
+				CDDD34231DE679A300D52AED /* FreeCamera.cpp */,
+				CDDD34241DE679A300D52AED /* FreeCamera.hpp */,
 				CD9D72861DA450D4005D2B00 /* SpotLight.cpp */,
 				CD9D72871DA450D4005D2B00 /* SpotLight.hpp */,
 				CD9D72891DA450DC005D2B00 /* DirectionalLight.cpp */,
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDFB6BF21DC7E7D20066112E /* FreeCamera.cpp in Sources */,
+				CDDD34251DE679A300D52AED /* FreeCamera.cpp in Sources */,
 				CD9D72821DA450C3005D2B00 /* Material.cpp in Sources */,
 				CD9D72651DA44E54005D2B00 /* main.cpp in Sources */,
 				CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */,

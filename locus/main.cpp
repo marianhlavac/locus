@@ -25,9 +25,9 @@
 using namespace glm;
 using namespace std;
 
-Camera* freeCamera = new FreeCamera("Default Free Camera", vec3(0, 0, 0));
-Camera* topCamera = new Camera("Top Camera", vec3(0.1f, 10.0f, 0.0f), vec2(radians(90.0f), radians(-85.0f)));
-Camera* insideCamera = new Camera("Inside Camera", vec3(5.0f, 5.0f, 7.0f), vec2(radians(-135.0f), radians(-45.0f)));
+Camera* freeCamera = new FreeCamera("Default Free Camera", vec3(0), vec3(0));
+Camera* topCamera = new Camera("Top Camera", vec3(0.1f, 10.0f, 0.0f), vec3(0, 0, 0));
+Camera* insideCamera = new Camera("Inside Camera", vec3(0.0f, 0.0f, 0.0f), vec3(0, 0, 0));
 
 // ---
 
@@ -95,12 +95,11 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     
     if (glfwGetKey(window->getWindow(), GLFW_KEY_3) == GLFW_PRESS) {
         Camera* attached = sc->getAttachedCamera();
-        glfwSetCursorPos(window->getWindow(), window->getWidth() / 2, window->getHeight() / 2);
         
-        if (attached != freeCamera) {
+        /*if (attached != freeCamera) {
             freeCamera->setPosition(attached->getPosition());
             freeCamera->setView(attached->getView());
-        }
+        }*/
         
         sc->attachCamera(freeCamera);
     }

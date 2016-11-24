@@ -2,26 +2,23 @@
 //  FreeCamera.hpp
 //  locus
 //
-//  Created by Marián Hlaváč on 31/10/2016.
+//  Created by Marián Hlaváč on 24/11/2016.
 //  Copyright © 2016 majko. All rights reserved.
 //
 
 #ifndef FreeCamera_hpp
 #define FreeCamera_hpp
 
+#define MOUSE_SENSITIVITY 0.005f
+#define MAX_VELOCITY 2.0f
 
 #include "Camera.hpp"
 #include "Window.hpp"
 
-#include <glm/glm.hpp>
-
-using namespace glm;
-
 class FreeCamera : public Camera {
 public:
-    FreeCamera(string name, vec3 position);
+    FreeCamera(string name, vec3 position, vec3 rotation);
     void update(Window* window);
-    mat4 getViewMatrix() override;
 private:
     float velocity;
 };

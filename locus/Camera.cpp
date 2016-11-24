@@ -12,27 +12,15 @@
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-Camera::Camera(string name, vec3 position, vec2 view) : Object(name, position, vec3(0.0f), vec3(1.0f)), view(view) {
+Camera::Camera(string name, vec3 position, vec3 rotation) : Object(name, position, rotation, vec3(1.0f)) {
     
 }
 
 mat4 Camera::getViewMatrix() {
-    direction = vec3(cos(view.y) * sin(view.x), sin(view.y), cos(view.y) * cos(view.x));
-    return lookAt(position, position + direction, vec3(0, 1, 0));
+    return translate(position) * toMat4(rotation);
 }
 
 mat4 Camera::getProjectionMatrix() {
+    // TODO: Make this parametric
     return perspective( radians(90.0f), 16.0f / 9.0f, 0.01f, 100.0f);
-}
-
-vec3 Camera::getDirection() {
-    return direction;
-}
-
-vec2 Camera::getView() {
-    return view;
-}
-
-void Camera::setView(vec2 view) {
-    this->view = view;
 }

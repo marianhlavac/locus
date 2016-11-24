@@ -78,3 +78,7 @@ void Object::setScale(vec3 scale) {
 mat4 Object::getTransformationMatrix() {
     return translate(position) * toMat4(rotation) * glm::scale(scale);
 }
+
+void Object::rotateBy(vec3 eulerAngles) {
+    this->rotation *= quat(eulerAngles);
+}
