@@ -40,35 +40,37 @@ void init(Window* window) {
     
     scene->attachCamera(insideCamera);
     
-    Mesh* roomMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Room.obj"), Material::solid());
+    Material* defaultMaterial = Material::solid();
+    
+    Mesh* roomMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Room.obj"), defaultMaterial);
     Object* room = new Object(roomMesh, "Room", vec3(0, 0, 0));
     scene->addChild(room);
     
-    Mesh* sofaMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Sofa.obj"), Material::solid());
+    Mesh* sofaMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Sofa.obj"), defaultMaterial);
     Object* sofa = new Object(sofaMesh, "Sofa", vec3(-4.6f, 0, -3.0f), vec3(0, radians(90.0f), 0));
     scene->addChild(sofa);
     
-    Mesh* tableMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Living Room Table.obj"), Material::solid());
+    Mesh* tableMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Living Room Table.obj"), defaultMaterial);
     Object* table = new Object(tableMesh, "Living Room Table", vec3(0.0f, 0, -3.0f), vec3(0));
     scene->addChild(table);
     
-    Mesh* stableMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Small Table.obj"), Material::solid());
+    Mesh* stableMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Small Table.obj"), defaultMaterial);
     Object* smallTable = new Object(stableMesh, "Small Table", vec3(-4.95f, 0, 0.5f), vec3(0, radians(90.0f), 0));
     scene->addChild(smallTable);
     
-    Mesh* tvStandMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV stand.obj"), Material::solid());
+    Mesh* tvStandMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV stand.obj"), defaultMaterial);
     Object* tvStand = new Object(tvStandMesh, "TV Stand", vec3(5.1f, 0, -3.0f), vec3(0, radians(-90.0f), 0));
     scene->addChild(tvStand);
     
-    Mesh* tvMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV.obj"), Material::solid());
+    Mesh* tvMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV.obj"), defaultMaterial);
     Object* tv = new Object(tvMesh, "TV", vec3(5.1f, 0.8f, -3.0f), vec3(0, radians(-90.0f), 0));
     scene->addChild(tv);
     
-    Mesh* fenceMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Terrace fence.obj"), Material::solid());
+    Mesh* fenceMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Terrace fence.obj"), defaultMaterial);
     Object* fence = new Object(fenceMesh, "Terrace fence", vec3(8.1f, 0.0f, 3.75f), vec3(0, radians(-90.0f), 0));
     scene->addChild(fence);
     
-    Mesh* windowMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Window.obj"), Material::solid());
+    Mesh* windowMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Window.obj"), defaultMaterial);
     Object* window1 = new Object(windowMesh, "Window", vec3(6.15f, 0.0f, 3.95f), vec3(0, radians(-90.0f), 0));
     scene->addChild(window1);
     Object* window2 = new Object(windowMesh, "Window (2)", vec3(5.9f, 0.0f, 1.5f), vec3(0, radians(-90.0f), 0));
@@ -94,13 +96,6 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     }
     
     if (glfwGetKey(window->getWindow(), GLFW_KEY_3) == GLFW_PRESS) {
-        Camera* attached = sc->getAttachedCamera();
-        
-        /*if (attached != freeCamera) {
-            freeCamera->setPosition(attached->getPosition());
-            freeCamera->setView(attached->getView());
-        }*/
-        
         sc->attachCamera(freeCamera);
     }
     
@@ -109,8 +104,6 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     if (sc->getAttachedCamera() == freeCamera) {
         ((FreeCamera*)sc->getAttachedCamera())->update(window);
     }
-    
-    insideCamera->rotateBy(vec3(0, timeDelta, 0));
 }
 
 // ---

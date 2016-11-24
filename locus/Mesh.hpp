@@ -55,7 +55,7 @@ struct MeshVBO {
 class Mesh {
 public:
     Mesh(WavefrontParserResult* parsed, Material* mat);
-    void draw(mat4 transform);
+    void draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform);
     static Mesh* loadFromFile(const string & filename, Material* material);
 private:
     void createBuffer(GLuint* vbo, unsigned length, const GLvoid * data, GLenum target);

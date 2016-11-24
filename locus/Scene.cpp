@@ -57,9 +57,7 @@ void Scene::draw() {
         throw runtime_error("No camera attached to scene");
     }
     
-    mat4 viewProjectionMatrix = camera->getProjectionMatrix() * camera->getViewMatrix();
-    
     for (Object* obj : children) {
-        obj->draw(viewProjectionMatrix);
+        obj->draw(camera->getViewMatrix(), camera->getProjectionMatrix());
     }
 }

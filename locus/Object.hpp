@@ -24,7 +24,7 @@ public:
     Object(string name, vec3 position, vec3 rotation, vec3 scale);
     Object(string name, vec3 position, vec3 rotation);
     Object(string name, vec3 position);
-    void draw(mat4 viewProjectionMatrix);
+    void draw(mat4 viewTransform, mat4 projectionTransform);
     string getName() const;
     void setName(string name);
     vec3 getPosition();

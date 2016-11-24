@@ -35,8 +35,8 @@ Object::Object(string name, vec3 position) : mesh(nullptr), name(name), position
     
 }
 
-void Object::draw(mat4 viewProjectionMatrix) {
-    mesh->draw(viewProjectionMatrix * getTransformationMatrix());
+void Object::draw(mat4 viewTransform, mat4 projectionTransform) {
+    mesh->draw(getTransformationMatrix(), viewTransform, projectionTransform);
 }
 
 string Object::getName() const {

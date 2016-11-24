@@ -40,7 +40,9 @@ Material* Material::solid() {
     };
     
     vector<std::string> uniforms = {
-        "mvp"
+        "mvp",
+        "m",
+        "v"
     };
     
     return fromFile(resourcePath() + "Shaders/Solid.vert", resourcePath() + "Shaders/Solid.frag", attribs, uniforms);

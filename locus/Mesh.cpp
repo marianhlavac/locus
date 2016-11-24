@@ -29,9 +29,13 @@ Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
     triangleCount = parsed->indices.size() / 3;
 }
 
-void Mesh::draw(mat4 transform) {
+void Mesh::draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform) {
     material->use();
-    material->setUniformMf4("mvp", transform);
+    
+    material->setUniformMf4("mvp", projectionTransform * viewTransform * modelTransform);
+    material->setUniformMf4("m", modelTransform);
+    material->setUniformMf4("v", viewTransform);
+    
     vao->bind();
     indicesVbo->bind(GL_ELEMENT_ARRAY_BUFFER);
     //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
