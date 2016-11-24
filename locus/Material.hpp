@@ -68,6 +68,7 @@ public:
     Material(MeshShader* vertexShader, MeshShader* fragmentShader, vector<string> & attributes, vector<string> & uniforms);
     ~Material();
     static Material* solid();
+    static Material* fromFile(const std::string& vertShaderFilename, const std::string& fragShaderFilename, vector<string> attribs, vector<string> uniforms);
     MeshShaderProgram* getProgram();
     GLint getAttribLocation(const std::string& name);
     GLint getUniformLocation(const std::string& name);
