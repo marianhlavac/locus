@@ -65,13 +65,16 @@ void WavefrontParser::parseFace(stringstream& ss, WavefrontParserResult* resultO
     stringstream sss[] = { stringstream(s1), stringstream(s2), stringstream(s3) };
     
     for (int i = 0; i < 3; i++) {
-        uint vtxid, normid, uvid;
+        int vtxid = -1, normid = -1, uvid = -1;
         char slash;
-        sss[i] >> vtxid >> slash >> normid >> slash >> uvid;
+        sss[i] >> vtxid >> slash >> uvid >> slash >> normid;
         
-        vec3 vtx = resultOut->vertices[vtxid - 1];
-        vec3 norm = resultOut->normals[normid - 1];
-        vec2 uv = resultOut->uvs[uvid - 1];
+        vec3 vtx(0), norm(0);
+        vec2 uv(0);
+        
+        if (vtxid > 0) vtx = resultOut->vertices[vtxid - 1];
+        if (uvid > 0) uv = resultOut->uvs[uvid - 1];
+        if (normid > 0) norm = resultOut->normals[normid - 1];
         
         vector<GLfloat> bufferItem = createBufferItem(vtx.x, vtx.y, vtx.z, norm.x, norm.y, norm.z, uv.s, uv.t);
         
