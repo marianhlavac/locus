@@ -19,7 +19,7 @@ Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
     
     verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->flatBuffer[0], parsed->flatBuffer.size() * sizeof(GLfloat));
     verticesVbo->addAttrib(mat->getAttribLocation("position"), 3, GL_FLOAT, 8, 0);
-    verticesVbo->addAttrib(mat->getAttribLocation("normal"), 3, GL_FLOAT, 8, (void*)3);
+    verticesVbo->addAttrib(mat->getAttribLocation("normal"), 3, GL_FLOAT, 8, 3);
     
     indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, &parsed->indices[0], parsed->indices.size() * sizeof(GLuint));
     
@@ -32,9 +32,10 @@ Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
 void Mesh::draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform) {
     material->use();
     
-    material->setUniformMf4("mvp", projectionTransform * viewTransform * modelTransform);
-    material->setUniformMf4("m", modelTransform);
-    material->setUniformMf4("v", viewTransform);
+    material->setUniform("mvp", projectionTransform * viewTransform * modelTransform);
+    material->setUniform("m", modelTransform);
+    material->setUniform("v", viewTransform);
+    material->setUniform("lightPos", vec3(0, 5, 0));
     
     vao->bind();
     indicesVbo->bind(GL_ELEMENT_ARRAY_BUFFER);

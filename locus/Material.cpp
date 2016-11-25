@@ -42,7 +42,9 @@ Material* Material::solid() {
     vector<std::string> uniforms = {
         "mvp",
         "m",
-        "v"
+        "v",
+        "lightPos",
+        "viewPos"
     };
     
     return fromFile(resourcePath() + "Shaders/Solid.vert", resourcePath() + "Shaders/Solid.frag", attribs, uniforms);
@@ -105,6 +107,10 @@ void Material::use() {
     glUseProgram(program->id);
 }
 
-void Material::setUniformMf4(const std::string &name, mat4 value) {
+void Material::setUniform(const std::string &name, mat4 value) {
     glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &value[0][0]);
+}
+
+void Material::setUniform(const std::string &name, vec3 value) {
+    glUniform3f(getUniformLocation(name), value.x, value.y, value.z);
 }

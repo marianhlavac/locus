@@ -74,7 +74,8 @@ public:
     GLint getUniformLocation(const std::string& name);
     vector<string> getAllAttribs();
     vector<string> getAllUniforms();
-    void setUniformMf4(const std::string& name, mat4 value);
+    void setUniform(const std::string& name, mat4 value);
+    void setUniform(const std::string& name, vec3 value);
     void use();
 private:
     MeshShaderProgram* program;
