@@ -11,40 +11,32 @@
 
 #include "Object.hpp"
 
-Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale) : mesh(mesh), name(name), position(position), rotation(fquat(rotation)), scale(scale) {
-    
+Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale) : mesh(mesh), position(position), rotation(fquat(rotation)), scale(scale) {
+    this->name = name;
 }
 
-Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation) : mesh(mesh), name(name), position(position), rotation(fquat(rotation)), scale(vec3(1)) {
-    
+Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation) : mesh(mesh), position(position), rotation(fquat(rotation)), scale(vec3(1)) {
+    this->name = name;
 }
 
-Object::Object(Mesh* mesh, string name, vec3 position) : mesh(mesh), name(name), position(position), scale(vec3(1)) {
-    
+Object::Object(Mesh* mesh, string name, vec3 position) : mesh(mesh), position(position), scale(vec3(1)) {
+    this->name = name;
 }
 
-Object::Object(string name, vec3 position, vec3 rotation, vec3 scale) : mesh(nullptr), name(name), position(position), rotation(fquat(rotation)), scale(scale) {
-    
+Object::Object(string name, vec3 position, vec3 rotation, vec3 scale) : mesh(nullptr), position(position), rotation(fquat(rotation)), scale(scale) {
+    this->name = name;
 }
 
-Object::Object(string name, vec3 position, vec3 rotation) : mesh(nullptr), name(name), position(position), rotation(fquat(rotation)), scale(vec3(1)) {
-    
+Object::Object(string name, vec3 position, vec3 rotation) : mesh(nullptr), position(position), rotation(fquat(rotation)), scale(vec3(1)) {
+    this->name = name;
 }
 
-Object::Object(string name, vec3 position) : mesh(nullptr), name(name), position(position), scale(vec3(1)) {
-    
+Object::Object(string name, vec3 position) : mesh(nullptr), position(position), scale(vec3(1)) {
+    this->name = name;
 }
 
 void Object::draw(mat4 viewTransform, mat4 projectionTransform) {
     mesh->draw(getTransformationMatrix(), viewTransform, projectionTransform);
-}
-
-string Object::getName() const {
-    return name;
-}
-
-void Object::setName(string name) {
-    this->name = name;
 }
 
 vec3 Object::getPosition() {

@@ -11,6 +11,7 @@
 		CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */; };
 		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
 		CD2B671D1DE85B0700140D8F /* libSOIL.1.07.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */; };
+		CD2B67201DE9D40700140D8F /* Child.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD2B671E1DE9D40700140D8F /* Child.cpp */; };
 		CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
@@ -36,6 +37,8 @@
 		CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../usr/local/Cellar/glfw3/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
 		CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
 		CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSOIL.1.07.dylib; path = ../../../../usr/local/lib/libSOIL.1.07.dylib; sourceTree = "<group>"; };
+		CD2B671E1DE9D40700140D8F /* Child.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Child.cpp; sourceTree = "<group>"; };
+		CD2B671F1DE9D40700140D8F /* Child.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Child.hpp; sourceTree = "<group>"; };
 		CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavefrontParser.cpp; sourceTree = "<group>"; };
 		CD5CDE011DC3CAFE006B12A9 /* WavefrontParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WavefrontParser.hpp; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				CD9D72641DA44E54005D2B00 /* main.cpp */,
 				CD9D72661DA44E54005D2B00 /* Resources */,
 				CD9D725F1DA44E54005D2B00 /* Supporting Files */,
+				CD2B671E1DE9D40700140D8F /* Child.cpp */,
+				CD2B671F1DE9D40700140D8F /* Child.hpp */,
 				CD85A1141DAD8308000511ED /* Scene.cpp */,
 				CD85A1151DAD8308000511ED /* Scene.hpp */,
 				CD9D72771DA450AC005D2B00 /* Mesh.cpp */,
@@ -276,6 +281,7 @@
 				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,
 				CD85A1161DAD8308000511ED /* Scene.cpp in Sources */,
 				CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */,
+				CD2B67201DE9D40700140D8F /* Child.cpp in Sources */,
 				CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */,
 				CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */,
 				CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */,
@@ -423,7 +429,6 @@
 					/usr/local/Cellar/glfw3/3.2.1/lib,
 					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/jsoncpp/1.7.7/lib,
-					"$(PROJECT_DIR)/locus/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.majko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -445,7 +450,6 @@
 					/usr/local/Cellar/glfw3/3.2.1/lib,
 					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/jsoncpp/1.7.7/lib,
-					"$(PROJECT_DIR)/locus/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.majko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

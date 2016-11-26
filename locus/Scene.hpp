@@ -15,23 +15,17 @@
 #include "Object.hpp"
 #include "Camera.hpp"
 
+#include "Child.hpp"
+
 using namespace std;
 
-class Scene {
+class Scene : public Child {
 public:
     Scene(string name);
-    string getName();
-    list<Object*> getChildren();
-    Object* getChildByName(string const childName);
-    void addChild(Object* child);
-    void removeChild(Object* child);
-    void removeChildByName(string const childName);
     void attachCamera(Camera* camera);
     Camera* getAttachedCamera();
     void draw();
 private:
-    string name;
-    list<Object*> children;
     Camera* camera;
 };
 

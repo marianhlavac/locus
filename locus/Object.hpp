@@ -14,9 +14,12 @@
 
 #include "Mesh.hpp"
 #include "Material.hpp"
+
+#include "Child.hpp"
+
 using namespace glm;
 
-class Object {
+class Object : public Child {
 public:
     Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale);
     Object(Mesh* mesh, string name, vec3 position, vec3 rotation);
@@ -25,8 +28,6 @@ public:
     Object(string name, vec3 position, vec3 rotation);
     Object(string name, vec3 position);
     void draw(mat4 viewTransform, mat4 projectionTransform);
-    string getName() const;
-    void setName(string name);
     vec3 getPosition();
     quat getRotation();
     vec3 getScale();
@@ -37,7 +38,6 @@ public:
     mat4 getTransformationMatrix();
     void rotateBy(vec3 eulerAngles);
 protected:
-    string name;
     Mesh* mesh;
     vec3 position;
     fquat rotation;
