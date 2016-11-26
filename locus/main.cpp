@@ -42,6 +42,14 @@ void init(Window* window) {
     
     Material* defaultMaterial = Material::solid();
     
+    Texture* colorGridTexture = Texture::loadFromFile(resourcePath() + "Textures/ColorGrid.png");
+    Material* colorGridMaterial = Material::fromFile(resourcePath() + "Shaders/SolidTexture.vert", resourcePath() + "Shaders/SolidTexture.frag", Material::solid()->getAllAttribs(), Material::solid()->getAllUniforms());
+    colorGridMaterial->setTexture(colorGridTexture);
+    
+    Mesh* testMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Cube.obj"), colorGridMaterial);
+    Object* test = new Object(testMesh, "Cube", vec3(0, 2, 3));
+    scene->addChild(test);
+    
     Mesh* roomMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Room.obj"), defaultMaterial);
     Object* room = new Object(roomMesh, "Room", vec3(0, 0, 0));
     scene->addChild(room);

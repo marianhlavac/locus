@@ -20,6 +20,7 @@ Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
     verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->flatBuffer[0], parsed->flatBuffer.size() * sizeof(GLfloat));
     verticesVbo->addAttrib(mat->getAttribLocation("position"), 3, GL_FLOAT, 8, 0);
     verticesVbo->addAttrib(mat->getAttribLocation("normal"), 3, GL_FLOAT, 8, 3);
+    verticesVbo->addAttrib(mat->getAttribLocation("uv"), 2, GL_FLOAT, 8, 6);
     
     indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, &parsed->indices[0], parsed->indices.size() * sizeof(GLuint));
     

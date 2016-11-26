@@ -28,15 +28,20 @@ Material::Material(MeshShader* vertShader, MeshShader* fragShader, vector<string
     }
 }
 
+Material::Material(MeshShader* vertexShader, MeshShader* fragmentShader, vector<string>& attributes, vector<string>& uniforms, Texture* texture) : Material(vertexShader, fragmentShader, attributes, uniforms) {
+    this->texture = texture;
+    hasTexture = true;
+}
+
 Material::~Material() {
     delete program;
 }
 
 Material* Material::solid() {
-    
     vector<std::string> attribs = {
         "position",
-        "normal"
+        "normal",
+        "uv"
     };
     
     vector<std::string> uniforms = {
@@ -105,6 +110,7 @@ MeshShaderProgram* Material::getProgram() {
 
 void Material::use() {
     glUseProgram(program->id);
+    if (hasTexture) texture->bind();
 }
 
 void Material::setUniform(const std::string &name, mat4 value) {
@@ -113,4 +119,18 @@ void Material::setUniform(const std::string &name, mat4 value) {
 
 void Material::setUniform(const std::string &name, vec3 value) {
     glUniform3f(getUniformLocation(name), value.x, value.y, value.z);
+}
+
+Texture* Material::getTexture() {
+    return texture;
+}
+
+void Material::setTexture(Texture* texture) {
+    this->texture = texture;
+    hasTexture = true;
+}
+
+void Material::unsetTexture() {
+    this->texture = nullptr;
+    hasTexture = false;
 }

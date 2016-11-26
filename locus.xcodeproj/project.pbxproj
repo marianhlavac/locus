@@ -24,7 +24,6 @@
 		CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72861DA450D4005D2B00 /* SpotLight.cpp */; };
 		CD9D728B1DA450DC005D2B00 /* DirectionalLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72891DA450DC005D2B00 /* DirectionalLight.cpp */; };
 		CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728C1DA450E4005D2B00 /* PointLight.cpp */; };
-		CD9D72911DA450F1005D2B00 /* TiledTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */; };
 		CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72921DA453F2005D2B00 /* Window.cpp */; };
 		CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */; };
 		CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = CDD5AE131DB58CFB00D35F30 /* Shaders */; };
@@ -63,8 +62,6 @@
 		CD9D728A1DA450DC005D2B00 /* DirectionalLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DirectionalLight.hpp; sourceTree = "<group>"; };
 		CD9D728C1DA450E4005D2B00 /* PointLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointLight.cpp; sourceTree = "<group>"; };
 		CD9D728D1DA450E4005D2B00 /* PointLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PointLight.hpp; sourceTree = "<group>"; };
-		CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TiledTexture.cpp; sourceTree = "<group>"; };
-		CD9D72901DA450F1005D2B00 /* TiledTexture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TiledTexture.hpp; sourceTree = "<group>"; };
 		CD9D72921DA453F2005D2B00 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
 		CD9D72931DA453F2005D2B00 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
 		CD9D72961DA46AC1005D2B00 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -127,8 +124,6 @@
 				CD9D727B1DA450B3005D2B00 /* Object.hpp */,
 				CD9D727D1DA450BB005D2B00 /* Texture.cpp */,
 				CD9D727E1DA450BB005D2B00 /* Texture.hpp */,
-				CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */,
-				CD9D72901DA450F1005D2B00 /* TiledTexture.hpp */,
 				CD9D72801DA450C3005D2B00 /* Material.cpp */,
 				CD9D72811DA450C3005D2B00 /* Material.hpp */,
 				CD9D72831DA450C9005D2B00 /* Camera.cpp */,
@@ -282,7 +277,6 @@
 				CD85A1161DAD8308000511ED /* Scene.cpp in Sources */,
 				CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */,
 				CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */,
-				CD9D72911DA450F1005D2B00 /* TiledTexture.cpp in Sources */,
 				CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */,
 				CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */,
 				CD9D728B1DA450DC005D2B00 /* DirectionalLight.cpp in Sources */,

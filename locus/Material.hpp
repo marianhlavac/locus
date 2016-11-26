@@ -17,6 +17,8 @@
 #include <string>
 #include <map>
 
+#include <iostream>
+
 #include "Texture.hpp"
 
 using namespace std;
@@ -33,6 +35,14 @@ struct MeshShader {
         GLint result = GL_FALSE;
         glGetShaderiv(id, GL_COMPILE_STATUS, &result);
         if (result == GL_FALSE) {
+            GLint len = 0;
+            glGetShaderiv(id, GL_INFO_LOG_LENGTH, &len);
+            GLchar* infolog = new GLchar[len + 1];
+            glGetShaderInfoLog(id, len, NULL, infolog);
+            
+            cerr << " -- Shader compilation error:" << endl << (char*)infolog << endl;
+            
+            glDeleteShader(id);
             throw new std::runtime_error("Shader compilation error");
         }
     }
@@ -52,6 +62,13 @@ struct MeshShaderProgram {
         GLint result = GL_FALSE;
         glGetProgramiv(id, GL_LINK_STATUS, &result);
         if (result == GL_FALSE) {
+            GLint len = 0;
+            glGetShaderiv(id, GL_INFO_LOG_LENGTH, &len);
+            GLchar* infolog = new GLchar[len + 1];
+            glGetShaderInfoLog(id, len, NULL, infolog);
+            
+            cerr << " -- Shader linking error:" << endl << (char*)infolog << endl;
+            
             throw new std::runtime_error("Shader linking error");
         }
         
@@ -65,7 +82,8 @@ struct MeshShaderProgram {
 
 class Material {
 public:
-    Material(MeshShader* vertexShader, MeshShader* fragmentShader, vector<string> & attributes, vector<string> & uniforms);
+    Material(MeshShader* vertexShader, MeshShader* fragmentShader, vector<string>& attributes, vector<string>& uniforms);
+    Material(MeshShader* vertexShader, MeshShader* fragmentShader, vector<string>& attributes, vector<string>& uniforms, Texture* texture);
     ~Material();
     static Material* solid();
     static Material* fromFile(const std::string& vertShaderFilename, const std::string& fragShaderFilename, vector<string> attribs, vector<string> uniforms);
@@ -77,12 +95,17 @@ public:
     void setUniform(const std::string& name, mat4 value);
     void setUniform(const std::string& name, vec3 value);
     void use();
+    Texture* getTexture();
+    void setTexture(Texture* texture);
+    void unsetTexture();
 private:
     MeshShaderProgram* program;
     map<std::string, GLuint> attribLocations;
     map<std::string, GLuint> uniformLocations;
     void saveAttribLocation(const std::string& name);
     void saveUniformLocation(const std::string& name);
+    bool hasTexture;
+    Texture* texture;
 };
 
 #endif /* Material_hpp */
