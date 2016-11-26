@@ -10,6 +10,7 @@
 		CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */; };
 		CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */; };
 		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
+		CD2B671D1DE85B0700140D8F /* libSOIL.1.07.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */; };
 		CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
@@ -28,12 +29,14 @@
 		CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */; };
 		CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = CDD5AE131DB58CFB00D35F30 /* Shaders */; };
 		CDDD34251DE679A300D52AED /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDDD34231DE679A300D52AED /* FreeCamera.cpp */; };
+		CDE9D1C21DE7C2A500D09B80 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = CDE9D1C11DE7C2A500D09B80 /* Textures */; };
 		CDFB6BEF1DC7DFE20066112E /* Models in Resources */ = {isa = PBXBuildFile; fileRef = CDFB6BEE1DC7DFE20066112E /* Models */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../usr/local/Cellar/glfw3/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
 		CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
+		CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSOIL.1.07.dylib; path = ../../../../usr/local/lib/libSOIL.1.07.dylib; sourceTree = "<group>"; };
 		CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavefrontParser.cpp; sourceTree = "<group>"; };
 		CD5CDE011DC3CAFE006B12A9 /* WavefrontParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WavefrontParser.hpp; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -69,6 +72,9 @@
 		CDD5AE131DB58CFB00D35F30 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		CDDD34231DE679A300D52AED /* FreeCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCamera.cpp; sourceTree = "<group>"; };
 		CDDD34241DE679A300D52AED /* FreeCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FreeCamera.hpp; sourceTree = "<group>"; };
+		CDE9D1BF1DE7C20500D09B80 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = locus/lib/libSOIL.a; sourceTree = "<group>"; };
+		CDE9D1C11DE7C2A500D09B80 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Textures; sourceTree = "<group>"; };
+		CDE9D1C31DE7C3F200D09B80 /* libSOIL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSOIL.dylib; path = ../../../../opt/local/lib/libSOIL.dylib; sourceTree = "<group>"; };
 		CDFB6BEE1DC7DFE20066112E /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2B671D1DE85B0700140D8F /* libSOIL.1.07.dylib in Frameworks */,
 				CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */,
 				CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */,
 				CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */,
@@ -120,6 +127,8 @@
 				CD9D727B1DA450B3005D2B00 /* Object.hpp */,
 				CD9D727D1DA450BB005D2B00 /* Texture.cpp */,
 				CD9D727E1DA450BB005D2B00 /* Texture.hpp */,
+				CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */,
+				CD9D72901DA450F1005D2B00 /* TiledTexture.hpp */,
 				CD9D72801DA450C3005D2B00 /* Material.cpp */,
 				CD9D72811DA450C3005D2B00 /* Material.hpp */,
 				CD9D72831DA450C9005D2B00 /* Camera.cpp */,
@@ -132,8 +141,6 @@
 				CD9D728A1DA450DC005D2B00 /* DirectionalLight.hpp */,
 				CD9D728C1DA450E4005D2B00 /* PointLight.cpp */,
 				CD9D728D1DA450E4005D2B00 /* PointLight.hpp */,
-				CD9D728F1DA450F1005D2B00 /* TiledTexture.cpp */,
-				CD9D72901DA450F1005D2B00 /* TiledTexture.hpp */,
 				CD9D72921DA453F2005D2B00 /* Window.cpp */,
 				CD9D72931DA453F2005D2B00 /* Window.hpp */,
 				CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */,
@@ -153,6 +160,7 @@
 		CD9D72661DA44E54005D2B00 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CDE9D1C11DE7C2A500D09B80 /* Textures */,
 				CDFB6BEE1DC7DFE20066112E /* Models */,
 				CDD5AE131DB58CFB00D35F30 /* Shaders */,
 				CD9D726B1DA44E54005D2B00 /* sansation.ttf */,
@@ -163,6 +171,9 @@
 		CD9D72951DA46AC1005D2B00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */,
+				CDE9D1C31DE7C3F200D09B80 /* libSOIL.dylib */,
+				CDE9D1BF1DE7C20500D09B80 /* libSOIL.a */,
 				CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */,
 				CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */,
 				CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */,
@@ -229,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE9D1C21DE7C2A500D09B80 /* Textures in Resources */,
 				CDFB6BEF1DC7DFE20066112E /* Models in Resources */,
 				CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */,
 				CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */,
@@ -406,6 +418,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "locus/locus-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -413,6 +429,7 @@
 					/usr/local/Cellar/glfw3/3.2.1/lib,
 					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/jsoncpp/1.7.7/lib,
+					"$(PROJECT_DIR)/locus/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.majko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -423,6 +440,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "locus/locus-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -430,6 +451,7 @@
 					/usr/local/Cellar/glfw3/3.2.1/lib,
 					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/jsoncpp/1.7.7/lib,
+					"$(PROJECT_DIR)/locus/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.majko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
