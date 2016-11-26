@@ -37,6 +37,18 @@ Object::Object(string name, vec3 position) : mesh(nullptr), position(position), 
 
 void Object::draw(mat4 viewTransform, mat4 projectionTransform) {
     mesh->draw(getTransformationMatrix(), viewTransform, projectionTransform);
+    
+    for (Child* child : children) {
+        ((Object*) child)->draw(getTransformationMatrix(), viewTransform, projectionTransform);
+    }
+}
+
+void Object::draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform) {
+    mesh->draw(modelTransform * getTransformationMatrix(), viewTransform, projectionTransform);
+    
+    for (Child* child : children) {
+        ((Object*) child)->draw(modelTransform * getTransformationMatrix(), viewTransform, projectionTransform);
+    }
 }
 
 vec3 Object::getPosition() {
