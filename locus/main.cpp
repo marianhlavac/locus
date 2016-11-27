@@ -40,51 +40,51 @@ void init(Window* window) {
     
     scene->attachCamera(insideCamera);
     
-    Material* defaultMaterial = Material::solid();
+    Material* defaultMaterial = Material::fromFile(resourcePath() + "Shaders/Solid.vert", resourcePath() + "Shaders/Solid.frag");
     
-    Texture* colorGridTexture = Texture::loadFromFile(resourcePath() + "Textures/ColorGrid.png");
-    Material* colorGridMaterial = Material::fromFile(resourcePath() + "Shaders/SolidTexture.vert", resourcePath() + "Shaders/SolidTexture.frag", Material::solid()->getAllAttribs(), Material::solid()->getAllUniforms());
+    /*Texture* colorGridTexture = Texture::loadFromFile(resourcePath() + "Textures/ColorGrid.png");
+    Material* colorGridMaterial = Material::fromFile(resourcePath() + "Shaders/SolidTexture.vert", resourcePath() + "Shaders/SolidTexture.frag");
     colorGridMaterial->setTexture(colorGridTexture);
     
-    Material* lightMaterial = Material::fromFile(resourcePath() + "Shaders/Light.vert", resourcePath() + "Shaders/Light.frag", Material::solid()->getAllAttribs(), Material::solid()->getAllUniforms());
+    Material* lightMaterial = Material::fromFile(resourcePath() + "Shaders/Light.vert", resourcePath() + "Shaders/Light.frag");*/
     
     Mesh* roomMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Room.obj"), defaultMaterial);
     Object* room = new Object(roomMesh, "Room", vec3(0, 0, 0));
     scene->addChild(room);
     
-    Mesh* lightMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Cube.obj"), lightMaterial);
+    Mesh* lightMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Cube.obj"), defaultMaterial);
     Object* light = new Object(lightMesh, "Light", vec3(0, 10, 0), vec3(0), vec3(0.1f));
     room->addChild(light);
     
-    Mesh* testMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Test Object.obj"), colorGridMaterial);
+    Mesh* testMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Test Object.obj"), defaultMaterial);
     Object* test = new Object(testMesh, "Cube", vec3(-3, 10, 0));
     room->addChild(test);
     
-    Mesh* sofaMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Sofa.obj"), colorGridMaterial);
+    Mesh* sofaMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Sofa.obj"), defaultMaterial);
     Object* sofa = new Object(sofaMesh, "Sofa", vec3(-4.6f, 0, -3.0f), vec3(0, radians(90.0f), 0));
     room->addChild(sofa);
     
-    Mesh* tableMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Living Room Table.obj"), colorGridMaterial);
+    Mesh* tableMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Living Room Table.obj"), defaultMaterial);
     Object* table = new Object(tableMesh, "Living Room Table", vec3(0.0f, 0, -3.0f), vec3(0));
     room->addChild(table);
     
-    Mesh* stableMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Small Table.obj"), colorGridMaterial);
+    Mesh* stableMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Small Table.obj"), defaultMaterial);
     Object* smallTable = new Object(stableMesh, "Small Table", vec3(-4.95f, 0, 0.5f), vec3(0, radians(90.0f), 0));
     room->addChild(smallTable);
     
-    Mesh* tvStandMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV stand.obj"), colorGridMaterial);
+    Mesh* tvStandMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV stand.obj"), defaultMaterial);
     Object* tvStand = new Object(tvStandMesh, "TV Stand", vec3(5.1f, 0, -3.0f), vec3(0, radians(-90.0f), 0));
     room->addChild(tvStand);
     
-    Mesh* tvMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV.obj"), colorGridMaterial);
+    Mesh* tvMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/TV.obj"), defaultMaterial);
     Object* tv = new Object(tvMesh, "TV", vec3(5.1f, 0.8f, -3.0f), vec3(0, radians(-90.0f), 0));
     room->addChild(tv);
     
-    Mesh* fenceMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Terrace fence.obj"), colorGridMaterial);
+    Mesh* fenceMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Terrace fence.obj"), defaultMaterial);
     Object* fence = new Object(fenceMesh, "Terrace fence", vec3(8.1f, 0.0f, 3.75f), vec3(0, radians(-90.0f), 0));
     room->addChild(fence);
     
-    Mesh* windowMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Window.obj"), colorGridMaterial);
+    Mesh* windowMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Window.obj"), defaultMaterial);
     Object* window1 = new Object(windowMesh, "Window", vec3(6.15f, 0.0f, 3.95f), vec3(0, radians(-90.0f), 0));
     room->addChild(window1);
     Object* window2 = new Object(windowMesh, "Window (2)", vec3(5.9f, 0.0f, 1.5f), vec3(0, radians(-90.0f), 0));
