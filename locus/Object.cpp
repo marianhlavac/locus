@@ -10,6 +10,7 @@
 #include <glm/gtx/euler_angles.hpp>
 
 #include "Object.hpp"
+#include "Camera.hpp"
 
 Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale) : mesh(mesh), position(position), rotation(fquat(rotation)), scale(scale) {
     this->name = name;
@@ -35,19 +36,31 @@ Object::Object(string name, vec3 position) : mesh(nullptr), position(position), 
     this->name = name;
 }
 
-void Object::draw(mat4 viewTransform, mat4 projectionTransform) {
-    mesh->draw(getTransformationMatrix(), viewTransform, projectionTransform);
+void Object::draw(Object* camera) {
+    // Draw this object's mesh
+    mat4 model = getTransformationMatrix();
+    mat4 view = ((Camera*)camera)->getViewMatrix();
+    mat4 projection = ((Camera*)camera)->getProjectionMatrix();
     
+    mesh->draw(model, view, projection, camera->getPosition());
+    
+    // Draw all children
     for (Child* child : children) {
-        ((Object*) child)->draw(getTransformationMatrix(), viewTransform, projectionTransform);
+        ((Object*) child)->draw(camera, this);
     }
 }
 
-void Object::draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform) {
-    mesh->draw(modelTransform * getTransformationMatrix(), viewTransform, projectionTransform);
+void Object::draw(Object* camera, Object* parent) {
+    // Draw this object's mesh
+    mat4 model = parent->getTransformationMatrix() * getTransformationMatrix();
+    mat4 view = ((Camera*)camera)->getViewMatrix();
+    mat4 projection = ((Camera*)camera)->getProjectionMatrix();
     
+    mesh->draw(model, view, projection, camera->getPosition());
+    
+    // Draw all children
     for (Child* child : children) {
-        ((Object*) child)->draw(modelTransform * getTransformationMatrix(), viewTransform, projectionTransform);
+        ((Object*) child)->draw(camera, this);
     }
 }
 

@@ -30,13 +30,14 @@ Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
     triangleCount = parsed->indices.size() / 3;
 }
 
-void Mesh::draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform) {
+void Mesh::draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform, vec3 viewPos) {
     material->use();
     
     material->setUniform("mvp", projectionTransform * viewTransform * modelTransform);
     material->setUniform("m", modelTransform);
     material->setUniform("v", viewTransform);
-    material->setUniform("lightPos", vec3(0, 5, 0));
+    material->setUniform("lightPos", vec3(0, -1, 0));
+    material->setUniform("viewPos", viewPos);
     
     vao->bind();
     indicesVbo->bind(GL_ELEMENT_ARRAY_BUFFER);

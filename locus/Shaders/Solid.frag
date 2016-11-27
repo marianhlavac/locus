@@ -12,9 +12,9 @@ void main() {
     vec3 diffuseColor = vec3(0.9f, 0.9f, 0.9f);
     
     vec3 norm = normalize(fragNormal);
-    vec3 lightDir = normalize(lightPos - fragPos);
+    vec3 lightDir = lightPos;
     
-    float diff = max(dot(norm, lightDir), 0.0);
+    float diff = max(dot(norm, -lightDir), 0.0);
     vec3 diffuse = diff * diffuseColor;
     
     color = vec4(ambientColor + diffuse, 1.0);

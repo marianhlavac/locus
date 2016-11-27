@@ -28,6 +28,6 @@ void Scene::draw() {
     }
     
     for (Child* obj : children) {
-        ((Object*)obj)->draw(camera->getViewMatrix(), camera->getProjectionMatrix());
+        ((Object*)obj)->draw(camera);
     }
 }

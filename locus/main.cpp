@@ -46,12 +46,18 @@ void init(Window* window) {
     Material* colorGridMaterial = Material::fromFile(resourcePath() + "Shaders/SolidTexture.vert", resourcePath() + "Shaders/SolidTexture.frag", Material::solid()->getAllAttribs(), Material::solid()->getAllUniforms());
     colorGridMaterial->setTexture(colorGridTexture);
     
+    Material* lightMaterial = Material::fromFile(resourcePath() + "Shaders/Light.vert", resourcePath() + "Shaders/Light.frag", Material::solid()->getAllAttribs(), Material::solid()->getAllUniforms());
+    
     Mesh* roomMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Room.obj"), defaultMaterial);
     Object* room = new Object(roomMesh, "Room", vec3(0, 0, 0));
     scene->addChild(room);
     
-    Mesh* testMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Cube.obj"), colorGridMaterial);
-    Object* test = new Object(testMesh, "Cube", vec3(0, 2, 3));
+    Mesh* lightMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Cube.obj"), lightMaterial);
+    Object* light = new Object(lightMesh, "Light", vec3(0, 10, 0), vec3(0), vec3(0.1f));
+    room->addChild(light);
+    
+    Mesh* testMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Test Object.obj"), colorGridMaterial);
+    Object* test = new Object(testMesh, "Cube", vec3(-3, 10, 0));
     room->addChild(test);
     
     Mesh* sofaMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Sofa.obj"), colorGridMaterial);

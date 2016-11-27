@@ -27,8 +27,8 @@ public:
     Object(string name, vec3 position, vec3 rotation, vec3 scale);
     Object(string name, vec3 position, vec3 rotation);
     Object(string name, vec3 position);
-    void draw(mat4 viewTransform, mat4 projectionTransform);
-    void draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform);
+    void draw(Object* camera);
+    void draw(Object* camera, Object* parent);
     vec3 getPosition();
     quat getRotation();
     vec3 getScale();

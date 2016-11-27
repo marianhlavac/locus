@@ -26,6 +26,8 @@ Material::Material(MeshShader* vertShader, MeshShader* fragShader, vector<string
     for (string name : uniforms) {
         saveUniformLocation(name);
     }
+    
+    hasTexture = false;
 }
 
 Material::Material(MeshShader* vertexShader, MeshShader* fragmentShader, vector<string>& attributes, vector<string>& uniforms, Texture* texture) : Material(vertexShader, fragmentShader, attributes, uniforms) {
