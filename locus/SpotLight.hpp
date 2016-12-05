@@ -12,7 +12,9 @@
 #include "Object.hpp"
 
 class SpotLight : public Object {
-    
+public:
+    SpotLight(string name, vec3 position);
+    void updateToUniform();
 };
 
 #endif /* SpotLight_hpp */

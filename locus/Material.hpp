@@ -16,94 +16,36 @@
 
 #include <string>
 #include <map>
+#include <list>
 
 #include <iostream>
 
 #include "Texture.hpp"
+#include "Shader.hpp"
 
 using namespace std;
 using namespace glm;
 
-struct MeshShader {
-    MeshShader(GLenum type, const std::string src) {
-        id = glCreateShader(type);
-        
-        const GLchar * srcC = src.c_str();
-        glShaderSource(id, 1, &srcC, NULL);
-        glCompileShader(id);
-        
-        GLint result = GL_FALSE;
-        glGetShaderiv(id, GL_COMPILE_STATUS, &result);
-        if (result == GL_FALSE) {
-            GLint len = 0;
-            glGetShaderiv(id, GL_INFO_LOG_LENGTH, &len);
-            GLchar* infolog = new GLchar[len + 1];
-            glGetShaderInfoLog(id, len, NULL, infolog);
-            
-            cerr << " -- Shader compilation error:" << endl << (char*)infolog << endl;
-            
-            glDeleteShader(id);
-            throw new std::runtime_error("Shader compilation error");
-        }
-    }
-    ~MeshShader() {
-        glDeleteShader(id);
-    }
-    GLuint id;
-};
-
-struct MeshShaderProgram {
-    MeshShaderProgram(MeshShader* vertexShader, MeshShader* fragmentShader, bool detach) {
-        id = glCreateProgram();
-        glAttachShader(id, vertexShader->id);
-        glAttachShader(id, fragmentShader->id);
-        glLinkProgram(id);
-        
-        GLint result = GL_FALSE;
-        glGetProgramiv(id, GL_LINK_STATUS, &result);
-        if (result == GL_FALSE) {
-            GLint len = 0;
-            glGetShaderiv(id, GL_INFO_LOG_LENGTH, &len);
-            GLchar* infolog = new GLchar[len + 1];
-            glGetShaderInfoLog(id, len, NULL, infolog);
-            
-            cerr << " -- Shader linking error:" << endl << (char*)infolog << endl;
-            
-            throw new std::runtime_error("Shader linking error");
-        }
-        
-        if (detach) {
-            glDetachShader(id, vertexShader->id);
-            glDetachShader(id, fragmentShader->id);
-        }
-    }
-    GLuint id;
-};
-
 class Material {
 public:
-    Material(MeshShader* vertexShader, MeshShader* fragmentShader, vector<string>& attributes, vector<string>& uniforms);
-    Material(MeshShader* vertexShader, MeshShader* fragmentShader, vector<string>& attributes, vector<string>& uniforms, Texture* texture);
+    Material(Shader* shader, Texture* texture, vec3 ambient, vec3 diffuse, vec3 specular);
+    Material(Shader* shader, vec3 ambient, vec3 diffuse, vec3 specular);
     ~Material();
-    static Material* solid();
-    static Material* fromFile(const std::string& vertShaderFilename, const std::string& fragShaderFilename, vector<string> attribs, vector<string> uniforms);
-    MeshShaderProgram* getProgram();
-    GLint getAttribLocation(const std::string& name);
-    GLint getUniformLocation(const std::string& name);
-    vector<string> getAllAttribs();
-    vector<string> getAllUniforms();
-    void setUniform(const std::string& name, mat4 value);
-    void setUniform(const std::string& name, vec3 value);
+    static Material* fromFile(const string& filename);
     void use();
+    Shader* getShader();
     Texture* getTexture();
     void setTexture(Texture* texture);
     void unsetTexture();
+    void updateMVP(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform);
+    void updateVP(mat4 viewTransform, mat4 projectionTransform);
+    void updateM(mat4 modelTransform);
+    void updateViewPos(vec3 viewPos);
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
 private:
-    MeshShaderProgram* program;
-    map<std::string, GLuint> attribLocations;
-    map<std::string, GLuint> uniformLocations;
-    void saveAttribLocation(const std::string& name);
-    void saveUniformLocation(const std::string& name);
+    Shader* shader;
     bool hasTexture;
     Texture* texture;
 };

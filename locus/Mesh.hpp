@@ -18,7 +18,6 @@
 #include <vector>
 
 #include "WavefrontParser.hpp"
-#include "Material.hpp"
 
 using namespace glm;
 
@@ -54,12 +53,13 @@ struct MeshVBO {
 
 class Mesh {
 public:
-    Mesh(WavefrontParserResult* parsed, Material* mat);
-    void draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform, vec3 viewPos);
-    static Mesh* loadFromFile(const string & filename, Material* material);
+    Mesh(WavefrontParserResult* parsed);
+    Mesh(vector<GLfloat> buffer, GLuint bufferSize, vector<GLuint> indices, GLuint indicesSize);
+    void draw();
+    static Mesh* loadFromFile(const string & filename);
+    static Mesh* cube();
 private:
     void createBuffer(GLuint* vbo, unsigned length, const GLvoid * data, GLenum target);
-    Material* material;
     MeshVBO* verticesVbo;
     MeshVBO* indicesVbo;
     MeshVAO* vao;

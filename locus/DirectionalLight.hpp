@@ -13,7 +13,9 @@
 #include "Object.hpp"
 
 class DirectionalLight : public Object {
-    
+public:
+    DirectionalLight(string name, vec3 rotation);
+    void updateToUniform();
 };
 
 #endif /* DirectionalLight_hpp */

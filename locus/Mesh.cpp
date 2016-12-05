@@ -11,16 +11,17 @@
 #include <iostream>
 
 #include "Mesh.hpp"
+
 using namespace std;
 
-Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
+Mesh::Mesh(WavefrontParserResult* parsed){
     vao = new MeshVAO();
     vao->bind();
     
     verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->flatBuffer[0], parsed->flatBuffer.size() * sizeof(GLfloat));
-    verticesVbo->addAttrib(mat->getAttribLocation("position"), 3, GL_FLOAT, 8, 0);
-    verticesVbo->addAttrib(mat->getAttribLocation("normal"), 3, GL_FLOAT, 8, 3);
-    verticesVbo->addAttrib(mat->getAttribLocation("uv"), 2, GL_FLOAT, 8, 6);
+    verticesVbo->addAttrib(0, 3, GL_FLOAT, 8, 0);
+    verticesVbo->addAttrib(1, 3, GL_FLOAT, 8, 3);
+    verticesVbo->addAttrib(2, 2, GL_FLOAT, 8, 6);
     
     indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, &parsed->indices[0], parsed->indices.size() * sizeof(GLuint));
     
@@ -30,17 +31,8 @@ Mesh::Mesh(WavefrontParserResult* parsed, Material* mat) : material(mat) {
     triangleCount = parsed->indices.size() / 3;
 }
 
-void Mesh::draw(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform, vec3 viewPos) {
-    material->use();
-    
-    material->setUniform("mvp", projectionTransform * viewTransform * modelTransform);
-    material->setUniform("m", modelTransform);
-    material->setUniform("v", viewTransform);
-    material->setUniform("lightPos", vec3(0, -1, 0));
-    material->setUniform("viewPos", viewPos);
-    
+void Mesh::draw() {
     vao->bind();
-    indicesVbo->bind(GL_ELEMENT_ARRAY_BUFFER);
-    //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+    indicesVbo->bind(GL_ELEMENT_ARRAY_BUFFER);    
     glDrawElements(GL_TRIANGLES, (GLsizei)vertexCount, GL_UNSIGNED_INT, (void*)0);
 }

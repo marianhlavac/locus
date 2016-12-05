@@ -24,6 +24,7 @@ public:
     void addChild(Child* child);
     void removeChild(Child* child);
     void removeChildByName(string const childName);
+    bool isDrawable;
 protected:
     string name;
     list<Child*> children;

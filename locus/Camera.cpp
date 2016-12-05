@@ -13,7 +13,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 Camera::Camera(string name, vec3 position, vec3 rotation) : Object(name, position, rotation, vec3(1.0f)) {
-    
+    this->isDrawable = false;
 }
 
 mat4 Camera::getViewMatrix() {

@@ -14,8 +14,12 @@
 
 #include "Object.hpp"
 #include "Camera.hpp"
+#include "Material.hpp"
 
 #include "Child.hpp"
+#include "DirectionalLight.hpp"
+#include "PointLight.hpp"
+#include "SpotLight.hpp"
 
 using namespace std;
 
@@ -24,9 +28,18 @@ public:
     Scene(string name);
     void attachCamera(Camera* camera);
     Camera* getAttachedCamera();
+    void addMaterial(Material* material);
+    void addDirectionalLight(DirectionalLight* light);
+    void addPointLight(PointLight* light);
+    void addSpotLight(SpotLight* light);
+    void updateMaterials();
     void draw();
 private:
     Camera* camera;
+    list<DirectionalLight*> directionalLights;
+    list<PointLight*> pointLights;
+    list<SpotLight*> spotLights;
+    list<Material*> materials;
 };
 
 #endif /* Scene_hpp */

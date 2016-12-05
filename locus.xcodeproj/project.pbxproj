@@ -27,6 +27,7 @@
 		CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D728C1DA450E4005D2B00 /* PointLight.cpp */; };
 		CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72921DA453F2005D2B00 /* Window.cpp */; };
 		CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */; };
+		CDCE8EC21DF44A9900DC3D2B /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDCE8EC01DF44A9900DC3D2B /* Shader.cpp */; };
 		CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = CDD5AE131DB58CFB00D35F30 /* Shaders */; };
 		CDDD34251DE679A300D52AED /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDDD34231DE679A300D52AED /* FreeCamera.cpp */; };
 		CDE9D1C21DE7C2A500D09B80 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = CDE9D1C11DE7C2A500D09B80 /* Textures */; };
@@ -69,6 +70,8 @@
 		CD9D72931DA453F2005D2B00 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
 		CD9D72961DA46AC1005D2B00 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjsoncpp.1.7.7.dylib; path = ../../../../usr/local/Cellar/jsoncpp/1.7.7/lib/libjsoncpp.1.7.7.dylib; sourceTree = "<group>"; };
+		CDCE8EC01DF44A9900DC3D2B /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		CDCE8EC11DF44A9900DC3D2B /* Shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		CDD5AE131DB58CFB00D35F30 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		CDDD34231DE679A300D52AED /* FreeCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCamera.cpp; sourceTree = "<group>"; };
 		CDDD34241DE679A300D52AED /* FreeCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FreeCamera.hpp; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				CD9D72781DA450AC005D2B00 /* Mesh.hpp */,
 				CD9D727A1DA450B3005D2B00 /* Object.cpp */,
 				CD9D727B1DA450B3005D2B00 /* Object.hpp */,
+				CDCE8EC01DF44A9900DC3D2B /* Shader.cpp */,
+				CDCE8EC11DF44A9900DC3D2B /* Shader.hpp */,
 				CD9D727D1DA450BB005D2B00 /* Texture.cpp */,
 				CD9D727E1DA450BB005D2B00 /* Texture.hpp */,
 				CD9D72801DA450C3005D2B00 /* Material.cpp */,
@@ -273,6 +278,7 @@
 			files = (
 				CDDD34251DE679A300D52AED /* FreeCamera.cpp in Sources */,
 				CD9D72821DA450C3005D2B00 /* Material.cpp in Sources */,
+				CDCE8EC21DF44A9900DC3D2B /* Shader.cpp in Sources */,
 				CD9D72651DA44E54005D2B00 /* main.cpp in Sources */,
 				CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */,
 				CD9D72851DA450C9005D2B00 /* Camera.cpp in Sources */,

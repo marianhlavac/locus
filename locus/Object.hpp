@@ -14,21 +14,20 @@
 
 #include "Mesh.hpp"
 #include "Material.hpp"
-
 #include "Child.hpp"
 
 using namespace glm;
 
 class Object : public Child {
 public:
-    Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale);
-    Object(Mesh* mesh, string name, vec3 position, vec3 rotation);
-    Object(Mesh* mesh, string name, vec3 position);
+    Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale, Material* mat);
+    Object(Mesh* mesh, string name, vec3 position, vec3 rotation, Material* mat);
+    Object(Mesh* mesh, string name, vec3 position, Material* mat);
     Object(string name, vec3 position, vec3 rotation, vec3 scale);
     Object(string name, vec3 position, vec3 rotation);
     Object(string name, vec3 position);
-    void draw(Object* camera);
-    void draw(Object* camera, Object* parent);
+    void draw();
+    void draw(Object* parent);
     vec3 getPosition();
     quat getRotation();
     vec3 getScale();
@@ -40,6 +39,7 @@ public:
     void rotateBy(vec3 eulerAngles);
 protected:
     Mesh* mesh;
+    Material* material;
     vec3 position;
     fquat rotation;
     vec3 scale;

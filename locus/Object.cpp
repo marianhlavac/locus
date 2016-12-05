@@ -12,55 +12,56 @@
 #include "Object.hpp"
 #include "Camera.hpp"
 
-Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale) : mesh(mesh), position(position), rotation(fquat(rotation)), scale(scale) {
+Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale, Material* mat) : mesh(mesh), position(position), rotation(fquat(rotation)), scale(scale), material(mat) {
     this->name = name;
+    this->isDrawable = true;
 }
 
-Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation) : mesh(mesh), position(position), rotation(fquat(rotation)), scale(vec3(1)) {
+Object::Object(Mesh* mesh, string name, vec3 position, vec3 rotation, Material* mat) : mesh(mesh), position(position), rotation(fquat(rotation)), scale(vec3(1)), material(mat) {
     this->name = name;
+    this->isDrawable = true;
 }
 
-Object::Object(Mesh* mesh, string name, vec3 position) : mesh(mesh), position(position), scale(vec3(1)) {
+Object::Object(Mesh* mesh, string name, vec3 position, Material* mat) : mesh(mesh), position(position), rotation(vec3(0)), scale(vec3(1)), material(mat) {
     this->name = name;
+    this->isDrawable = true;
 }
 
 Object::Object(string name, vec3 position, vec3 rotation, vec3 scale) : mesh(nullptr), position(position), rotation(fquat(rotation)), scale(scale) {
     this->name = name;
+    this->isDrawable = true;
 }
 
 Object::Object(string name, vec3 position, vec3 rotation) : mesh(nullptr), position(position), rotation(fquat(rotation)), scale(vec3(1)) {
     this->name = name;
+    this->isDrawable = true;
 }
 
 Object::Object(string name, vec3 position) : mesh(nullptr), position(position), scale(vec3(1)) {
     this->name = name;
+    this->isDrawable = true;
 }
 
-void Object::draw(Object* camera) {
-    // Draw this object's mesh
-    mat4 model = getTransformationMatrix();
-    mat4 view = ((Camera*)camera)->getViewMatrix();
-    mat4 projection = ((Camera*)camera)->getProjectionMatrix();
+void Object::draw() {
+    draw(this);
+}
+
+void Object::draw(Object* parent) {
+    mat4 model;
     
-    mesh->draw(model, view, projection, camera->getPosition());
-    
-    // Draw all children
-    for (Child* child : children) {
-        ((Object*) child)->draw(camera, this);
+    if (parent != this) {
+        model = parent->getTransformationMatrix() * getTransformationMatrix();
+    } else{
+        model = getTransformationMatrix();
     }
-}
-
-void Object::draw(Object* camera, Object* parent) {
-    // Draw this object's mesh
-    mat4 model = parent->getTransformationMatrix() * getTransformationMatrix();
-    mat4 view = ((Camera*)camera)->getViewMatrix();
-    mat4 projection = ((Camera*)camera)->getProjectionMatrix();
     
-    mesh->draw(model, view, projection, camera->getPosition());
+    material->updateM(model);
+    material->use();
+    mesh->draw();
     
     // Draw all children
     for (Child* child : children) {
-        ((Object*) child)->draw(camera, this);
+        ((Object*) child)->draw(this);
     }
 }
 
