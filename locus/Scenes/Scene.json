@@ -1,0 +1,52 @@
+{
+  "name": "Scene",
+  "camera": "Top Camera",
+  "meshes": {
+    "cube": "Models/Cube.obj"
+  },
+  "materials": {
+    "solid": "Materials/Solid.mat"
+  },
+  "objects": [
+    {
+      "name": "Cube",
+      "mesh": "cube",
+      "position": [0.0, 0.0, 0.0],
+      "rotation": [0.0, 0.0, 0.0],
+      "scale": [0.0, 0.0, 0.0],
+      "material": "solid"
+    }
+  ],
+  "lights": [
+    {
+      "name": "Light",
+      "type": "point",
+      "position": [0.0, 2.0, 0.0],
+      "constant": 1.0,
+      "linear": 0.35,
+      "quadratic": 0.44
+    },
+    {
+      "name": "Light 2",
+      "type": "point",
+      "position": [2.0, 2.0, 2.0],
+      "constant": 1.0,
+      "linear": 0.35,
+      "quadratic": 0.44
+    }
+  ],
+  "cameras": [
+    {
+      "name": "Free Camera",
+      "type": "free",
+      "position": [0.0, 0.0, 0.0],
+      "rotation": [0.0, 0.0, 0.0]
+    },
+    {
+      "name": "Top Camera",
+      "type": "default",
+      "position": [0.0, 0.0, 2.0],
+      "rotation": [0.0, 0.0, 0.0]
+    }
+  ]
+}

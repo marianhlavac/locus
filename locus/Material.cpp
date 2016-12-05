@@ -10,6 +10,7 @@
 #include <fstream>
 #include <string>
 #include <streambuf>
+#include <iostream>
 
 #include "Material.hpp"
 #include "ResourcePath.hpp"
@@ -32,10 +33,8 @@ Material* Material::fromFile(const string& filename) {
     ifstream file(filename);
     string vertFilename, fragFilename;
     
-    getline(file, vertFilename);
-    getline(file, fragFilename);
-    
-    Shader* shader = Shader::fromFile(vertFilename, fragFilename);
+    file >> vertFilename >> fragFilename;
+    Shader* shader = Shader::fromFile(resourcePath() + vertFilename, resourcePath() + fragFilename);
     return new Material(shader, vec3(1, 1, 1), vec3(1, 1, 1), vec3(1, 1, 1));
 }
 

@@ -4,8 +4,6 @@
 #include <glm/glm.hpp>
 #include <iostream>
 
-#include <json/json.h>
-
 #include "WavefrontParser.hpp"
 #include "Window.hpp"
 #include "Scene.hpp"
@@ -35,21 +33,15 @@ Camera* insideCamera = new Camera("Inside Camera", vec3(0.0f, 0.0f, 0.0f), vec3(
 // init
 //
 void init(Window* window) {
-    Scene* scene = new Scene("The Scene");
+    Scene* scene = Scene::fromFile(resourcePath() + "Scenes/Scene.json");
     window->attachScene(scene);
     
     scene->attachCamera(insideCamera);
-    
+    /*
     Shader* solidShader = Shader::fromFile(resourcePath() + "Shaders/Solid.vert", resourcePath() + "Shaders/Solid.frag");
     
     Material* defaultMaterial = new Material(solidShader, vec3(1,1,1), vec3(1,1,1), vec3(1,1,1));
     scene->addMaterial(defaultMaterial);
-    
-    /*Texture* colorGridTexture = Texture::loadFromFile(resourcePath() + "Textures/ColorGrid.png");
-    Material* colorGridMaterial = Material::fromFile(resourcePath() + "Shaders/SolidTexture.vert", resourcePath() + "Shaders/SolidTexture.frag");
-    colorGridMaterial->setTexture(colorGridTexture);
-    
-     Material* lightMaterial = Material::fromFile(resourcePath() + "Shaders/Light.vert", resourcePath() + "Shaders/Light.frag");*/
     
     PointLight* light = new PointLight("Light", vec3(0), 1.0f, 0.35f, 0.44f);
     scene->addPointLight(light);
@@ -58,7 +50,7 @@ void init(Window* window) {
     scene->addPointLight(light2);
     
     Mesh* roomMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Room.obj"));
-    Object* room = new Object(roomMesh, "Room", vec3(0), defaultMaterial);
+    Object* room = new Object(roomMesh, "Rom", vec3(0), defaultMaterial);
     scene->addChild(room);
     
     Mesh* lightMesh = new Mesh(WavefrontParser::parse(resourcePath() + "Models/Cube.obj"));
@@ -99,7 +91,7 @@ void init(Window* window) {
     Object* window2 = new Object(windowMesh, "Window (2)", vec3(5.9f, 0.0f, 1.5f), vec3(0, radians(-90.0f), 0), defaultMaterial);
     room->addChild(window2);
     Object* window3 = new Object(windowMesh, "Window (3)", vec3(5.9f, 0.0f, 6.4f), vec3(0, radians(-90.0f), 0), defaultMaterial);
-    room->addChild(window3);
+    room->addChild(window3);*/
 }
 
 //
@@ -127,8 +119,6 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     if (sc->getAttachedCamera() == freeCamera) {
         ((FreeCamera*)sc->getAttachedCamera())->update(window, timeDelta);
     }
-    
-    ((Object *)sc->getChildByName("Light 2"))->setPosition(vec3(sin(timeElapsed) * 4, 1, cos(timeElapsed) * 4));
     
     // update all materials
     sc->updateMaterials();

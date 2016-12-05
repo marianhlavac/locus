@@ -34,6 +34,7 @@ public:
     void addSpotLight(SpotLight* light);
     void updateMaterials();
     void draw();
+    static Scene* fromFile(const string & filename);
 private:
     Camera* camera;
     list<DirectionalLight*> directionalLights;
