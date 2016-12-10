@@ -29,17 +29,17 @@ Object::Object(Mesh* mesh, string name, vec3 position, Material* mat) : mesh(mes
 
 Object::Object(string name, vec3 position, vec3 rotation, vec3 scale) : mesh(nullptr), position(position), rotation(fquat(rotation)), scale(scale) {
     this->name = name;
-    this->isDrawable = true;
+    this->isDrawable = false;
 }
 
 Object::Object(string name, vec3 position, vec3 rotation) : mesh(nullptr), position(position), rotation(fquat(rotation)), scale(vec3(1)) {
     this->name = name;
-    this->isDrawable = true;
+    this->isDrawable = false;
 }
 
 Object::Object(string name, vec3 position) : mesh(nullptr), position(position), scale(vec3(1)) {
     this->name = name;
-    this->isDrawable = true;
+    this->isDrawable = false;
 }
 
 void Object::draw() {
@@ -51,7 +51,7 @@ void Object::draw(Object* parent) {
     
     if (parent != this) {
         model = parent->getTransformationMatrix() * getTransformationMatrix();
-    } else{
+    } else {
         model = getTransformationMatrix();
     }
     
@@ -61,7 +61,22 @@ void Object::draw(Object* parent) {
     
     // Draw all children
     for (Child* child : children) {
-        ((Object*) child)->draw(this);
+        if (child->isDrawable) ((Object*) child)->draw(this); else ((Object*) child)->traverse(this);
+    }
+}
+
+void Object::traverse(Object* parent) {
+    mat4 model;
+    
+    if (parent != this) {
+        model = parent->getTransformationMatrix() * getTransformationMatrix();
+    } else {
+        model = getTransformationMatrix();
+    }
+    
+    // Draw all children
+    for (Child* child : children) {
+        if (child->isDrawable) ((Object*) child)->draw(this); else ((Object*) child)->traverse(this);
     }
 }
 

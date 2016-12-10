@@ -1,20 +1,119 @@
 {
   "name": "Scene",
-  "camera": "Top Camera",
+  "camera": "Free Camera",
   "meshes": {
-    "cube": "Models/Cube.obj"
+    "cube": "Models/Cube.obj",
+    "livingroomtable": "Models/Living Room Table.obj",
+    "room": "Models/Room.obj",
+    "smalltable": "Models/Small Table.obj",
+    "sofa": "Models/Sofa.obj",
+    "terracefence": "Models/Terrace fence.obj",
+    "tvstand": "Models/TV stand.obj",
+    "tv": "Models/TV.obj",
+    "window": "Models/Window.obj"
   },
   "materials": {
     "solid": "Materials/Solid.mat"
   },
   "objects": [
     {
-      "name": "Cube",
+      "name": "Test Cube",
       "mesh": "cube",
+      "position": [0.0, 2.0, 0.0],
+      "rotation": [0.0, 0.0, 0.0],
+      "scale": [1.0, 1.0, 1.0],
+      "material": "solid"
+    },
+    {
+      "name": "Room",
+      "mesh": "room",
       "position": [0.0, 0.0, 0.0],
       "rotation": [0.0, 0.0, 0.0],
-      "scale": [0.0, 0.0, 0.0],
-      "material": "solid"
+      "scale": [1.0, 1.0, 1.0],
+      "material": "solid",
+      "objects": [
+        {
+          "name": "Sofa",
+          "mesh": "sofa",
+          "position": [-4.6, 0.0, -3.0],
+          "rotation": [0.0, 90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Living Room Table",
+          "mesh": "livingroomtable",
+          "position": [0.0, 0.0, -3.0],
+          "rotation": [0.0, 0.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Small Table",
+          "mesh": "smalltable",
+          "position": [-4.95, 0.0, 0.5],
+          "rotation": [0.0, 90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "TV Stand",
+          "mesh": "tvstand",
+          "position": [5.1, 0.0, -3.0],
+          "rotation": [0.0, -90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "TV",
+          "mesh": "tv",
+          "position": [5.1, 0.8, -3.0],
+          "rotation": [0.0, -90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Fence",
+          "mesh": "terracefence",
+          "position": [8.1, 0.0, 3.75],
+          "rotation": [0.0, -90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Windows",
+          "mesh": "none",
+          "position": [6.15, 0.0, 3.95],
+          "rotation": [0.0, -90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "objects": [
+            {
+              "name": "Window 0",
+              "mesh": "window",
+              "position": [-2.45, 0.0, 0.2],
+              "rotation": [0.0, 0.0, 0.0],
+              "scale": [1.0, 1.0, 1.0],
+              "material": "solid"
+            },
+            {
+              "name": "Window 1",
+              "mesh": "window",
+              "position": [0.0, 0.0, 0.0],
+              "rotation": [0.0, 0.0, 0.0],
+              "scale": [1.0, 1.0, 1.0],
+              "material": "solid"
+            },
+            {
+              "name": "Window 2",
+              "mesh": "window",
+              "position": [2.45, 0.0, 0.2],
+              "rotation": [0.0, 0.0, 0.0],
+              "scale": [1.0, 1.0, 1.0],
+              "material": "solid"
+            }
+          ]
+        }
+      ]
     }
   ],
   "lights": [
@@ -22,14 +121,6 @@
       "name": "Light",
       "type": "point",
       "position": [0.0, 2.0, 0.0],
-      "constant": 1.0,
-      "linear": 0.35,
-      "quadratic": 0.44
-    },
-    {
-      "name": "Light 2",
-      "type": "point",
-      "position": [2.0, 2.0, 2.0],
       "constant": 1.0,
       "linear": 0.35,
       "quadratic": 0.44

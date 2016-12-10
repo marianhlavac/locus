@@ -20,6 +20,7 @@
 #include "DirectionalLight.hpp"
 #include "PointLight.hpp"
 #include "SpotLight.hpp"
+#include <json/json.h>
 
 using namespace std;
 
@@ -36,6 +37,7 @@ public:
     void draw();
     static Scene* fromFile(const string & filename);
 private:
+    static void addChildrenRecursivelyJSON(Child* parent, Json::Value children, map<string, Mesh*>& meshesDict, map<string, Material*>& matDic);
     Camera* camera;
     list<DirectionalLight*> directionalLights;
     list<PointLight*> pointLights;

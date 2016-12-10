@@ -28,6 +28,7 @@ public:
     Object(string name, vec3 position);
     void draw();
     void draw(Object* parent);
+    void traverse(Object* parent);
     vec3 getPosition();
     quat getRotation();
     vec3 getScale();

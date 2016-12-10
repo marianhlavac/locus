@@ -12,7 +12,6 @@
 #include <iostream>
 #include <map>
 
-#include <json/json.h>
 #include "ResourcePath.hpp"
 #include "FreeCamera.hpp"
 
@@ -93,7 +92,11 @@ Scene* Scene::fromFile(const string &filename) {
     map<string, Material*> materials;
     
     // Read JSON
-    file >> root;
+    try {
+        file >> root;
+    } catch (...) {
+        throw runtime_error("Scene JSON is invalid");
+    }
     
     // Create scene
     Scene* scene = new Scene(root.get("name", "Scene Name").asString());
@@ -120,21 +123,8 @@ Scene* Scene::fromFile(const string &filename) {
     }
     
     // Create objects
-    for (Json::Value object : root["objects"]) {
-        Mesh* mesh = meshes[object.get("mesh", "").asString()];
-        Material* mat = materials[object.get("material", "").asString()];
-        
-        Json::Value positionO = object["position"];
-        vec3 position(positionO[0].asFloat(), positionO[1].asFloat(), positionO[2].asFloat());
-        Json::Value rotationO = object["rotation"];
-        vec3 rotation(rotationO[0].asFloat(), rotationO[1].asFloat(), rotationO[2].asFloat());
-        Json::Value scaleO = object["scale"];
-        vec3 scale(scaleO[0].asFloat(), scaleO[1].asFloat(), scaleO[2].asFloat());
-        
-        Object* obj = new Object(mesh, object.get("name", "Object").asString(), position, rotation, scale, mat);
-        
-        scene->addChild(obj);
-    }
+    addChildrenRecursivelyJSON(scene, root["objects"], meshes, materials);
+    
     
     // Create cameras
     for (Json::Value camera : root["cameras"]) {
@@ -181,4 +171,32 @@ Scene* Scene::fromFile(const string &filename) {
     }
     
     return scene;
+}
+
+void Scene::addChildrenRecursivelyJSON(Child* parent, Json::Value children, map<string, Mesh*>& meshesDict, map<string, Material*>& matDic) {
+    for (Json::Value object : children) {
+        Object* obj;
+        
+        Json::Value positionO = object["position"];
+        vec3 position(positionO[0].asFloat(), positionO[1].asFloat(), positionO[2].asFloat());
+        Json::Value rotationO = object["rotation"];
+        vec3 rotation(radians(rotationO[0].asFloat()), radians(rotationO[1].asFloat()), radians(rotationO[2].asFloat()));
+        Json::Value scaleO = object["scale"];
+        vec3 scale(scaleO[0].asFloat(), scaleO[1].asFloat(), scaleO[2].asFloat());
+        
+        if (object.get("mesh", "").asString() == "none") {
+            obj = new Object(object.get("name", "Object").asString(), position, rotation, scale);
+        } else {
+            Mesh* mesh = meshesDict[object.get("mesh", "").asString()];
+            Material* mat = matDic[object.get("material", "").asString()];
+            
+            obj = new Object(mesh, object.get("name", "Object").asString(), position, rotation, scale, mat);
+        }
+        
+        parent->addChild(obj);
+        
+        if (object["objects"].size() > 0) {
+            addChildrenRecursivelyJSON(obj, object["objects"], meshesDict, matDic);
+        }
+    }
 }
