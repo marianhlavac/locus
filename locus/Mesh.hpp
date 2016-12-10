@@ -35,18 +35,21 @@ struct MeshVAO {
 };
 
 struct MeshVBO {
-    MeshVBO(GLenum target, const GLvoid* data, GLsizeiptr size) {
+    MeshVBO(GLenum target, const GLvoid* data, GLsizeiptr size, GLenum usage) {
         glGenBuffers(1, &id);
         bind(target);
-        glBufferData(target, size, data, GL_STATIC_DRAW);
+        glBufferData(target, size, data, usage);
     }
     void bind(GLenum target) {
         glBindBuffer(target, id);
     }
     void addAttrib(GLuint location, GLint size, GLenum type, GLsizei stride, int start) {
-        bind(GL_ELEMENT_ARRAY_BUFFER); // is this correct?
         glEnableVertexAttribArray(location);
         glVertexAttribPointer(location, size, type, GL_FALSE, stride * sizeof(GLfloat), (void*)(start * sizeof(GL_FLOAT)));
+    }
+    void subData(GLenum target, const GLvoid* data, GLsizeiptr size) {
+        bind(target);
+        glBufferSubData(target, 0, size, data);
     }
     GLuint id;
 };

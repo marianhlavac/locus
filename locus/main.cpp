@@ -3,6 +3,7 @@
 
 #include <glm/glm.hpp>
 #include <iostream>
+#include <string>
 
 #include "WavefrontParser.hpp"
 #include "Window.hpp"
@@ -12,6 +13,7 @@
 #include "Camera.hpp"
 #include "FreeCamera.hpp"
 #include "PointLight.hpp"
+#include "Text2D.hpp"
 
 //
 // TODO:
@@ -25,12 +27,21 @@ using namespace std;
 
 // ---
 
+Shader* ts2D;
+TextRenderer* tr;
+Text2D* fps;
+float fpsUpdateTimer = 0;
+
 //
 // init()
 //
 void init(Window* window) {
     Scene* scene = Scene::fromFile(resourcePath() + "Scenes/Scene.json");
     window->attachScene(scene);
+    
+    ts2D = Shader::fromFile(resourcePath() + "Shaders/Text2D.vert", resourcePath() + "Shaders/Text2D.frag");
+    tr = new TextRenderer(resourcePath() + "sansation.ttf", 24, ts2D);
+    fps = new Text2D("FPS: ", tr, vec2(20, 20), vec3(1, 1, 1), 0.5f);
 }
 
 //
@@ -46,6 +57,14 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     
     // update all materials
     sc->updateMaterials();
+    
+    // update fps meter
+    if (fpsUpdateTimer <= 0) {
+        fps->setText("FPS: " + to_string((int)(1 / timeDelta)));
+        fpsUpdateTimer = 0.25f;
+    }
+    
+    fpsUpdateTimer -= timeDelta;
 }
 
 // ---
@@ -55,7 +74,10 @@ void update(Window* window, double timeElapsed, double timeDelta) {
 //
 void render(Window* window) {
     window->beginDraw();
+    
+    fps->draw();
     window->getAttachedScene()->draw();
+    
     window->endDraw();
     glfwPollEvents();
 }
@@ -93,8 +115,6 @@ int main(int, char const**) {
         
         update(window, elapsed, elapsed - lastTime);
         render(window);
-        
-        if (((int)(elapsed*100) % (int)50) == 0) cout << "FPS: " << 1 / (elapsed - lastTime) << endl;
         
         lastTime = elapsed;
     }

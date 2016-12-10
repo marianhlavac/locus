@@ -18,12 +18,13 @@ Mesh::Mesh(WavefrontParserResult* parsed){
     vao = new MeshVAO();
     vao->bind();
     
-    verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->flatBuffer[0], parsed->flatBuffer.size() * sizeof(GLfloat));
+    verticesVbo = new MeshVBO(GL_ARRAY_BUFFER, &parsed->flatBuffer[0], parsed->flatBuffer.size() * sizeof(GLfloat), GL_STATIC_DRAW);
+    verticesVbo->bind(GL_ELEMENT_ARRAY_BUFFER);
     verticesVbo->addAttrib(0, 3, GL_FLOAT, 8, 0);
     verticesVbo->addAttrib(1, 3, GL_FLOAT, 8, 3);
     verticesVbo->addAttrib(2, 2, GL_FLOAT, 8, 6);
     
-    indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, &parsed->indices[0], parsed->indices.size() * sizeof(GLuint));
+    indicesVbo = new MeshVBO(GL_ELEMENT_ARRAY_BUFFER, &parsed->indices[0], parsed->indices.size() * sizeof(GLuint), GL_STATIC_DRAW);
     
     vao->unbind();
     

@@ -12,6 +12,10 @@
 		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
 		CD2B671D1DE85B0700140D8F /* libSOIL.1.07.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */; };
 		CD2B67201DE9D40700140D8F /* Child.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD2B671E1DE9D40700140D8F /* Child.cpp */; };
+		CD33E0D81DFC380800ABF15C /* libfreetype.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD33E0D71DFC380800ABF15C /* libfreetype.6.dylib */; };
+		CD33E0DB1DFC544600ABF15C /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD33E0D91DFC544600ABF15C /* Text.cpp */; };
+		CD33E0E11DFC55B200ABF15C /* Text2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD33E0DF1DFC55B200ABF15C /* Text2D.cpp */; };
+		CD33E0E41DFC56F700ABF15C /* TextRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD33E0E21DFC56F700ABF15C /* TextRenderer.cpp */; };
 		CD59D6621DF4EF8F00487DAB /* Scenes in Resources */ = {isa = PBXBuildFile; fileRef = CD59D6611DF4EF8F00487DAB /* Scenes */; };
 		CD59D6641DF4EF9600487DAB /* Materials in Resources */ = {isa = PBXBuildFile; fileRef = CD59D6631DF4EF9600487DAB /* Materials */; };
 		CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */; };
@@ -42,6 +46,13 @@
 		CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSOIL.1.07.dylib; path = ../../../../usr/local/lib/libSOIL.1.07.dylib; sourceTree = "<group>"; };
 		CD2B671E1DE9D40700140D8F /* Child.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Child.cpp; sourceTree = "<group>"; };
 		CD2B671F1DE9D40700140D8F /* Child.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Child.hpp; sourceTree = "<group>"; };
+		CD33E0D71DFC380800ABF15C /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../../../../usr/local/lib/libfreetype.6.dylib; sourceTree = "<group>"; };
+		CD33E0D91DFC544600ABF15C /* Text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
+		CD33E0DA1DFC544600ABF15C /* Text.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
+		CD33E0DF1DFC55B200ABF15C /* Text2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Text2D.cpp; sourceTree = "<group>"; };
+		CD33E0E01DFC55B200ABF15C /* Text2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Text2D.hpp; sourceTree = "<group>"; };
+		CD33E0E21DFC56F700ABF15C /* TextRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextRenderer.cpp; sourceTree = "<group>"; };
+		CD33E0E31DFC56F700ABF15C /* TextRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextRenderer.hpp; sourceTree = "<group>"; };
 		CD59D6611DF4EF8F00487DAB /* Scenes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scenes; sourceTree = "<group>"; };
 		CD59D6631DF4EF9600487DAB /* Materials */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Materials; sourceTree = "<group>"; };
 		CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavefrontParser.cpp; sourceTree = "<group>"; };
@@ -90,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD33E0D81DFC380800ABF15C /* libfreetype.6.dylib in Frameworks */,
 				CD2B671D1DE85B0700140D8F /* libSOIL.1.07.dylib in Frameworks */,
 				CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */,
 				CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */,
@@ -154,6 +166,12 @@
 				CD9D72931DA453F2005D2B00 /* Window.hpp */,
 				CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */,
 				CD5CDE011DC3CAFE006B12A9 /* WavefrontParser.hpp */,
+				CD33E0D91DFC544600ABF15C /* Text.cpp */,
+				CD33E0DA1DFC544600ABF15C /* Text.hpp */,
+				CD33E0DF1DFC55B200ABF15C /* Text2D.cpp */,
+				CD33E0E01DFC55B200ABF15C /* Text2D.hpp */,
+				CD33E0E21DFC56F700ABF15C /* TextRenderer.cpp */,
+				CD33E0E31DFC56F700ABF15C /* TextRenderer.hpp */,
 			);
 			path = locus;
 			sourceTree = "<group>";
@@ -182,6 +200,7 @@
 		CD9D72951DA46AC1005D2B00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD33E0D71DFC380800ABF15C /* libfreetype.6.dylib */,
 				CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */,
 				CDE9D1C31DE7C3F200D09B80 /* libSOIL.dylib */,
 				CDE9D1BF1DE7C20500D09B80 /* libSOIL.a */,
@@ -287,16 +306,19 @@
 				CDDD34251DE679A300D52AED /* FreeCamera.cpp in Sources */,
 				CD9D72821DA450C3005D2B00 /* Material.cpp in Sources */,
 				CDCE8EC21DF44A9900DC3D2B /* Shader.cpp in Sources */,
+				CD33E0DB1DFC544600ABF15C /* Text.cpp in Sources */,
 				CD9D72651DA44E54005D2B00 /* main.cpp in Sources */,
 				CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */,
 				CD9D72851DA450C9005D2B00 /* Camera.cpp in Sources */,
 				CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */,
+				CD33E0E11DFC55B200ABF15C /* Text2D.cpp in Sources */,
 				CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */,
 				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,
 				CD85A1161DAD8308000511ED /* Scene.cpp in Sources */,
 				CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */,
 				CD2B67201DE9D40700140D8F /* Child.cpp in Sources */,
 				CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */,
+				CD33E0E41DFC56F700ABF15C /* TextRenderer.cpp in Sources */,
 				CD9D728E1DA450E4005D2B00 /* PointLight.cpp in Sources */,
 				CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */,
 				CD9D728B1DA450DC005D2B00 /* DirectionalLight.cpp in Sources */,
