@@ -26,6 +26,7 @@ void Text2D::draw() {
     renderer->getShader()->setUniform("mvp", projection);
     
     float xadvanced = position.x;
+    float finalHeight = 0;
     
     string::const_iterator c;
     for (c = text.begin(); c != text.end(); c++) {
@@ -36,6 +37,7 @@ void Text2D::draw() {
         GLfloat ypos = position.y - (trc.size.y - trc.bearing.y) * scale;
         GLfloat width = trc.size.x * scale;
         GLfloat height = trc.size.y * scale;
+        finalHeight = height;
         
         GLfloat vertices[6][4] = {
             {xpos, ypos + height, 0, 0},
@@ -57,6 +59,8 @@ void Text2D::draw() {
         xadvanced += (trc.advance >> 6) * scale;
     }
     
+    size = vec2(xadvanced - position.x, finalHeight);
+    
     glBindTexture(GL_TEXTURE_2D, 0);
     vao.unbind();
 }
@@ -71,4 +75,12 @@ void Text2D::setColor(vec3 color) {
 
 void Text2D::setText(string text) {
     this->text = text;
+}
+
+vec2 Text2D::getSize() {
+    return size;
+}
+
+void Text2D::setPosition(vec2 position) {
+    this->position = position;
 }

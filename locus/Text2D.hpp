@@ -26,9 +26,12 @@ public:
     vec3 getColor();
     void setColor(vec3 color);
     void setText(string text);
+    vec2 getSize();
+    void setPosition(vec2 position);
 private:
     string text;
     vec2 position;
+    vec2 size;
     MeshVAO vao;
     MeshVBO vbo;
     TextRenderer* renderer;

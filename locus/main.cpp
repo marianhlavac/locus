@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <iostream>
 #include <string>
+#include <map>
 
 #include "WavefrontParser.hpp"
 #include "Window.hpp"
@@ -25,6 +26,12 @@
 
 using namespace glm;
 using namespace std;
+
+map<string, int> configuration = {
+    make_pair("render", 2),
+    make_pair("lights", 2),
+    make_pair("animation", 1)
+};
 
 TextRenderer* fontFaceGravityBook24Renderer;
 TextRenderer* fontFaceGravityRegular24Renderer;
@@ -58,7 +65,7 @@ Scene* init(Window* window) {
     
     // init gui
     Material* graphic2Dmaterial = Material::fromFile(resourcePath() + "Materials/Graphic2DBase.mat");
-    gui = new GUI(fontFaceGravityRegular24Renderer, fontFaceGravityBold24Renderer, graphic2Dmaterial);
+    gui = new GUI(fontFaceGravityRegular24Renderer, fontFaceGravityBold24Renderer, graphic2Dmaterial, &configuration);
     gui->init(resourcePath() + "Textures/gui_navigation.png");
     
     return scene;
@@ -85,6 +92,8 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     }
     
     fpsUpdateTimer -= timeDelta;
+    
+    gui->update(window, timeElapsed);
 }
 
 // ---
