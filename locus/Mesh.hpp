@@ -61,6 +61,7 @@ public:
     void draw();
     static Mesh* loadFromFile(const string & filename);
     static Mesh* cube();
+    void addAttrib(GLuint location, GLint size, GLenum type, GLsizei stride, int start);
 private:
     void createBuffer(GLuint* vbo, unsigned length, const GLvoid * data, GLenum target);
     MeshVBO* verticesVbo;

@@ -19,11 +19,11 @@ void Text2D::draw() {
     renderer->getShader()->setUniform("textColor", color);
     
     glActiveTexture(GL_TEXTURE0);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     vao.bind();
-    
+     
     mat4 projection = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f);
     renderer->getShader()->setUniform("mvp", projection);
-    
     
     float xadvanced = position.x;
     

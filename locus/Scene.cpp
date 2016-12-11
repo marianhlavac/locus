@@ -58,6 +58,7 @@ void Scene::addSpotLight(SpotLight* light) {
 void Scene::updateMaterials() {
     for (Material* mat : materials) {
         Shader* shader = mat->getShader();
+        shader->use();
         
         shader->setLightsCount((GLuint)directionalLights.size(), (GLuint)pointLights.size(), (GLuint)spotLights.size());
         
@@ -77,7 +78,6 @@ void Scene::updateMaterials() {
             shader->setADS("pointLights", i, mat->ambient, mat->diffuse, mat->specular);
             i++;
         }
-        
         
         mat4 view = ((Camera*)camera)->getViewMatrix();
         mat4 projection = ((Camera*)camera)->getProjectionMatrix();
@@ -193,10 +193,30 @@ void Scene::addChildrenRecursivelyJSON(Child* parent, Json::Value children, map<
             obj = new Object(mesh, object.get("name", "Object").asString(), position, rotation, scale, mat);
         }
         
+        obj->setSelectionId(object.get("selection", -1).asInt());
+        
         parent->addChild(obj);
         
         if (object["objects"].size() > 0) {
             addChildrenRecursivelyJSON(obj, object["objects"], meshesDict, matDic);
         }
     }
+}
+
+int Scene::getHoverId(Material* selectionMaterial, int x, int y) {
+    glClearColor(1, 1, 1, 1);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glDisable(GL_MULTISAMPLE);
+    
+    for (Child* obj : children) {
+        if (obj->isDrawable) ((Object*)obj)->draw(selectionMaterial);
+    }
+    
+    // determine pixel color
+    unsigned char pix[4];
+    glReadPixels(x, y, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, &pix);
+    
+    glEnable(GL_MULTISAMPLE);
+    
+    return pix[0];
 }

@@ -35,6 +35,7 @@ public:
     void addSpotLight(SpotLight* light);
     void updateMaterials();
     void draw();
+    int getHoverId(Material* selectionMaterial, int x, int y);
     static Scene* fromFile(const string & filename);
 private:
     static void addChildrenRecursivelyJSON(Child* parent, Json::Value children, map<string, Mesh*>& meshesDict, map<string, Material*>& matDic);

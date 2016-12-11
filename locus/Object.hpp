@@ -27,8 +27,11 @@ public:
     Object(string name, vec3 position, vec3 rotation);
     Object(string name, vec3 position);
     void draw();
+    void draw(Material* forcedMaterial);
     void draw(Object* parent);
+    void draw(Object* parent, Material* forcedMaterial);
     void traverse(Object* parent);
+    void traverse(Object* parent, Material* forcedMaterial);
     vec3 getPosition();
     quat getRotation();
     vec3 getScale();
@@ -38,12 +41,15 @@ public:
     void setScale(vec3 scale);
     mat4 getTransformationMatrix();
     void rotateBy(vec3 eulerAngles);
+    void setSelectionId(int selectionId);
+    int getSelectionId();
 protected:
     Mesh* mesh;
     Material* material;
     vec3 position;
     fquat rotation;
     vec3 scale;
+    int selectionId;
 };
 
 #endif /* Object_hpp */

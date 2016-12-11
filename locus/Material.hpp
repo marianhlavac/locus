@@ -30,8 +30,11 @@ class Material {
 public:
     Material(Shader* shader, Texture* texture, vec3 ambient, vec3 diffuse, vec3 specular);
     Material(Shader* shader, vec3 ambient, vec3 diffuse, vec3 specular);
+    Material(Shader* shader);
+    Material(Shader* shader, Texture* texture);
     ~Material();
     static Material* fromFile(const string& filename);
+    Material* clone();
     void use();
     Shader* getShader();
     Texture* getTexture();

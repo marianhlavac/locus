@@ -21,7 +21,7 @@ Texture::Texture(unsigned char* image, int width, int height) : size(vec2(width,
 Texture* Texture::loadFromFile(const string& filename) {
     int width, height;
     
-    unsigned char* image = SOIL_load_image(filename.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
+    unsigned char* image = SOIL_load_image(filename.c_str(), &width, &height, 0, SOIL_LOAD_RGBA);
     return new Texture(image, width, height);
 }
 
@@ -34,6 +34,6 @@ void Texture::unbind() {
 }
 
 void Texture::generateTexture(unsigned char* image) {
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, size.x, size.y, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x, size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
     glGenerateMipmap(GL_TEXTURE_2D);
 }

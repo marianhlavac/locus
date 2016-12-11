@@ -16,7 +16,7 @@ TextRenderer::TextRenderer(const string& fontface, int faceSize, Shader* shader)
     
     FT_Face face;
     if (FT_New_Face(ft, fontface.c_str(), 0, &face)) {
-        throw runtime_error("Can't load font face Roboto");
+        throw runtime_error("Can't load font face");
     }
     
     FT_Set_Pixel_Sizes(face, 0, faceSize);

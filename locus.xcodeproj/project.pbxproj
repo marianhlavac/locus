@@ -12,6 +12,9 @@
 		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
 		CD2B671D1DE85B0700140D8F /* libSOIL.1.07.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */; };
 		CD2B67201DE9D40700140D8F /* Child.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD2B671E1DE9D40700140D8F /* Child.cpp */; };
+		CD30968D1DFD92D00062AF1A /* Graphic2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD30968B1DFD92D00062AF1A /* Graphic2D.cpp */; };
+		CD3096901DFDC3E00062AF1A /* GUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD30968E1DFDC3E00062AF1A /* GUI.cpp */; };
+		CD3096921DFDC8DE0062AF1A /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = CD3096911DFDC8DE0062AF1A /* Fonts */; };
 		CD33E0D81DFC380800ABF15C /* libfreetype.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD33E0D71DFC380800ABF15C /* libfreetype.6.dylib */; };
 		CD33E0DB1DFC544600ABF15C /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD33E0D91DFC544600ABF15C /* Text.cpp */; };
 		CD33E0E11DFC55B200ABF15C /* Text2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD33E0DF1DFC55B200ABF15C /* Text2D.cpp */; };
@@ -22,7 +25,6 @@
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
 		CD9D72651DA44E54005D2B00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72641DA44E54005D2B00 /* main.cpp */; };
-		CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD9D726B1DA44E54005D2B00 /* sansation.ttf */; };
 		CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72771DA450AC005D2B00 /* Mesh.cpp */; };
 		CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D727A1DA450B3005D2B00 /* Object.cpp */; };
 		CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D727D1DA450BB005D2B00 /* Texture.cpp */; };
@@ -46,6 +48,11 @@
 		CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSOIL.1.07.dylib; path = ../../../../usr/local/lib/libSOIL.1.07.dylib; sourceTree = "<group>"; };
 		CD2B671E1DE9D40700140D8F /* Child.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Child.cpp; sourceTree = "<group>"; };
 		CD2B671F1DE9D40700140D8F /* Child.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Child.hpp; sourceTree = "<group>"; };
+		CD30968B1DFD92D00062AF1A /* Graphic2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphic2D.cpp; sourceTree = "<group>"; };
+		CD30968C1DFD92D00062AF1A /* Graphic2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Graphic2D.hpp; sourceTree = "<group>"; };
+		CD30968E1DFDC3E00062AF1A /* GUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI.cpp; sourceTree = "<group>"; };
+		CD30968F1DFDC3E00062AF1A /* GUI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GUI.hpp; sourceTree = "<group>"; };
+		CD3096911DFDC8DE0062AF1A /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		CD33E0D71DFC380800ABF15C /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../../../../usr/local/lib/libfreetype.6.dylib; sourceTree = "<group>"; };
 		CD33E0D91DFC544600ABF15C /* Text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
 		CD33E0DA1DFC544600ABF15C /* Text.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
@@ -64,7 +71,6 @@
 		CD9D72611DA44E54005D2B00 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		CD9D72631DA44E54005D2B00 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		CD9D72641DA44E54005D2B00 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		CD9D726B1DA44E54005D2B00 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		CD9D72771DA450AC005D2B00 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
 		CD9D72781DA450AC005D2B00 /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
 		CD9D727A1DA450B3005D2B00 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
@@ -172,6 +178,10 @@
 				CD33E0E01DFC55B200ABF15C /* Text2D.hpp */,
 				CD33E0E21DFC56F700ABF15C /* TextRenderer.cpp */,
 				CD33E0E31DFC56F700ABF15C /* TextRenderer.hpp */,
+				CD30968B1DFD92D00062AF1A /* Graphic2D.cpp */,
+				CD30968C1DFD92D00062AF1A /* Graphic2D.hpp */,
+				CD30968E1DFDC3E00062AF1A /* GUI.cpp */,
+				CD30968F1DFDC3E00062AF1A /* GUI.hpp */,
 			);
 			path = locus;
 			sourceTree = "<group>";
@@ -191,8 +201,8 @@
 				CD59D6611DF4EF8F00487DAB /* Scenes */,
 				CDE9D1C11DE7C2A500D09B80 /* Textures */,
 				CDFB6BEE1DC7DFE20066112E /* Models */,
+				CD3096911DFDC8DE0062AF1A /* Fonts */,
 				CDD5AE131DB58CFB00D35F30 /* Shaders */,
-				CD9D726B1DA44E54005D2B00 /* sansation.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -273,9 +283,9 @@
 				CD59D6621DF4EF8F00487DAB /* Scenes in Resources */,
 				CD59D6641DF4EF9600487DAB /* Materials in Resources */,
 				CDE9D1C21DE7C2A500D09B80 /* Textures in Resources */,
+				CD3096921DFDC8DE0062AF1A /* Fonts in Resources */,
 				CDFB6BEF1DC7DFE20066112E /* Models in Resources */,
 				CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */,
-				CD9D726C1DA44E54005D2B00 /* sansation.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +322,9 @@
 				CD9D72851DA450C9005D2B00 /* Camera.cpp in Sources */,
 				CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */,
 				CD33E0E11DFC55B200ABF15C /* Text2D.cpp in Sources */,
+				CD3096901DFDC3E00062AF1A /* GUI.cpp in Sources */,
 				CD9D727F1DA450BB005D2B00 /* Texture.cpp in Sources */,
+				CD30968D1DFD92D00062AF1A /* Graphic2D.cpp in Sources */,
 				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,
 				CD85A1161DAD8308000511ED /* Scene.cpp in Sources */,
 				CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */,

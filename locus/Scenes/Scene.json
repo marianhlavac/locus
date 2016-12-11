@@ -38,7 +38,8 @@
           "position": [-4.6, 0.0, -3.0],
           "rotation": [0.0, 90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
+          "material": "solid",
+          "selection": 10
         },
         {
           "name": "Living Room Table",
@@ -115,6 +116,7 @@
         }
       ]
     }
+
   ],
   "lights": [
     {
@@ -130,7 +132,7 @@
     {
       "name": "Free Camera",
       "type": "free",
-      "position": [0.0, 0.0, 10.0],
+      "position": [-10.0, 0.0, 0.0],
       "rotation": [0.0, 0.0, 0.0]
     },
     {

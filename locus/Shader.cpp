@@ -80,6 +80,9 @@ Shader* Shader::fromFile(const string vertSrcFilename, const string fragSrcFilen
     ifstream vertFile(vertSrcFilename);
     ifstream fragFile(fragSrcFilename);
     
+    if (!vertFile.is_open()) throw runtime_error("Vertex shader file not found");
+    if (!fragFile.is_open()) throw runtime_error("Fragment shader file not found");
+    
     string vertShaderCode((istreambuf_iterator<char>(vertFile)), istreambuf_iterator<char>());
     string fragShaderCode((istreambuf_iterator<char>(fragFile)), istreambuf_iterator<char>());
     
