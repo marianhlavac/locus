@@ -85,13 +85,20 @@ void Scene::updateMaterials() {
     }
 }
 
-Scene* Scene::fromFile(const string &filename) {
+Scene* Scene::fromFile(const string& filename) {
+    return fromFile(filename, [](string progress, float progressB) {
+        cout << progressB << ": " << progress << endl;
+    });
+}
+
+Scene* Scene::fromFile(const string &filename, void (*progress)(string, float)) {
     ifstream file(filename);
     Json::Value root;
     map<string, Mesh*> meshes;
     map<string, Material*> materials;
     
     // Read JSON
+    progress("Reading JSON", 0.25f);
     try {
         file >> root;
     } catch (...) {
@@ -99,22 +106,28 @@ Scene* Scene::fromFile(const string &filename) {
     }
     
     // Create scene
+    progress("Creating scene", 0.30f);
     Scene* scene = new Scene(root.get("name", "Scene Name").asString());
     string attachedCamera = root.get("camera", "none").asString();
     
     // Create meshes
+    float done = 0;
+    float total = (float)root["meshes"].getMemberNames().size();
     for (string meshName : root["meshes"].getMemberNames()) {
         string filename = root["meshes"].get(meshName, "Mesh").asString();
+        progress("Loading " + filename, 0.45f + (0.2f * done / total));
         
         WavefrontParserResult* parsedObj = WavefrontParser::parse(resourcePath() + filename);
         Mesh* mesh = new Mesh(parsedObj);
         
         meshes.insert(make_pair(meshName, mesh));
+        done++;
     }
     
     // Create materials
     for (string matName : root["materials"].getMemberNames()) {
         string filename = root["materials"].get(matName, "Material").asString();
+        progress("Loading " + filename, 0.65f);
         
         Material* material = Material::fromFile(resourcePath() + filename);
         
@@ -123,10 +136,12 @@ Scene* Scene::fromFile(const string &filename) {
     }
     
     // Create objects
+    progress("Creating objects", 0.70f);
     addChildrenRecursivelyJSON(scene, root["objects"], meshes, materials);
     
     
     // Create cameras
+    progress("Creating cameras", 0.75f);
     for (Json::Value camera : root["cameras"]) {
         Camera* cam;
         string name = camera.get("name", "Camera").asString();
@@ -148,6 +163,7 @@ Scene* Scene::fromFile(const string &filename) {
     }
     
     // Create lights
+    progress("Creating lights", 0.80f);
     for (Json::Value light : root["lights"]) {
         Child* li;
         string name = light.get("name", "Camera").asString();
@@ -169,6 +185,8 @@ Scene* Scene::fromFile(const string &filename) {
         
         scene->addChild(li);
     }
+    
+    progress("Scene created", 0.85f);
     
     return scene;
 }

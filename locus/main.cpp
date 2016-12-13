@@ -37,13 +37,29 @@ TextRenderer* fontFaceGravityBook24Renderer;
 TextRenderer* fontFaceGravityRegular24Renderer;
 TextRenderer* fontFaceGravityBold24Renderer;
 
+Window* mainWindow;
 Shader* text2Dshader;
 Text2D* fps;
 float fpsUpdateTimer = 0;
 Material* selectionMaterial;
+Material* graphic2Dmaterial;
+Graphic2D* loading;
+Graphic2D* loadingProgress;
+Text2D* loadingText;
 GUI* gui;
 
 int objHover = -1;
+
+void loadingScreenRedraw(string statusText, float progress) {
+    mainWindow->beginDraw();
+    loading->draw();
+    loadingText->setText(statusText);
+    loadingText->draw();
+    loadingProgress->setSize(vec2(progress * 250.0f, 3));
+    loadingProgress->draw();
+    mainWindow->endDraw();
+    glfwPollEvents();
+}
 
 // ---
 
@@ -52,19 +68,18 @@ int objHover = -1;
 //
 Scene* init(Window* window) {
     // create scene, load from json, attach
-    Scene* scene = Scene::fromFile(resourcePath() + "Scenes/Scene.json");
+    Scene* scene = Scene::fromFile(resourcePath() + "Scenes/Scene.json",
+                                   [] (string progress, float progressB) {
+                                       loadingScreenRedraw(progress, progressB);
+                                   });
     window->attachScene(scene);
     
-    // load fonts from resources
-    fontFaceGravityBook24Renderer = new TextRenderer(resourcePath() + "Fonts/Gravity-Book.otf", 24, text2Dshader);
-    fontFaceGravityRegular24Renderer = new TextRenderer(resourcePath() + "Fonts/Gravity-Regular.otf", 24, text2Dshader);
-    fontFaceGravityBold24Renderer = new TextRenderer(resourcePath() + "Fonts/Gravity-Bold.otf", 24, text2Dshader);
+    loadingScreenRedraw("Finishing...", 0.95f);
     
     // init fps meter
     fps = new Text2D("FPS", fontFaceGravityBook24Renderer, vec2(20, window->getHeight() - 20 - 24), vec3(1, 0.84f, 0), 1);
     
     // init gui
-    Material* graphic2Dmaterial = Material::fromFile(resourcePath() + "Materials/Graphic2DBase.mat");
     gui = new GUI(fontFaceGravityRegular24Renderer, fontFaceGravityBold24Renderer, graphic2Dmaterial, &configuration);
     gui->init(resourcePath() + "Textures/gui_navigation.png");
     
@@ -96,8 +111,6 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     gui->update(window, timeElapsed);
 }
 
-// ---
-
 //
 // render()
 //
@@ -119,6 +132,8 @@ void render(Window* window) {
     
 }
 
+// ---
+
 int main(int, char const**) {
     double lastTime = glfwGetTime();
     
@@ -128,11 +143,12 @@ int main(int, char const**) {
         return EXIT_FAILURE;
     }
     
-    // Create new window
+    // create new window
     Window *window = new Window(1280, 720);
     window->activate();
+    mainWindow = window;
     
-    // Init GLEW
+    // init GLEW
     glewExperimental = true;
     
     if (glewInit() != GLEW_OK) {
@@ -143,16 +159,35 @@ int main(int, char const**) {
     
     glfwSetInputMode(window->getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
-    // Prepare global resources
+    // prepare global resources
     selectionMaterial = Material::fromFile(resourcePath() + "Materials/Selection.mat");
     text2Dshader = Shader::fromFile(resourcePath() + "Shaders/Text2D.vert", resourcePath() + "Shaders/Text2D.frag");
+    graphic2Dmaterial = Material::fromFile(resourcePath() + "Materials/Graphic2DBase.mat");
     
-    // Init application
+    // load fonts from resources
+    fontFaceGravityBook24Renderer = new TextRenderer(resourcePath() + "Fonts/Gravity-Book.otf", 24, text2Dshader);
+    fontFaceGravityRegular24Renderer = new TextRenderer(resourcePath() + "Fonts/Gravity-Regular.otf", 24, text2Dshader);
+    fontFaceGravityBold24Renderer = new TextRenderer(resourcePath() + "Fonts/Gravity-Bold.otf", 24, text2Dshader);
+    
+    // draw loading screen
+    Texture* loadingTex = Texture::loadFromFile(resourcePath() + "Textures/gui_loading.png");
+    Material* loadingMat = graphic2Dmaterial->clone();
+    loadingMat->setTexture(loadingTex);
+    loading = new Graphic2D(loadingMat, vec2(0), vec2(1280, 720));
+    Texture* loadingProgressTex = Texture::loadFromFile(resourcePath() + "Textures/gui_loading_progressbar.png");
+    Material* loadingProgressMat = graphic2Dmaterial->clone();
+    loadingProgressMat->setTexture(loadingProgressTex);
+    loadingProgress = new Graphic2D(loadingProgressMat, vec2(511, 271), vec2(500, 1));
+    loadingText = new Text2D("-", fontFaceGravityBold24Renderer, vec2(630, 235), vec3(1), 0.4f);
+    loadingText->setAlign(Text2D::ALIGN_CENTER);
+    loadingScreenRedraw("Initializing application...", 0.1f);
+    
+    // init application
     Scene* scene = init(window);
     
     scene->addMaterial(selectionMaterial);
     
-    // Application loop, update then render
+    // application loop, update then render
     while (!window->hasBeenClosed()) {
         double elapsed = glfwGetTime();
         

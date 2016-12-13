@@ -2,28 +2,45 @@
   "name": "Scene",
   "camera": "Free Camera",
   "meshes": {
+    "appletv": "Models/Apple TV.obj",
+    "appletvremote": "Models/Apple TV Remote.obj",
+    "bigwallpicture": "Models/Big Wall Picture.obj",
+    "book": "Models/Book.obj",
+    "bowl": "Models/Bowl.obj",
+    "ceilinglamp": "Models/Ceiling Lamp.obj",
     "cube": "Models/Cube.obj",
+    "dvdcase": "Models/DVD Case.obj",
+    "door": "Models/Door.obj",
+    "fireplace": "Models/Fireplace.obj",
+    "gameshelf": "Models/Game Shelf.obj",
+    "lamp": "Models/Lamp.obj",
     "livingroomtable": "Models/Living Room Table.obj",
+    "nescartridge": "Models/NES Cartridge.obj",
+    "nescontroller": "Models/NES controller.obj",
+    "nesmagazine": "Models/NES magazine.obj",
+    "nes": "Models/NES.obj",
+    "photoframe": "Models/Photo Frame.obj",
+    "plant": "Models/Plant.obj",
+    "playstation": "Models/Playstation.obj",
+    "roomdesk": "Models/Room Desk.obj",
     "room": "Models/Room.obj",
+    "smalllamp": "Models/Small Lamp.obj",
     "smalltable": "Models/Small Table.obj",
     "sofa": "Models/Sofa.obj",
-    "terracefence": "Models/Terrace fence.obj",
+    "speaker": "Models/Speaker.obj",
+    "subwoofer": "Models/Subwoofer.obj",
     "tvstand": "Models/TV stand.obj",
     "tv": "Models/TV.obj",
-    "window": "Models/Window.obj"
+    "terracefence": "Models/Terrace fence.obj",
+    "wallshelf": "Models/Wall shelf.obj",
+    "wallsocket": "Models/Wall socket.obj",
+    "window": "Models/Window.obj",
+    "xbox": "Models/Xbox.obj"
   },
   "materials": {
     "solid": "Materials/Solid.mat"
   },
   "objects": [
-    {
-      "name": "Test Cube",
-      "mesh": "cube",
-      "position": [0.0, 2.0, 0.0],
-      "rotation": [0.0, 0.0, 0.0],
-      "scale": [1.0, 1.0, 1.0],
-      "material": "solid"
-    },
     {
       "name": "Room",
       "mesh": "room",
@@ -35,32 +52,167 @@
         {
           "name": "Sofa",
           "mesh": "sofa",
-          "position": [-4.6, 0.0, -3.0],
+          "position": [-4.79, 0.00, -1.96],
           "rotation": [0.0, 90.0, 0.0],
-          "scale": [1.0, 1.0, 1.0],
-          "material": "solid",
-          "selection": 10
-        },
-        {
-          "name": "Living Room Table",
-          "mesh": "livingroomtable",
-          "position": [0.0, 0.0, -3.0],
-          "rotation": [0.0, 0.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid"
         },
         {
           "name": "Small Table",
           "mesh": "smalltable",
-          "position": [-4.95, 0.0, 0.5],
+          "position": [-5.03, 0.00, 1.31],
           "rotation": [0.0, 90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid"
         },
         {
-          "name": "TV Stand",
+          "name": "Small Lamp",
+          "mesh": "smalllamp",
+          "position": [-5.16, 0.53, 1.54],
+          "rotation": [0.0, 15.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Book",
+          "mesh": "book",
+          "position": [-4.92, 0.56, 1.06],
+          "rotation": [0.0, 24.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Book(2)",
+          "mesh": "book",
+          "position": [-5.02, 0.64, 1.06],
+          "rotation": [0.0, 18.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Big Wall Picture",
+          "mesh": "bigwallpicture",
+          "position": [-5.96, 3.60, -2.05],
+          "rotation": [0.0, 90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "NES controller",
+          "mesh": "nescontroller",
+          "position": [-4.51, 1.02, -3.38],
+          "rotation": [5.0, 45.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Lamp",
+          "mesh": "lamp",
+          "position": [-4.72, 0.05, -6.31],
+          "rotation": [0.0, 10.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Fireplace",
+          "mesh": "fireplace",
+          "position": [0.00, 1.25, -7.54],
+          "rotation": [0.0, 0.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Room desk",
+          "mesh": "roomdesk",
+          "position": [0.00, 0.91, -7.14],
+          "rotation": [0.0, 0.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Photo frame",
+          "mesh": "photoframe",
+          "position": [-2.90, 0.95, -6.92],
+          "rotation": [0.0, 25.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "LR Table",
+          "mesh": "livingroomtable",
+          "position": [0.07, 0.00, -1.3],
+          "rotation": [0.0, 0.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Apple TV Remote",
+          "mesh": "appletvremote",
+          "position": [-1.08, 0.83, -2.18],
+          "rotation": [0.0, 35.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Bowl",
+          "mesh": "bowl",
+          "position": [0.0, 0.83, -1.28],
+          "rotation": [0.0, 35.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "NES magazine",
+          "mesh": "nesmagazine",
+          "position": [0.97, 0.99, -0.48],
+          "rotation": [0.0, -5.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "NES",
+          "mesh": "nes",
+          "position": [-1.81, 0.0, -4.76],
+          "rotation": [0.0, -42.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "NES Cartridge",
+          "mesh": "nescartridge",
+          "position": [-3.21, 0.05, -5.33],
+          "rotation": [0.0, -12.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "NES Cartridge(2)",
+          "mesh": "nescartridge",
+          "position": [-2.67, 0.05, -5.32],
+          "rotation": [0.0, 42.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Subwoofer",
+          "mesh": "subwoofer",
+          "position": [4.50, 0.0, -6.76],
+          "rotation": [0.0, -48.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Speaker",
+          "mesh": "speaker",
+          "position": [5.03, 0.0, -6.17],
+          "rotation": [0.0, -36.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "TV stand",
           "mesh": "tvstand",
-          "position": [5.1, 0.0, -3.0],
+          "position": [5.13, 0.0, -3.02],
           "rotation": [0.0, -90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid"
@@ -68,36 +220,85 @@
         {
           "name": "TV",
           "mesh": "tv",
-          "position": [5.1, 0.8, -3.0],
-          "rotation": [0.0, -90.0, 0.0],
+          "position": [5.20, 0.83, -3.61],
+          "rotation": [0.0, -80.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid"
         },
         {
-          "name": "Fence",
-          "mesh": "terracefence",
-          "position": [8.1, 0.0, 3.75],
-          "rotation": [0.0, -90.0, 0.0],
+          "name": "Apple TV",
+          "mesh": "appletv",
+          "position": [5.06, 0.83, -4.58],
+          "rotation": [0.0, -92.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Playstation",
+          "mesh": "playstation",
+          "position": [5.11, 0.83, -2.01],
+          "rotation": [0.0, -82.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Xbox",
+          "mesh": "xbox",
+          "position": [5.07, 0.83, -1.14],
+          "rotation": [0.0, -80.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "DVD Case",
+          "mesh": "dvdcase",
+          "position": [4.90, 0.84, -2.93],
+          "rotation": [0.0, -20.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "DVD Case(2)",
+          "mesh": "dvdcase",
+          "position": [4.69, 0.25, -2.94],
+          "rotation": [90.0, 0.0, 90.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "DVD Case(3)",
+          "mesh": "dvdcase",
+          "position": [4.69, 0.25, -2.90],
+          "rotation": [90.0, 0.0, 90.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "DVD Case(4)",
+          "mesh": "dvdcase",
+          "position": [4.69, 0.25, -2.85],
+          "rotation": [180.0, 90.0, 97.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Speaker(2)",
+          "mesh": "speaker",
+          "position": [5.03, 0.0, 0.26],
+          "rotation": [0.0, -123.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid"
         },
         {
           "name": "Windows",
           "mesh": "none",
-          "position": [6.15, 0.0, 3.95],
+          "position": [5.91, 0.0, 1.27],
           "rotation": [0.0, -90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
+          "material": "solid",
           "objects": [
             {
-              "name": "Window 0",
-              "mesh": "window",
-              "position": [-2.45, 0.0, 0.2],
-              "rotation": [0.0, 0.0, 0.0],
-              "scale": [1.0, 1.0, 1.0],
-              "material": "solid"
-            },
-            {
-              "name": "Window 1",
+              "name": "Window",
               "mesh": "window",
               "position": [0.0, 0.0, 0.0],
               "rotation": [0.0, 0.0, 0.0],
@@ -105,18 +306,97 @@
               "material": "solid"
             },
             {
-              "name": "Window 2",
+              "name": "Window(2)",
               "mesh": "window",
-              "position": [2.45, 0.0, 0.2],
+              "position": [1.22, 0.0, -0.18],
+              "rotation": [0.0, 0.0, 0.0],
+              "scale": [1.0, 1.0, 1.0],
+              "material": "solid"
+            },
+            {
+              "name": "Window(3)",
+              "mesh": "window",
+              "position": [5.44, 0.0, 0.0],
               "rotation": [0.0, 0.0, 0.0],
               "scale": [1.0, 1.0, 1.0],
               "material": "solid"
             }
           ]
+        },
+        {
+          "name": "Terrace fence",
+          "mesh": "terracefence",
+          "position": [8.04, 0.0, 3.98],
+          "rotation": [0.0, -90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Wall shelf",
+          "mesh": "wallshelf",
+          "position": [2.31, 0.0, 7.25],
+          "rotation": [0.0, 180.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Game shelf",
+          "mesh": "gameshelf",
+          "position": [2.34, 0.0, 7.25],
+          "rotation": [0.0, 180.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Door",
+          "mesh": "door",
+          "position": [-3.87, 0.01, 7.89],
+          "rotation": [0.0, 0.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Wall shelf",
+          "mesh": "wallshelf",
+          "position": [-5.74, 3.43, 5.70],
+          "rotation": [0.0, 90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Wall shelf(2)",
+          "mesh": "wallshelf",
+          "position": [-5.74, 2.29, 4.13],
+          "rotation": [0.0, 90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Plant",
+          "mesh": "plant",
+          "position": [-5.68, 2.35, 3.01],
+          "rotation": [0.0, 0.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Ceiling lamp",
+          "mesh": "ceilinglamp",
+          "position": [0.48, 5.87, -2.311],
+          "rotation": [0.0, 0.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
+        },
+        {
+          "name": "Ceiling lamp(2)",
+          "mesh": "ceilinglamp",
+          "position": [-0.48, 5.87, -1.311],
+          "rotation": [0.0, 0.0, 0.0],
+          "scale": [0.75, 0.75, 0.75],
+          "material": "solid"
         }
       ]
     }
-
   ],
   "lights": [
     {
@@ -124,8 +404,8 @@
       "type": "point",
       "position": [0.0, 2.0, 0.0],
       "constant": 1.0,
-      "linear": 0.35,
-      "quadratic": 0.44
+      "linear": 0.09,
+      "quadratic": 0.032
     }
   ],
   "cameras": [
@@ -133,12 +413,6 @@
       "name": "Free Camera",
       "type": "free",
       "position": [-10.0, 0.0, 0.0],
-      "rotation": [0.0, 0.0, 0.0]
-    },
-    {
-      "name": "Top Camera",
-      "type": "default",
-      "position": [0.0, 0.0, 2.0],
       "rotation": [0.0, 0.0, 0.0]
     }
   ]

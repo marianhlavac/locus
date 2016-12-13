@@ -28,6 +28,9 @@ public:
     void setText(string text);
     vec2 getSize();
     void setPosition(vec2 position);
+    void setAlign(int align);
+    static const int ALIGN_LEFT = 0;
+    static const int ALIGN_CENTER = 1;
 private:
     string text;
     vec2 position;
@@ -37,6 +40,7 @@ private:
     TextRenderer* renderer;
     vec3 color;
     float scale;
+    int align;
 };
 
 #endif /* Text2D_hpp */

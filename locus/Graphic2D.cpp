@@ -36,6 +36,7 @@ Graphic2D::Graphic2D(Material* material, vec2 position, vec2 size) : material(ma
 }
 
 void Graphic2D::draw() {
+    glDisable(GL_DEPTH_TEST);
     material->use();
     
     mat4 projection = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f);
@@ -44,4 +45,26 @@ void Graphic2D::draw() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     mesh->draw();
+    glEnable(GL_DEPTH_TEST);
+}
+
+void Graphic2D::setSize(vec2 size) {
+    this->size = size;
+    
+    delete mesh;
+    
+    vector<GLfloat> buffer = {
+        position.x, position.y, 0, 1,
+        position.x + size.x, position.y, 1, 1,
+        position.x, position.y + size.y, 0, 0,
+        position.x + size.x, position.y + size.y, 1, 0
+    };
+    
+    vector<GLuint> indices = {
+        0, 1, 2,
+        2, 1, 3
+    };
+    
+    mesh = new Mesh(buffer, (GLuint)buffer.size(), indices, (GLuint)indices.size());
+    mesh->addAttrib(0, 4, GL_FLOAT, 4, 0);
 }

@@ -12,9 +12,11 @@ Text2D::Text2D(string text, TextRenderer* renderer, vec2 position, vec3 color, f
     vao.bind();
     vbo.bind(GL_ARRAY_BUFFER);
     vbo.addAttrib(0, 4, GL_FLOAT, 4, 0);
+    align = ALIGN_LEFT;
 }
 
 void Text2D::draw() {
+    glDisable(GL_DEPTH_TEST);
     renderer->use();
     renderer->getShader()->setUniform("textColor", color);
     
@@ -27,13 +29,23 @@ void Text2D::draw() {
     
     float xadvanced = position.x;
     float finalHeight = 0;
+    float xOff = 0;
+    
+    if (align == ALIGN_CENTER) {
+        string::const_iterator c;
+        for (c = text.begin(); c != text.end(); c++) {
+            TextRendererChar trc = renderer->getCharacter(*c);
+            GLfloat width = trc.size.x * scale;
+            xOff -= width / 2.0f;
+        }
+    }
     
     string::const_iterator c;
     for (c = text.begin(); c != text.end(); c++) {
         TextRendererChar trc = renderer->getCharacter(*c);
         
         // Quad generation
-        GLfloat xpos = xadvanced + trc.bearing.x * scale;
+        GLfloat xpos = xadvanced + trc.bearing.x * scale + xOff;
         GLfloat ypos = position.y - (trc.size.y - trc.bearing.y) * scale;
         GLfloat width = trc.size.x * scale;
         GLfloat height = trc.size.y * scale;
@@ -62,6 +74,7 @@ void Text2D::draw() {
     size = vec2(xadvanced - position.x, finalHeight);
     
     glBindTexture(GL_TEXTURE_2D, 0);
+    glEnable(GL_DEPTH_TEST);
     vao.unbind();
 }
 
@@ -83,4 +96,8 @@ vec2 Text2D::getSize() {
 
 void Text2D::setPosition(vec2 position) {
     this->position = position;
+}
+
+void Text2D::setAlign(int align) {
+    this->align = align;
 }
