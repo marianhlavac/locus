@@ -55,7 +55,7 @@ void loadingScreenRedraw(string statusText, float progress) {
     loading->draw();
     loadingText->setText(statusText);
     loadingText->draw();
-    loadingProgress->setSize(vec2(progress * 250.0f, 3));
+    loadingProgress->setSize(vec2(progress * 250.0f, 2));
     loadingProgress->draw();
     mainWindow->endDraw();
     glfwPollEvents();
@@ -177,7 +177,7 @@ int main(int, char const**) {
     Texture* loadingProgressTex = Texture::loadFromFile(resourcePath() + "Textures/gui_loading_progressbar.png");
     Material* loadingProgressMat = graphic2Dmaterial->clone();
     loadingProgressMat->setTexture(loadingProgressTex);
-    loadingProgress = new Graphic2D(loadingProgressMat, vec2(511, 271), vec2(500, 1));
+    loadingProgress = new Graphic2D(loadingProgressMat, vec2(511, 272), vec2(500, 1));
     loadingText = new Text2D("-", fontFaceGravityBold24Renderer, vec2(630, 235), vec3(1), 0.4f);
     loadingText->setAlign(Text2D::ALIGN_CENTER);
     loadingScreenRedraw("Initializing application...", 0.1f);
