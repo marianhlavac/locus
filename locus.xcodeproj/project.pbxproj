@@ -10,7 +10,6 @@
 		CD1065941DB7E3770026CE2D /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065931DB7E3770026CE2D /* libglfw3.3.2.dylib */; };
 		CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1065951DB7E3840026CE2D /* libGLEW.2.0.0.dylib */; };
 		CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9D72961DA46AC1005D2B00 /* OpenGL.framework */; };
-		CD2B671D1DE85B0700140D8F /* libSOIL.1.07.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */; };
 		CD2B67201DE9D40700140D8F /* Child.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD2B671E1DE9D40700140D8F /* Child.cpp */; };
 		CD30968D1DFD92D00062AF1A /* Graphic2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD30968B1DFD92D00062AF1A /* Graphic2D.cpp */; };
 		CD3096901DFDC3E00062AF1A /* GUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD30968E1DFDC3E00062AF1A /* GUI.cpp */; };
@@ -22,6 +21,7 @@
 		CD59D6621DF4EF8F00487DAB /* Scenes in Resources */ = {isa = PBXBuildFile; fileRef = CD59D6611DF4EF8F00487DAB /* Scenes */; };
 		CD59D6641DF4EF9600487DAB /* Materials in Resources */ = {isa = PBXBuildFile; fileRef = CD59D6631DF4EF9600487DAB /* Materials */; };
 		CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */; };
+		CD831D141E019AF8002A3203 /* libSOIL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD831D131E019AF8002A3203 /* libSOIL.dylib */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
 		CD9D72651DA44E54005D2B00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72641DA44E54005D2B00 /* main.cpp */; };
@@ -64,6 +64,7 @@
 		CD59D6631DF4EF9600487DAB /* Materials */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Materials; sourceTree = "<group>"; };
 		CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavefrontParser.cpp; sourceTree = "<group>"; };
 		CD5CDE011DC3CAFE006B12A9 /* WavefrontParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WavefrontParser.hpp; sourceTree = "<group>"; };
+		CD831D131E019AF8002A3203 /* libSOIL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSOIL.dylib; path = ../../../../usr/local/lib/libSOIL.dylib; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		CD85A1151DAD8308000511ED /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		CD9D725C1DA44E54005D2B00 /* locus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = locus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,8 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD831D141E019AF8002A3203 /* libSOIL.dylib in Frameworks */,
 				CD33E0D81DFC380800ABF15C /* libfreetype.6.dylib in Frameworks */,
-				CD2B671D1DE85B0700140D8F /* libSOIL.1.07.dylib in Frameworks */,
 				CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */,
 				CD1065971DB7E9340026CE2D /* OpenGL.framework in Frameworks */,
 				CD1065961DB7E3840026CE2D /* libGLEW.2.0.0.dylib in Frameworks */,
@@ -210,6 +211,7 @@
 		CD9D72951DA46AC1005D2B00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD831D131E019AF8002A3203 /* libSOIL.dylib */,
 				CD33E0D71DFC380800ABF15C /* libfreetype.6.dylib */,
 				CD2B671C1DE85B0700140D8F /* libSOIL.1.07.dylib */,
 				CDE9D1C31DE7C3F200D09B80 /* libSOIL.dylib */,
