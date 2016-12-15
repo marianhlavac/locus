@@ -21,6 +21,7 @@ public:
     void setName(string name);
     list<Child*> getChildren();
     Child* getChildByName(string const childName);
+    list<Child*>::iterator getChildByNameRecursive(string const childName);
     void addChild(Child* child);
     void removeChild(Child* child);
     void removeChildByName(string const childName);

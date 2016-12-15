@@ -22,6 +22,7 @@
 		CD59D6641DF4EF9600487DAB /* Materials in Resources */ = {isa = PBXBuildFile; fileRef = CD59D6631DF4EF9600487DAB /* Materials */; };
 		CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */; };
 		CD831D141E019AF8002A3203 /* libSOIL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD831D131E019AF8002A3203 /* libSOIL.dylib */; };
+		CD831D171E019B7C002A3203 /* Curve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD831D151E019B7C002A3203 /* Curve.cpp */; };
 		CD85A1161DAD8308000511ED /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD85A1141DAD8308000511ED /* Scene.cpp */; };
 		CD9D72621DA44E54005D2B00 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72611DA44E54005D2B00 /* ResourcePath.mm */; };
 		CD9D72651DA44E54005D2B00 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72641DA44E54005D2B00 /* main.cpp */; };
@@ -65,6 +66,8 @@
 		CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavefrontParser.cpp; sourceTree = "<group>"; };
 		CD5CDE011DC3CAFE006B12A9 /* WavefrontParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WavefrontParser.hpp; sourceTree = "<group>"; };
 		CD831D131E019AF8002A3203 /* libSOIL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSOIL.dylib; path = ../../../../usr/local/lib/libSOIL.dylib; sourceTree = "<group>"; };
+		CD831D151E019B7C002A3203 /* Curve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Curve.cpp; sourceTree = "<group>"; };
+		CD831D161E019B7C002A3203 /* Curve.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Curve.hpp; sourceTree = "<group>"; };
 		CD85A1141DAD8308000511ED /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		CD85A1151DAD8308000511ED /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		CD9D725C1DA44E54005D2B00 /* locus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = locus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +186,8 @@
 				CD30968C1DFD92D00062AF1A /* Graphic2D.hpp */,
 				CD30968E1DFDC3E00062AF1A /* GUI.cpp */,
 				CD30968F1DFDC3E00062AF1A /* GUI.hpp */,
+				CD831D151E019B7C002A3203 /* Curve.cpp */,
+				CD831D161E019B7C002A3203 /* Curve.hpp */,
 			);
 			path = locus;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,
 				CD85A1161DAD8308000511ED /* Scene.cpp in Sources */,
 				CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */,
+				CD831D171E019B7C002A3203 /* Curve.cpp in Sources */,
 				CD2B67201DE9D40700140D8F /* Child.cpp in Sources */,
 				CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */,
 				CD33E0E41DFC56F700ABF15C /* TextRenderer.cpp in Sources */,

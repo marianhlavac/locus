@@ -1,0 +1,38 @@
+
+"disables": {
+  "sofa": "Models/Sofa.obj",
+  "ceilinglamp": "Models/Ceiling Lamp.obj",
+  "plant": "Models/Plant.obj",
+  {
+    "name": "Sofa",
+    "mesh": "sofa",
+    "position": [-4.79, 0.00, -1.96],
+    "rotation": [0.0, 90.0, 0.0],
+    "scale": [1.0, 1.0, 1.0],
+    "material": "solid"
+  },
+},
+{
+  "name": "Plant",
+  "mesh": "plant",
+  "position": [-5.68, 2.35, 3.01],
+  "rotation": [0.0, 0.0, 0.0],
+  "scale": [1.0, 1.0, 1.0],
+  "material": "solid"
+},
+{
+  "name": "Ceiling lamp",
+  "mesh": "ceilinglamp",
+  "position": [0.48, 5.87, -2.311],
+  "rotation": [0.0, 0.0, 0.0],
+  "scale": [1.0, 1.0, 1.0],
+  "material": "solid"
+},
+{
+  "name": "Ceiling lamp(2)",
+  "mesh": "ceilinglamp",
+  "position": [-0.48, 5.87, -1.311],
+  "rotation": [0.0, 0.0, 0.0],
+  "scale": [0.75, 0.75, 0.75],
+  "material": "solid"
+}

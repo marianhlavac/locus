@@ -16,6 +16,7 @@
 #include "PointLight.hpp"
 #include "Text2D.hpp"
 #include "GUI.hpp"
+#include "Curve.hpp"
 
 //
 // TODO:
@@ -47,6 +48,7 @@ Graphic2D* loading;
 Graphic2D* loadingProgress;
 Text2D* loadingText;
 GUI* gui;
+Curve* testcurve;
 
 int objHover = -1;
 
@@ -83,6 +85,14 @@ Scene* init(Window* window) {
     gui = new GUI(fontFaceGravityRegular24Renderer, fontFaceGravityBold24Renderer, graphic2Dmaterial, &configuration);
     gui->init(resourcePath() + "Textures/gui_navigation.png");
     
+    testcurve = new Curve();
+    testcurve->addPoint(vec3(-4, 0, 4));
+    testcurve->addPoint(vec3(-3, 0, -2));
+    testcurve->addPoint(vec3(3, 0, 2));
+    testcurve->addPoint(vec3(4, 0, -4));
+    testcurve->addPoint(vec3(8, 0, 2));
+    testcurve->addPoint(vec3(16, 0, -2));
+    
     return scene;
 }
 
@@ -105,6 +115,9 @@ void update(Window* window, double timeElapsed, double timeDelta) {
         fps->setText(to_string((int)(1 / timeDelta)));
         fpsUpdateTimer = 0.25f;
     }
+    
+    Object* lamp = (Object*)sc->getChildByName("Lamp");
+    lamp->setPosition(testcurve->calc(timeElapsed));
     
     fpsUpdateTimer -= timeDelta;
     

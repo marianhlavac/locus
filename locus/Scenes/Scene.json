@@ -7,7 +7,6 @@
     "bigwallpicture": "Models/Big Wall Picture.obj",
     "book": "Models/Book.obj",
     "bowl": "Models/Bowl.obj",
-    "ceilinglamp": "Models/Ceiling Lamp.obj",
     "cube": "Models/Cube.obj",
     "dvdcase": "Models/DVD Case.obj",
     "door": "Models/Door.obj",
@@ -20,13 +19,11 @@
     "nesmagazine": "Models/NES magazine.obj",
     "nes": "Models/NES.obj",
     "photoframe": "Models/Photo Frame.obj",
-    "plant": "Models/Plant.obj",
     "playstation": "Models/Playstation.obj",
     "roomdesk": "Models/Room Desk.obj",
     "room": "Models/Room.obj",
     "smalllamp": "Models/Small Lamp.obj",
     "smalltable": "Models/Small Table.obj",
-    "sofa": "Models/Sofa.obj",
     "speaker": "Models/Speaker.obj",
     "subwoofer": "Models/Subwoofer.obj",
     "tvstand": "Models/TV stand.obj",
@@ -49,14 +46,6 @@
       "scale": [1.0, 1.0, 1.0],
       "material": "solid",
       "objects": [
-        {
-          "name": "Sofa",
-          "mesh": "sofa",
-          "position": [-4.79, 0.00, -1.96],
-          "rotation": [0.0, 90.0, 0.0],
-          "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
-        },
         {
           "name": "Small Table",
           "mesh": "smalltable",
@@ -369,30 +358,6 @@
           "position": [-5.74, 2.29, 4.13],
           "rotation": [0.0, 90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
-        },
-        {
-          "name": "Plant",
-          "mesh": "plant",
-          "position": [-5.68, 2.35, 3.01],
-          "rotation": [0.0, 0.0, 0.0],
-          "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
-        },
-        {
-          "name": "Ceiling lamp",
-          "mesh": "ceilinglamp",
-          "position": [0.48, 5.87, -2.311],
-          "rotation": [0.0, 0.0, 0.0],
-          "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
-        },
-        {
-          "name": "Ceiling lamp(2)",
-          "mesh": "ceilinglamp",
-          "position": [-0.48, 5.87, -1.311],
-          "rotation": [0.0, 0.0, 0.0],
-          "scale": [0.75, 0.75, 0.75],
           "material": "solid"
         }
       ]
