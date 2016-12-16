@@ -117,6 +117,8 @@ Scene* Scene::fromFile(const string &filename, void (*progress)(string, float)) 
         string filename = root["meshes"].get(meshName, "Mesh").asString();
         progress("Loading " + filename, 0.45f + (0.2f * done / total));
         
+        if (meshName[0] == '!') continue;
+        
         WavefrontParserResult* parsedObj = WavefrontParser::parse(resourcePath() + filename);
         Mesh* mesh = new Mesh(parsedObj);
         
