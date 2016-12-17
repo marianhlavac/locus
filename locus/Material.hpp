@@ -28,6 +28,8 @@ using namespace glm;
 
 class Material {
 public:
+    static const int TEXTURE_BASE = 0;
+    static const int TEXTURE_CUBEMAP = 1;
     Material(Shader* shader, Texture* texture, vec3 ambient, vec3 diffuse, vec3 specular);
     Material(Shader* shader, vec3 ambient, vec3 diffuse, vec3 specular);
     Material(Shader* shader);
@@ -43,6 +45,7 @@ public:
     void updateMVP(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform);
     void updateVP(mat4 viewTransform, mat4 projectionTransform);
     void updateM(mat4 modelTransform);
+    void setTextureType(int textureType);
     vec3 ambient;
     vec3 diffuse;
     vec3 specular;
@@ -50,6 +53,7 @@ private:
     Shader* shader;
     bool hasTexture;
     Texture* texture;
+    int textureType;
 };
 
 #endif /* Material_hpp */

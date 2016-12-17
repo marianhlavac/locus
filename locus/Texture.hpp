@@ -15,6 +15,7 @@
 #include <glm/glm.hpp>
 
 #include <string>
+#include <vector>
 
 using namespace std;
 using namespace glm;
@@ -22,13 +23,18 @@ using namespace glm;
 class Texture {
 public:
     Texture(unsigned char* image, int width, int height);
+    Texture(vector<pair<unsigned char*, vec2>> images);
     static Texture* loadFromFile(const string& filename);
+    static Texture* loadCubemap(vector<string> filenames);
     void bind();
+    void bindCubemap();
     static void unbind();
+    static void unbindCubemap();
 private:
     vec2 size;
     GLuint texture;
     void generateTexture(unsigned char* image);
+    void generateCubemap(vector<pair<unsigned char*, vec2>> images);
 };
 
 #endif /* Texture_hpp */

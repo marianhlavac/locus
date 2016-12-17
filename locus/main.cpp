@@ -17,6 +17,7 @@
 #include "Text2D.hpp"
 #include "GUI.hpp"
 #include "Curve.hpp"
+#include "Skybox.hpp"
 
 //
 // TODO:
@@ -44,11 +45,13 @@ Text2D* fps;
 float fpsUpdateTimer = 0;
 Material* selectionMaterial;
 Material* graphic2Dmaterial;
+Material* skyboxMaterial;
 Graphic2D* loading;
 Graphic2D* loadingProgress;
 Text2D* loadingText;
 GUI* gui;
 Curve* testcurve;
+Skybox* skybox;
 
 int objHover = -1;
 
@@ -92,6 +95,13 @@ Scene* init(Window* window) {
     testcurve->addPoint(vec3(4, 0, -4));
     testcurve->addPoint(vec3(8, 0, 2));
     testcurve->addPoint(vec3(16, 0, -2));
+    
+    // Load skybox textures
+    vector<string> textFilenames = { resourcePath() + "Textures/skybox/right.jpg", resourcePath() + "Textures/skybox/left.jpg", resourcePath() + "Textures/skybox/top.jpg", resourcePath() + "Textures/skybox/bottom.jpg", resourcePath() + "Textures/skybox/back.jpg", resourcePath() + "Textures/skybox/front.jpg" };
+    Texture* skyboxTexture = Texture::loadCubemap(textFilenames);
+    skyboxMaterial->setTexture(skyboxTexture);
+    skybox = new Skybox(50, skyboxMaterial);
+    scene->addMaterial(skyboxMaterial);
     
     return scene;
 }
@@ -138,6 +148,8 @@ void render(Window* window) {
     // draw the whole thing
     window->beginDraw();
     
+    skybox->draw();
+    
     window->getAttachedScene()->draw();
     gui->draw();
     fps->draw();
@@ -180,6 +192,8 @@ int main(int, char const**) {
     selectionMaterial = Material::fromFile(resourcePath() + "Materials/Selection.mat");
     text2Dshader = Shader::fromFile(resourcePath() + "Shaders/Text2D.vert", resourcePath() + "Shaders/Text2D.frag");
     graphic2Dmaterial = Material::fromFile(resourcePath() + "Materials/Graphic2DBase.mat");
+    skyboxMaterial = Material::fromFile(resourcePath() + "Materials/Skybox.mat");
+    skyboxMaterial->setTextureType(Material::TEXTURE_CUBEMAP);
     
     // load fonts from resources
     fontFaceGravityBook24Renderer = new TextRenderer(resourcePath() + "Fonts/Gravity-Book.otf", 24, text2Dshader);

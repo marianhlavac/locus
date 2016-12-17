@@ -37,6 +37,7 @@
 		CD9D72941DA453F2005D2B00 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9D72921DA453F2005D2B00 /* Window.cpp */; };
 		CDCA25101DC888EE00477D13 /* libjsoncpp.1.7.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */; };
 		CDCE8EC21DF44A9900DC3D2B /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDCE8EC01DF44A9900DC3D2B /* Shader.cpp */; };
+		CDCEB7FA1E05532F008C3792 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDCEB7F81E05532F008C3792 /* Skybox.cpp */; };
 		CDD5AE141DB58CFB00D35F30 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = CDD5AE131DB58CFB00D35F30 /* Shaders */; };
 		CDDD34251DE679A300D52AED /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDDD34231DE679A300D52AED /* FreeCamera.cpp */; };
 		CDE9D1C21DE7C2A500D09B80 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = CDE9D1C11DE7C2A500D09B80 /* Textures */; };
@@ -97,6 +98,8 @@
 		CDCA250F1DC888EE00477D13 /* libjsoncpp.1.7.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjsoncpp.1.7.7.dylib; path = ../../../../usr/local/Cellar/jsoncpp/1.7.7/lib/libjsoncpp.1.7.7.dylib; sourceTree = "<group>"; };
 		CDCE8EC01DF44A9900DC3D2B /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		CDCE8EC11DF44A9900DC3D2B /* Shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
+		CDCEB7F81E05532F008C3792 /* Skybox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Skybox.cpp; sourceTree = "<group>"; };
+		CDCEB7F91E05532F008C3792 /* Skybox.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Skybox.hpp; sourceTree = "<group>"; };
 		CDD5AE131DB58CFB00D35F30 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		CDDD34231DE679A300D52AED /* FreeCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCamera.cpp; sourceTree = "<group>"; };
 		CDDD34241DE679A300D52AED /* FreeCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FreeCamera.hpp; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				CD30968F1DFDC3E00062AF1A /* GUI.hpp */,
 				CD831D151E019B7C002A3203 /* Curve.cpp */,
 				CD831D161E019B7C002A3203 /* Curve.hpp */,
+				CDCEB7F81E05532F008C3792 /* Skybox.cpp */,
+				CDCEB7F91E05532F008C3792 /* Skybox.hpp */,
 			);
 			path = locus;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				CD9D72881DA450D4005D2B00 /* SpotLight.cpp in Sources */,
 				CD85A1161DAD8308000511ED /* Scene.cpp in Sources */,
 				CD9D727C1DA450B3005D2B00 /* Object.cpp in Sources */,
+				CDCEB7FA1E05532F008C3792 /* Skybox.cpp in Sources */,
 				CD831D171E019B7C002A3203 /* Curve.cpp in Sources */,
 				CD2B67201DE9D40700140D8F /* Child.cpp in Sources */,
 				CD5CDE021DC3CAFE006B12A9 /* WavefrontParser.cpp in Sources */,

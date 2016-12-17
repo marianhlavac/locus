@@ -19,18 +19,22 @@ using namespace std;
 
 Material::Material(Shader* shader, Texture* texture, vec3 ambient, vec3 diffuse, vec3 specular) : shader(shader), texture(texture), ambient(ambient), diffuse(diffuse), specular(specular) {
     hasTexture = true;
+    textureType = TEXTURE_BASE;
 }
 
 Material::Material(Shader* shader, vec3 ambient, vec3 diffuse, vec3 specular) : Material(shader, nullptr, ambient, diffuse, specular) {
     hasTexture = false;
+    textureType = TEXTURE_BASE;
 }
 
 Material::Material(Shader* shader) : Material(shader, nullptr, vec3(0.1f), vec3(1), vec3(1)) {
     hasTexture = false;
+    textureType = TEXTURE_BASE;
 }
 
 Material::Material(Shader* shader, Texture* texture) : Material(shader, texture, vec3(0.1f), vec3(1), vec3(1)) {
     hasTexture = true;
+    textureType = TEXTURE_BASE;
 }
 
 Material::~Material() {
@@ -53,7 +57,10 @@ Material* Material::clone() {
 
 void Material::use() {
     shader->use();
-    if (hasTexture) texture->bind();
+    if (hasTexture) {
+        if (textureType == TEXTURE_BASE) texture->bind();
+        if (textureType == TEXTURE_CUBEMAP) texture->bindCubemap();
+    }
 }
 
 Shader* Material::getShader() {
@@ -87,4 +94,8 @@ void Material::updateVP(mat4 viewTransform, mat4 projectionTransform) {
 
 void Material::updateM(mat4 modelTransform) {
     shader->setUniform("M", modelTransform);
+}
+
+void Material::setTextureType(int textureType) {
+    this->textureType = textureType;
 }
