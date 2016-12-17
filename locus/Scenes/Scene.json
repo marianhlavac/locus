@@ -26,7 +26,7 @@
     "room": "Models/Room.obj",
     "smalllamp": "Models/Small Lamp.obj",
     "smalltable": "Models/Small Table.obj",
-    "!sofa": "Models/Sofa.obj",
+    "sofa": "Models/Sofa.obj",
     "speaker": "Models/Speaker.obj",
     "subwoofer": "Models/Subwoofer.obj",
     "tvstand": "Models/TV stand.obj",
@@ -38,7 +38,12 @@
     "xbox": "Models/Xbox.obj"
   },
   "materials": {
-    "solid": "Materials/Solid.mat"
+    "solid": "Materials/Solid.mat",
+    "light": "Materials/Light.mat",
+    "book": "Materials/Objects/Book.mat",
+    "sofa": "Materials/Objects/Sofa.mat",
+    "room": "Materials/Objects/Room.mat",
+    "window": "Materials/Objects/Window.mat"
   },
   "objects": [
     {
@@ -47,7 +52,7 @@
       "position": [0.0, 0.0, 0.0],
       "rotation": [0.0, 0.0, 0.0],
       "scale": [1.0, 1.0, 1.0],
-      "material": "solid",
+      "material": "room",
       "objects": [
 
           {
@@ -56,7 +61,7 @@
             "position": [0.0, 1.5, -2.5],
             "rotation": [0.0, 0.0, 0.0],
             "scale": [0.1, 0.1, 0.1],
-            "material": "solid"
+            "material": "light"
           },
         {
           "name": "Small Table",
@@ -80,7 +85,7 @@
           "position": [-4.92, 0.56, 1.06],
           "rotation": [0.0, 24.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
+          "material": "book"
         },
         {
           "name": "Book(2)",
@@ -88,7 +93,7 @@
           "position": [-5.02, 0.64, 1.06],
           "rotation": [0.0, 18.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
+          "material": "book"
         },
         {
           "name": "Big Wall Picture",
@@ -165,7 +170,7 @@
         {
           "name": "NES magazine",
           "mesh": "nesmagazine",
-          "position": [0.97, 0.99, -0.48],
+          "position": [1.11, 1.02, -0.48],
           "rotation": [0.0, -5.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid"
@@ -316,11 +321,11 @@
         },
         {
           "name": "Sofa",
-          "mesh": "none",
+          "mesh": "sofa",
           "position": [-4.79, 0.00, -1.96],
           "rotation": [0.0, 90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
+          "material": "sofa"
         },
         {
           "name": "Windows",
@@ -336,7 +341,7 @@
               "position": [0.0, 0.0, 0.0],
               "rotation": [0.0, 0.0, 0.0],
               "scale": [1.0, 1.0, 1.0],
-              "material": "solid"
+              "material": "window"
             },
             {
               "name": "Window(2)",
@@ -344,7 +349,7 @@
               "position": [1.22, 0.0, -0.18],
               "rotation": [0.0, 0.0, 0.0],
               "scale": [1.0, 1.0, 1.0],
-              "material": "solid"
+              "material": "window"
             },
             {
               "name": "Window(3)",
@@ -352,7 +357,7 @@
               "position": [5.44, 0.0, 0.0],
               "rotation": [0.0, 0.0, 0.0],
               "scale": [1.0, 1.0, 1.0],
-              "material": "solid"
+              "material": "window"
             }
           ]
         },

@@ -45,10 +45,20 @@ Material* Material::fromFile(const string& filename) {
     ifstream file(filename);
     string vertFilename, fragFilename;
     float ambient, diffuse, specular;
+    string textureFile;
     
-    file >> vertFilename >> fragFilename >> ambient >> diffuse >> specular;
+    file >> vertFilename >> fragFilename >> ambient >> diffuse >>
+            specular >> textureFile;
+    
     Shader* shader = Shader::fromFile(resourcePath() + vertFilename, resourcePath() + fragFilename);
-    return new Material(shader, vec3(ambient), vec3(diffuse), vec3(specular));
+    
+    Material* material = new Material(shader, vec3(ambient), vec3(diffuse), vec3(specular));
+    
+    if (textureFile[0] != '!') {
+        material->setTexture(Texture::loadFromFile(textureFile));
+    }
+    
+    return material;
 }
 
 Material* Material::clone() {
