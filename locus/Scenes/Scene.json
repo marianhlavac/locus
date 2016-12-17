@@ -49,6 +49,15 @@
       "scale": [1.0, 1.0, 1.0],
       "material": "solid",
       "objects": [
+
+          {
+            "name": "Light Cube",
+            "mesh": "cube",
+            "position": [0.0, 1.5, -2.5],
+            "rotation": [0.0, 0.0, 0.0],
+            "scale": [0.1, 0.1, 0.1],
+            "material": "solid"
+          },
         {
           "name": "Small Table",
           "mesh": "smalltable",
@@ -402,10 +411,10 @@
     {
       "name": "Light",
       "type": "point",
-      "position": [0.0, 2.0, 0.0],
+      "position": [0.0, 1.5, -2.5],
       "constant": 1.0,
-      "linear": 0.09,
-      "quadratic": 0.032
+      "linear": 0.2,
+      "quadratic": 0.011
     }
   ],
   "cameras": [

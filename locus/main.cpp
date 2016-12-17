@@ -119,6 +119,9 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     Object* lamp = (Object*)sc->getChildByName("Lamp");
     lamp->setPosition(testcurve->calc(timeElapsed));
     
+    ((PointLight*)sc->getChildByName("Light"))->setPosition(vec3(sin(timeElapsed)*2, 2.0f, cos(timeElapsed)*3));
+    ((Object*)sc->getChildByName("Light Cube"))->setPosition(vec3(sin(timeElapsed)*2, 2.0f, cos(timeElapsed)*3));
+    
     fpsUpdateTimer -= timeDelta;
     
     gui->update(window, timeElapsed);

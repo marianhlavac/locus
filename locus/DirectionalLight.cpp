@@ -7,3 +7,7 @@
 //
 
 #include "DirectionalLight.hpp"
+
+DirectionalLight::DirectionalLight(string name, vec3 position) : Object(name, position) {
+    this->isDrawable = false;
+}

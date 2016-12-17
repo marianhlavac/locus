@@ -79,6 +79,8 @@ void Scene::updateMaterials() {
             i++;
         }
         
+        shader->setUniform("viewPos", camera->getPosition());
+        
         mat4 view = ((Camera*)camera)->getViewMatrix();
         mat4 projection = ((Camera*)camera)->getProjectionMatrix();
         mat->updateVP(view, projection);
@@ -181,6 +183,10 @@ Scene* Scene::fromFile(const string &filename, void (*progress)(string, float)) 
             li = new PointLight(name, position, constant, linear, quadratic);
             
             scene->addPointLight((PointLight *)li);
+        } else if (type == "directional") {
+            li = new DirectionalLight(name, position);
+            
+            scene->addDirectionalLight((DirectionalLight *)li);
         } else {
             throw runtime_error("Nonexisting light type specified in scene JSON");
         }

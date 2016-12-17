@@ -25,11 +25,11 @@ Material::Material(Shader* shader, vec3 ambient, vec3 diffuse, vec3 specular) : 
     hasTexture = false;
 }
 
-Material::Material(Shader* shader) : Material(shader, nullptr, vec3(1), vec3(1), vec3(1)) {
+Material::Material(Shader* shader) : Material(shader, nullptr, vec3(0.1f), vec3(1), vec3(1)) {
     hasTexture = false;
 }
 
-Material::Material(Shader* shader, Texture* texture) : Material(shader, texture, vec3(1), vec3(1), vec3(1)) {
+Material::Material(Shader* shader, Texture* texture) : Material(shader, texture, vec3(0.1f), vec3(1), vec3(1)) {
     hasTexture = true;
 }
 
@@ -40,10 +40,11 @@ Material::~Material() {
 Material* Material::fromFile(const string& filename) {
     ifstream file(filename);
     string vertFilename, fragFilename;
+    float ambient, diffuse, specular;
     
-    file >> vertFilename >> fragFilename;
+    file >> vertFilename >> fragFilename >> ambient >> diffuse >> specular;
     Shader* shader = Shader::fromFile(resourcePath() + vertFilename, resourcePath() + fragFilename);
-    return new Material(shader, vec3(1, 1, 1), vec3(1, 1, 1), vec3(1, 1, 1));
+    return new Material(shader, vec3(ambient), vec3(diffuse), vec3(specular));
 }
 
 Material* Material::clone() {
