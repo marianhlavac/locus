@@ -19,7 +19,6 @@ using namespace glm;
 class PointLight : public Object {
 public:
     PointLight(string name, vec3 position, float constant, float linear, float quadratic);
-    void updateToUniform();
     float getConstant();
     float getLinear();
     float getQuadratic();

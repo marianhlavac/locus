@@ -121,6 +121,7 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     
     ((PointLight*)sc->getChildByName("Light"))->setPosition(vec3(sin(timeElapsed)*2, 2.0f, cos(timeElapsed)*3));
     ((Object*)sc->getChildByName("Light Cube"))->setPosition(vec3(sin(timeElapsed)*2, 2.0f, cos(timeElapsed)*3));
+    ((PointLight*)sc->getChildByName("Spotlight"))->setRotation(vec3(sin(timeElapsed)*2, 0, cos(timeElapsed)*3));
     
     fpsUpdateTimer -= timeDelta;
     

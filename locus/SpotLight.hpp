@@ -13,8 +13,18 @@
 
 class SpotLight : public Object {
 public:
-    SpotLight(string name, vec3 position);
-    void updateToUniform();
+    SpotLight(string name, vec3 position, vec3 rotation, float constant, float linear, float quadratic, float cutOff, float outerCutOff);
+    float getConstant();
+    float getLinear();
+    float getQuadratic();
+    float getCutOff();
+    float getOuterCutOff();
+private:
+    float constant;
+    float linear;
+    float quadratic;
+    float cutOff;
+    float outerCutOff;
 };
 
 #endif /* SpotLight_hpp */

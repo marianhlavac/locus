@@ -415,6 +415,17 @@
       "constant": 1.0,
       "linear": 0.2,
       "quadratic": 0.011
+    },
+    {
+      "name": "Spotlight",
+      "type": "spot",
+      "position": [0.0, 1.5, -2.5],
+      "rotation": [0.0, 0.0, 0.0],
+      "constant": 1.0,
+      "linear": 0.2,
+      "quadratic": 0.011,
+      "cutoff": 0.91,
+      "outercutoff": 0.82
     }
   ],
   "cameras": [

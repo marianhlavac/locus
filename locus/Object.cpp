@@ -131,6 +131,10 @@ fquat Object::getRotation() {
     return rotation;
 }
 
+vec3 Object::getRotation(vec3 target) {
+    return rotation * target;
+}
+
 vec3 Object::getScale() {
     return scale;
 }

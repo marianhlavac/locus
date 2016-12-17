@@ -79,6 +79,19 @@ void Scene::updateMaterials() {
             i++;
         }
         
+        i = 0;
+        for (SpotLight* light : spotLights) {
+            shader->setUniform("spotLights", i, "position", light->getPosition());
+            shader->setUniform("spotLights", i, "direction", light->getRotation(vec3(0, 1, 0)));
+            shader->setUniform("spotLights", i, "constant", light->getConstant());
+            shader->setUniform("spotLights", i, "linear", light->getLinear());
+            shader->setUniform("spotLights", i, "quadratic", light->getQuadratic());
+            shader->setUniform("spotLights", i, "cutOff", light->getCutOff());
+            shader->setUniform("spotLights", i, "outerCutOff", light->getOuterCutOff());
+            shader->setADS("spotLights", i, mat->ambient, mat->diffuse, mat->specular);
+            i++;
+        }
+        
         shader->setUniform("viewPos", camera->getPosition());
         
         mat4 view = ((Camera*)camera)->getViewMatrix();
@@ -187,6 +200,18 @@ Scene* Scene::fromFile(const string &filename, void (*progress)(string, float)) 
             li = new DirectionalLight(name, position);
             
             scene->addDirectionalLight((DirectionalLight *)li);
+        } else if (type == "spot") {
+            vec3 rotation(light["rotation"][0].asFloat(), light["rotation"][1].asFloat(), light["rotation"][2].asFloat());
+            
+            float constant = light["constant"].asFloat();
+            float linear = light["linear"].asFloat();
+            float quadratic = light["quadratic"].asFloat();
+            float cutOff = light["cutoff"].asFloat();
+            float outerCutOff = light["outercutoff"].asFloat();
+            
+            li = new SpotLight(name, position, rotation, constant, linear, quadratic, cutOff, outerCutOff);
+            
+            scene->addSpotLight((SpotLight *)li);
         } else {
             throw runtime_error("Nonexisting light type specified in scene JSON");
         }

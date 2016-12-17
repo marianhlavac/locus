@@ -33,6 +33,7 @@ public:
     void traverse(Object* parent);
     void traverse(Object* parent, Material* forcedMaterial);
     vec3 getPosition();
+    vec3 getRotation(vec3 target);
     quat getRotation();
     vec3 getScale();
     void setPosition(vec3 position);
