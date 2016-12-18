@@ -21,12 +21,13 @@ using namespace glm;
 class Curve {
 public:
     Curve();
+    Curve(vector<vec3> points);
     vec3 calc(float t);
+    vec3 calcD(float t);
     vector<vec3> points;
     void addPoint(vec3 point);
 private:
-    float poly(float var, float cubic, float square, float linear, float constant);
-    int getSegment(float t);
+    vector<vec3> getPoints(float t);
 };
 
 #endif /* Curve_hpp */

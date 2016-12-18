@@ -10,35 +10,40 @@
 
 #include <iostream>
 
-Curve::Curve() {
-    
+Curve::Curve() { }
+
+Curve::Curve(vector<vec3> points) : points(points) { }
+
+int mod_p(int i, int n) {
+    return (i % n + n) % n;
 }
 
 vec3 Curve::calc(float t) {
+    vector<vec3> p = getPoints(t);
+    t = fmod(t, 1.0f);
+    
+    return 0.5f * ((p[1]*2.0f) + (-p[0]+p[2])*t + ((p[0]*2.0f)-(p[1]*5.0f)+(p[2]*4.0f)-p[3]) * (float)pow(t,2) + (-p[0]+(p[1]*3.0f)-(p[2]*3.0f)+p[3]) * (float)pow(t,3.0f));
+}
+
+vec3 Curve::calcD(float t) {
+    vector<vec3> p = getPoints(t);
+    t = fmod(t, 1.0f);
+    
+    return 0.5f * (3.0f*(float)pow(t,2) * (-p[0]+3.0f*p[1]-3.0f*p[2]+p[3]) + 2*t * (2.0f*p[0]-5.0f*p[1]+4.0f*p[2]-p[3]) - p[0] + p[2]);
+}
+
+vector<vec3> Curve::getPoints(float t) {
     if (points.size() < 4) {
         throw runtime_error("There must be at least 4 points in curve");
     }
     
-    int segment = getSegment(t);
-    t = fmod(t / 4.0f, 1);
-    int maxseg = (int)points.size() - 1;
+    int maxseg = (int)points.size();
+    int segment = (int)floor(t);
+    t = fmod(t, 1.0f);
     
-    cout << "pts " << segment << "-" << (segment + 4) % maxseg << " / " << points.size() << endl;
-    
-    vec3 p0 = points[segment % maxseg];
-    vec3 p1 = points[++segment % maxseg];
-    vec3 p2 = points[++segment % maxseg];
-    vec3 p3 = points[++segment % maxseg];
-    
-    return 0.5f * (p0 * poly(t, -3, 2, -1, 0) + p1 * poly(t, 3, -5, 0, 2) + p2 * poly(t, -3, 4, 1, 0) + p3 * poly(t, 1, 1, 0, 0));
-}
-
-float Curve::poly(float var, float cubic, float square, float linear, float constant) {
-    return pow(var, 3) * cubic + pow(var, 2) * square + var * linear + constant;
-}
-
-int Curve::getSegment(float t) {
-    return fmod(floor(t / 4.0f) * 4.0f, points.size());
+    return vector<vec3> {
+        points[mod_p((segment-1), maxseg)], points[mod_p((segment), maxseg)], points[mod_p((segment+1), maxseg)], points[mod_p((segment+2), maxseg)]
+    };
 }
 
 void Curve::addPoint(vec3 point) {
