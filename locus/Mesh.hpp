@@ -60,7 +60,8 @@ public:
     Mesh(vector<GLfloat> buffer, GLuint bufferSize, vector<GLuint> indices, GLuint indicesSize);
     void draw();
     static Mesh* loadFromFile(const string & filename);
-    static Mesh* cube();
+    static Mesh* createCube(float size);
+    static Mesh* createQuad(vec2 size);
     void addAttrib(GLuint location, GLint size, GLenum type, GLsizei stride, int start);
 private:
     void createBuffer(GLuint* vbo, unsigned length, const GLvoid * data, GLenum target);

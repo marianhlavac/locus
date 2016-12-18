@@ -49,3 +49,58 @@ void Mesh::addAttrib(GLuint location, GLint size, GLenum type, GLsizei stride, i
     verticesVbo->addAttrib(location, size, type, stride, start);
     vao->unbind();
 }
+
+Mesh* Mesh::createCube(float size) {
+    size *= 0.5f;
+    
+    vector<GLfloat> buffer = {
+        -size, size, -size,
+        -size, size, size,
+        -size, -size, -size,
+        -size, -size, size,
+        size, size, -size,
+        size, size, size,
+        size, -size, -size,
+        size, -size, size
+    };
+    
+    vector<GLuint> indices = {
+        0, 4, 1,
+        4, 5, 1,
+        3, 6, 2,
+        3, 7, 6,
+        1, 5, 3,
+        3, 5, 7,
+        7, 5, 4,
+        7, 4, 6,
+        6, 4, 2,
+        2, 4, 0,
+        2, 0, 1,
+        1, 3, 2
+    };
+    
+    Mesh* mesh = new Mesh(buffer, (GLuint)buffer.size(), indices, (GLuint)indices.size());
+    mesh->addAttrib(0, 3, GL_FLOAT, 3, 0);
+    return mesh;
+}
+
+Mesh* Mesh::createQuad(vec2 size) {
+    size *= 0.5f;
+    
+    vector<GLfloat> buffer = {
+        size.x, 0, size.y, 1, 0,
+        size.x, 0, -size.y, 1, 1,
+        -size.x, 0, size.y, 0, 0,
+        -size.x, 0, -size.y, 0, 1
+    };
+    
+    vector<GLuint> indices = {
+        1, 2, 3,
+        0, 2, 1
+    };
+    
+    Mesh* mesh = new Mesh(buffer, (GLuint)buffer.size(), indices, (GLuint)indices.size());
+    mesh->addAttrib(0, 3, GL_FLOAT, 5, 0);
+    mesh->addAttrib(2, 2, GL_FLOAT, 5, 3);
+    return mesh;
+}
