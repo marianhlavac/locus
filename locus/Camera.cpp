@@ -17,10 +17,31 @@ Camera::Camera(string name, vec3 position, vec3 rotation) : Object(name, positio
 }
 
 mat4 Camera::getViewMatrix() {
-    return toMat4(rotation) * translate(position);
+    return toMat4(rotation) * translate(-position);
 }
 
 mat4 Camera::getProjectionMatrix() {
     // TODO: Make this parametric
     return perspective( radians(90.0f), 16.0f / 9.0f, 0.01f, 100.0f);
+}
+
+void Camera::holdBoundaries(vec3 center, vec3 size) {
+    if (position.x > center.x + size.x/2.0f) {
+        position.x -= (position.x - (center.x + size.x/2.0f)) / 2.0f;
+    }
+    if (position.x < center.x - size.x/2.0f) {
+        position.x -= (position.x - (center.x - size.x/2.0f)) / 2.0f;
+    }
+    if (position.y > center.y + size.y/2.0f) {
+        position.y -= (position.y - (center.y + size.y/2.0f)) / 2.0f;
+    }
+    if (position.y < center.y - size.y/2.0f) {
+        position.y -= (position.y - (center.y - size.y/2.0f)) / 2.0f;
+    }
+    if (position.z > center.z + size.z/2.0f) {
+        position.z -= (position.z - (center.z + size.z/2.0f)) / 2.0f;
+    }
+    if (position.z < center.z - size.z/2.0f) {
+        position.z -= (position.z - (center.z - size.z/2.0f)) / 2.0f;
+    }
 }

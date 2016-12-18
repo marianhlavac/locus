@@ -39,6 +39,6 @@ void FreeCamera::update(Window* window, float deltaTime) {
         if (velocity.x > -MAX_VELOCITY) velocity.x -= 2.0f;
     }
     
-    position += vec3(velocity.x, 0, velocity.y) * rotation * deltaTime;
+    position += vec3(-velocity.x, 0, -velocity.y) * rotation * deltaTime;
     if (length(velocity) < 0 || length(velocity) > 0) velocity = velocity * (1 - FRICTION);
 }

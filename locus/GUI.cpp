@@ -11,7 +11,8 @@
 map<string, vector<string>> configItemLabels = {
     make_pair("render", vector<string> {"wireframe", "solid", "textured"}),
     make_pair("lights", vector<string> {"unlit", "lit", "lit baked"}),
-    make_pair("animation", vector<string> {"off", "on"})
+    make_pair("animation", vector<string> {"off", "on"}),
+    make_pair("collisions", vector<string> {"off", "on"})
 };
 
 int menuLeft = 60;

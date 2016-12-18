@@ -20,6 +20,7 @@ public:
     Camera(string name, vec3 position, vec3 rotation);
     virtual mat4 getViewMatrix();
     mat4 getProjectionMatrix();
+    void holdBoundaries(vec3 center, vec3 size);
 protected:
 };
 

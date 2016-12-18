@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 #include <string>
 #include <map>
@@ -32,7 +33,8 @@ using namespace std;
 map<string, int> configuration = {
     make_pair("render", 2),
     make_pair("lights", 2),
-    make_pair("animation", 1)
+    make_pair("animation", 1),
+    make_pair("collisions", 1)
 };
 
 TextRenderer* fontFaceGravityBook24Renderer;
@@ -88,13 +90,9 @@ Scene* init(Window* window) {
     gui = new GUI(fontFaceGravityRegular24Renderer, fontFaceGravityBold24Renderer, graphic2Dmaterial, &configuration);
     gui->init(resourcePath() + "Textures/gui_navigation.png");
     
-    testcurve = new Curve();
-    testcurve->addPoint(vec3(-4, 0, 4));
-    testcurve->addPoint(vec3(-3, 0, -2));
-    testcurve->addPoint(vec3(3, 0, 2));
-    testcurve->addPoint(vec3(4, 0, -4));
-    testcurve->addPoint(vec3(8, 0, 2));
-    testcurve->addPoint(vec3(16, 0, -2));
+    testcurve = new Curve(vector<vec3> {
+        vec3(-2, 3, 0), vec3(0, 2, 2), vec3(2, 2, 0), vec3(0, 3, -2)
+    });
     
     // Load skybox textures
     vector<string> textFilenames = { resourcePath() + "Textures/skybox/right.jpg", resourcePath() + "Textures/skybox/left.jpg", resourcePath() + "Textures/skybox/top.jpg", resourcePath() + "Textures/skybox/bottom.jpg", resourcePath() + "Textures/skybox/back.jpg", resourcePath() + "Textures/skybox/front.jpg" };
@@ -113,12 +111,13 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     Scene* sc = window->getAttachedScene();
     
     // free camera update
-    if (sc->getAttachedCamera()->getName() == "Free Camera") {
+    if (sc->getAttachedCamera()->getName() == "Camera") {
         ((FreeCamera*)sc->getAttachedCamera())->update(window, timeDelta);
+        ((FreeCamera*)sc->getAttachedCamera())->holdBoundaries(vec3(0, 2.5f, 0), vec3(10, 4, 14));
     }
     
     // update all materials
-    sc->updateMaterials();
+    sc->updateMaterials(timeElapsed);
     
     // update fps meter
     if (fpsUpdateTimer <= 0) {
@@ -126,11 +125,11 @@ void update(Window* window, double timeElapsed, double timeDelta) {
         fpsUpdateTimer = 0.25f;
     }
     
-    /*Object* lamp = (Object*)sc->getChildByName("Lamp");
-    lamp->setPosition(testcurve->calc(timeElapsed));*/
+    ((PointLight*)sc->getChildByName("Light"))->setPosition(vec3(0, 3, 0));
     
-    ((PointLight*)sc->getChildByName("Light"))->setPosition(vec3(sin(timeElapsed)*2, 2.0f, cos(timeElapsed)*3));
-    ((Object*)sc->getChildByName("Light Cube"))->setPosition(vec3(sin(timeElapsed)*2, 2.0f, cos(timeElapsed)*3));
+    /*((Object*)sc->getChildByName("Camera"))->setPosition(testcurve->calc(timeElapsed));
+    ((Object*)sc->getChildByName("Camera"))->setRotation(toQuat(lookAt(vec3(0), testcurve->calcD(timeElapsed), vec3(0, 1, 0))));*/
+    
     ((PointLight*)sc->getChildByName("Spotlight"))->setRotation(vec3(sin(timeElapsed)*2, 0, cos(timeElapsed)*3));
     
     fpsUpdateTimer -= timeDelta;
