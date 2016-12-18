@@ -8,6 +8,14 @@
 
 #include "DirectionalLight.hpp"
 
-DirectionalLight::DirectionalLight(string name, vec3 position) : Object(name, position) {
+DirectionalLight::DirectionalLight(string name, vec3 position, vec3 color) : Object(name, position), color(color) {
     this->isDrawable = false;
+}
+
+void DirectionalLight::setColor(vec3 color) {
+    this->color = color;
+}
+
+vec3 DirectionalLight::getColor() {
+    return color;
 }

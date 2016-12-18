@@ -418,6 +418,7 @@
       "name": "Light",
       "type": "point",
       "position": [5.91, 0.0, 1.27],
+      "color": [1.00, 1.00, 1.00],
       "constant": 1.0,
       "linear": 0.02,
       "quadratic": 0.001
@@ -427,6 +428,7 @@
       "type": "spot",
       "position": [0.0, 1.5, -2.5],
       "rotation": [0.0, 0.0, 0.0],
+      "color": [1.00, 0.00, 0.00],
       "constant": 1.0,
       "linear": 0.2,
       "quadratic": 0.011,

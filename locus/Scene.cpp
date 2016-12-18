@@ -65,7 +65,7 @@ void Scene::updateMaterials(float timeElapsed) {
         int i = 0;
         for (DirectionalLight* light : directionalLights) {
             shader->setUniform("directionalLights", i, "direction", light->getPosition());
-            shader->setADS("directionalLights", i, mat->ambient, mat->diffuse, mat->specular);
+            shader->setADS("directionalLights", i, mat->ambient * light->getColor(), mat->diffuse * light->getColor(), mat->specular * light->getColor());
             i++;
         }
         
@@ -75,7 +75,7 @@ void Scene::updateMaterials(float timeElapsed) {
             shader->setUniform("pointLights", i, "constant", light->getConstant());
             shader->setUniform("pointLights", i, "linear", light->getLinear());
             shader->setUniform("pointLights", i, "quadratic", light->getQuadratic());
-            shader->setADS("pointLights", i, mat->ambient, mat->diffuse, mat->specular);
+            shader->setADS("pointLights", i, mat->ambient * light->getColor(), mat->diffuse * light->getColor(), mat->specular * light->getColor());
             i++;
         }
         
@@ -88,7 +88,7 @@ void Scene::updateMaterials(float timeElapsed) {
             shader->setUniform("spotLights", i, "quadratic", light->getQuadratic());
             shader->setUniform("spotLights", i, "cutOff", light->getCutOff());
             shader->setUniform("spotLights", i, "outerCutOff", light->getOuterCutOff());
-            shader->setADS("spotLights", i, mat->ambient, mat->diffuse, mat->specular);
+            shader->setADS("spotLights", i, mat->ambient * light->getColor(), mat->diffuse * light->getColor(), mat->specular * light->getColor());
             i++;
         }
         
@@ -188,17 +188,18 @@ Scene* Scene::fromFile(const string &filename, void (*progress)(string, float)) 
         string type = light.get("type", "none").asString();
         
         vec3 position(light["position"][0].asFloat(), light["position"][1].asFloat(), light["position"][2].asFloat());
+        vec3 color(light["color"][0].asFloat(), light["color"][1].asFloat(), light["color"][2].asFloat());
         
         if (type == "point") {
             float constant = light["constant"].asFloat();
             float linear = light["linear"].asFloat();
             float quadratic = light["quadratic"].asFloat();
             
-            li = new PointLight(name, position, constant, linear, quadratic);
+            li = new PointLight(name, position, color, constant, linear, quadratic);
             
             scene->addPointLight((PointLight *)li);
         } else if (type == "directional") {
-            li = new DirectionalLight(name, position);
+            li = new DirectionalLight(name, position, color);
             
             scene->addDirectionalLight((DirectionalLight *)li);
         } else if (type == "spot") {
@@ -210,7 +211,7 @@ Scene* Scene::fromFile(const string &filename, void (*progress)(string, float)) 
             float cutOff = light["cutoff"].asFloat();
             float outerCutOff = light["outercutoff"].asFloat();
             
-            li = new SpotLight(name, position, rotation, constant, linear, quadratic, cutOff, outerCutOff);
+            li = new SpotLight(name, position, rotation, color, constant, linear, quadratic, cutOff, outerCutOff);
             
             scene->addSpotLight((SpotLight *)li);
         } else {

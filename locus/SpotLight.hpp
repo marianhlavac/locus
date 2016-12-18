@@ -13,13 +13,16 @@
 
 class SpotLight : public Object {
 public:
-    SpotLight(string name, vec3 position, vec3 rotation, float constant, float linear, float quadratic, float cutOff, float outerCutOff);
+    SpotLight(string name, vec3 position, vec3 rotation, vec3 color, float constant, float linear, float quadratic, float cutOff, float outerCutOff);
     float getConstant();
     float getLinear();
     float getQuadratic();
     float getCutOff();
     float getOuterCutOff();
+    void setColor(vec3 color);
+    vec3 getColor();
 private:
+    vec3 color;
     float constant;
     float linear;
     float quadratic;

@@ -18,11 +18,14 @@ using namespace glm;
 
 class PointLight : public Object {
 public:
-    PointLight(string name, vec3 position, float constant, float linear, float quadratic);
+    PointLight(string name, vec3 position, vec3 color, float constant, float linear, float quadratic);
     float getConstant();
     float getLinear();
     float getQuadratic();
+    void setColor(vec3 color);
+    vec3 getColor();
 private:
+    vec3 color;
     float constant;
     float linear;
     float quadratic;
