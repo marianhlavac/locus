@@ -13,6 +13,7 @@
 #include "Graphic2D.hpp"
 #include "Text2D.hpp"
 #include <map>
+#include <string>
 #include "Window.hpp"
 
 using namespace std;
@@ -23,6 +24,7 @@ public:
     void init(string navBarTextureFile);
     void draw();
     void update(Window* window, double elapsed);
+    bool displayed;
 private:
     TextRenderer* regularFont;
     TextRenderer* boldFont;
@@ -31,9 +33,12 @@ private:
     Graphic2D* navBar;
     map<string, int>* configuration;
     map<string, Text2D*> texts;
+    vector<string> configIds;
     Text2D* selectorIndicator;
     int configItemSel;
     int configItemsCount;
+    vec4 navbarProjection;
+    vec4 menuProjection;
 };
 
 #endif /* GUI_hpp */

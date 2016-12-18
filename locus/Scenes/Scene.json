@@ -1,6 +1,6 @@
 {
   "name": "Scene",
-  "camera": "Camera",
+  "camera": "Free Cam",
   "meshes": {
     "appletv": "Models/Apple TV.obj",
     "appletvremote": "Models/Apple TV Remote.obj",
@@ -436,7 +436,13 @@
   ],
   "cameras": [
     {
-      "name": "Camera",
+      "name": "Primary Cam",
+      "type": "static",
+      "position": [-10.0, 0.0, 0.0],
+      "rotation": [0.0, 0.0, 0.0]
+    },
+    {
+      "name": "Free Cam",
       "type": "free",
       "position": [-10.0, 0.0, 0.0],
       "rotation": [0.0, 0.0, 0.0]

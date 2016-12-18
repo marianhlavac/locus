@@ -36,10 +36,14 @@ Graphic2D::Graphic2D(Material* material, vec2 position, vec2 size) : material(ma
 }
 
 void Graphic2D::draw() {
+    draw(vec4(0, 1280.0f, 0, 720.0f));
+}
+
+void Graphic2D::draw(vec4 proj) {
     glDisable(GL_DEPTH_TEST);
     material->use();
     
-    mat4 projection = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f);
+    mat4 projection = glm::ortho(proj.x, proj.y, proj.z, proj.w);
     material->getShader()->setUniform("mvp", projection);
     
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

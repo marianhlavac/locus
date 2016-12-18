@@ -33,8 +33,10 @@ using namespace std;
 map<string, int> configuration = {
     make_pair("render", 2),
     make_pair("lights", 2),
-    make_pair("animation", 1),
-    make_pair("collisions", 1)
+    make_pair("animations", 1),
+    make_pair("collisions", 1),
+    make_pair("scene", 0),
+    make_pair("camera", 1)
 };
 
 TextRenderer* fontFaceGravityBook24Renderer;
@@ -124,14 +126,22 @@ Scene* init(Window* window) {
 void update(Window* window, double timeElapsed, double timeDelta) {
     Scene* sc = window->getAttachedScene();
     
-    // free camera update
-    if (sc->getAttachedCamera()->getName() == "Camera") {
-        ((FreeCamera*)sc->getAttachedCamera())->update(window, timeDelta);
-        ((FreeCamera*)sc->getAttachedCamera())->holdBoundaries(vec3(0, 2.5f, 0), vec3(10, 4, 14));
+    // camera update
+    if (configuration["camera"] == 1) {
+        FreeCamera* cam = (FreeCamera*)sc->getChildByName("Free Cam");
+        sc->attachCamera(cam);
+        cam->update(window, timeDelta);
+        
+        if (configuration["collisions"] == 1) {
+           cam->holdBoundaries(vec3(0, 2.5f, 0), vec3(10, 4, 14));
+        }
+    } else if (configuration["camera"] == 0) {
+        Camera* cam = (Camera*)sc->getChildByName("Primary Cam");
+        sc->attachCamera(cam);
     }
     
     // update all materials
-    sc->updateMaterials(timeElapsed);
+    sc->updateMaterials(configuration["animations"] == 1 ? timeElapsed : 0);
     
     // update fps meter
     if (fpsUpdateTimer <= 0) {
@@ -139,12 +149,20 @@ void update(Window* window, double timeElapsed, double timeDelta) {
         fpsUpdateTimer = 0.25f;
     }
     
-    ((PointLight*)sc->getChildByName("Light"))->setPosition(vec3(0, 3, 0));
+    // --- animations
+    if (configuration["animations"] == 1) {
     
-    /*((Object*)sc->getChildByName("Camera"))->setPosition(testcurve->calc(timeElapsed));
-    ((Object*)sc->getChildByName("Camera"))->setRotation(toQuat(lookAt(vec3(0), testcurve->calcD(timeElapsed), vec3(0, 1, 0))));*/
-    
-    ((PointLight*)sc->getChildByName("Spotlight"))->setRotation(vec3(sin(timeElapsed)*2, 0, cos(timeElapsed)*3));
+        ((PointLight*)sc->getChildByName("Light"))->setPosition(vec3(0, 3, 0));
+        
+        if (configuration["scene"] == 1) {
+            Camera* cam = (Camera*)sc->getChildByName("Primary Cam");
+            cam->setPosition(testcurve->calc(timeElapsed));
+            cam->setRotation(toQuat(lookAt(vec3(0), testcurve->calcD(timeElapsed), vec3(0, 1, 0))));
+        }
+        
+        ((PointLight*)sc->getChildByName("Spotlight"))->setRotation(vec3(sin(timeElapsed)*2, 0, cos(timeElapsed)*3));
+    }
+    // ---
     
     fpsUpdateTimer -= timeDelta;
     
@@ -157,6 +175,13 @@ void update(Window* window, double timeElapsed, double timeDelta) {
 void render(Window* window) {
     // get hover object id
     objHover = window->getAttachedScene()->getHoverId(selectionMaterial, window->getWidth() / 2, window->getHeight() / 2);
+    
+    // render configuration
+    if (configuration["render"] >= 1) {
+        glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
+    } else {
+        glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+    }
     
     // draw the whole thing
     window->beginDraw();

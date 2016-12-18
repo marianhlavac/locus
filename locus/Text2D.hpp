@@ -22,6 +22,7 @@ using namespace glm;
 class Text2D {
 public:
     Text2D(string text, TextRenderer* renderer, vec2 position, vec3 color, float scale);
+    void draw(vec4 proj);
     void draw();
     vec3 getColor();
     void setColor(vec3 color);
@@ -29,6 +30,7 @@ public:
     vec2 getSize();
     void setPosition(vec2 position);
     void setAlign(int align);
+    void setRenderer(TextRenderer* renderer);
     static const int ALIGN_LEFT = 0;
     static const int ALIGN_CENTER = 1;
 private:

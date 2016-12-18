@@ -2,6 +2,6 @@ Shaders/Textured.vert
 Shaders/Textured.frag
 0.1
 1
-1
+0
 Textures/sofa.png
-Textures/false.png
+!

@@ -16,6 +16,10 @@ Text2D::Text2D(string text, TextRenderer* renderer, vec2 position, vec3 color, f
 }
 
 void Text2D::draw() {
+    draw(vec4(0, 1280.0f, 0, 720.0f));
+}
+
+void Text2D::draw(vec4 proj) {
     glDisable(GL_DEPTH_TEST);
     renderer->use();
     renderer->getShader()->setUniform("textColor", color);
@@ -24,7 +28,7 @@ void Text2D::draw() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     vao.bind();
      
-    mat4 projection = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f);
+    mat4 projection = glm::ortho(proj.x, proj.y, proj.z, proj.w);
     renderer->getShader()->setUniform("mvp", projection);
     
     float xadvanced = position.x;
@@ -100,4 +104,8 @@ void Text2D::setPosition(vec2 position) {
 
 void Text2D::setAlign(int align) {
     this->align = align;
+}
+
+void Text2D::setRenderer(TextRenderer* renderer) {
+    this->renderer = renderer;
 }

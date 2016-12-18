@@ -18,6 +18,7 @@ class Graphic2D {
 public:
     Graphic2D(Material* material, vec2 position, vec2 scale);
     void draw();
+    void draw(vec4 proj);
     void setSize(vec2 size);
 private:
     Material* material;
