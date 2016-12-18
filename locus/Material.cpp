@@ -109,3 +109,8 @@ void Material::updateM(mat4 modelTransform) {
 void Material::setTextureType(int textureType) {
     this->textureType = textureType;
 }
+
+void Material::setAnimatedUnlitProps(int tileDiv, float speed) {
+    shader->setUniform("tileDiv", (GLuint)tileDiv);
+    shader->setUniform("animSpeed", speed);
+}

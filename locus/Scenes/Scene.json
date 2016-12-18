@@ -1,6 +1,6 @@
 {
   "name": "Scene",
-  "camera": "Free Camera",
+  "camera": "Camera",
   "meshes": {
     "appletv": "Models/Apple TV.obj",
     "appletvremote": "Models/Apple TV Remote.obj",
@@ -26,8 +26,8 @@
     "room": "Models/Room.obj",
     "smalllamp": "Models/Small Lamp.obj",
     "smalltable": "Models/Small Table.obj",
-    "sofa": "Models/Sofa.obj",
-    "speaker": "Models/Speaker.obj",
+    "!sofa": "Models/Sofa.obj",
+    "!speaker": "Models/Speaker.obj",
     "subwoofer": "Models/Subwoofer.obj",
     "tvstand": "Models/TV stand.obj",
     "tv": "Models/TV.obj",
@@ -43,7 +43,8 @@
     "book": "Materials/Objects/Book.mat",
     "sofa": "Materials/Objects/Sofa.mat",
     "room": "Materials/Objects/Room.mat",
-    "window": "Materials/Objects/Window.mat"
+    "window": "Materials/Objects/Window.mat",
+    "fireplace": "Materials/Objects/Fireplace.mat"
   },
   "objects": [
     {
@@ -125,7 +126,7 @@
           "position": [0.00, 1.25, -7.54],
           "rotation": [0.0, 0.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
+          "material": "fireplace"
         },
         {
           "name": "Room desk",
@@ -154,7 +155,7 @@
         {
           "name": "Apple TV Remote",
           "mesh": "appletvremote",
-          "position": [-1.08, 0.83, -2.18],
+          "position": [-0.98, 0.83, -2.18],
           "rotation": [0.0, 35.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid"
@@ -209,7 +210,7 @@
         },
         {
           "name": "Speaker",
-          "mesh": "speaker",
+          "mesh": "none",
           "position": [5.03, 0.0, -6.17],
           "rotation": [0.0, -36.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
@@ -289,7 +290,7 @@
         },
         {
           "name": "Speaker(2)",
-          "mesh": "speaker",
+          "mesh": "none",
           "position": [5.03, 0.0, 0.26],
           "rotation": [0.0, -123.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
@@ -321,11 +322,19 @@
         },
         {
           "name": "Sofa",
-          "mesh": "sofa",
+          "mesh": "none",
           "position": [-4.79, 0.00, -1.96],
           "rotation": [0.0, 90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "sofa"
+        },
+        {
+          "name": "Terrace fence",
+          "mesh": "terracefence",
+          "position": [8.04, 0.0, 3.98],
+          "rotation": [0.0, -90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid"
         },
         {
           "name": "Windows",
@@ -336,17 +345,17 @@
           "material": "solid",
           "objects": [
             {
-              "name": "Window",
+              "name": "Window(2)",
               "mesh": "window",
-              "position": [0.0, 0.0, 0.0],
+              "position": [1.22, 0.0, -0.18],
               "rotation": [0.0, 0.0, 0.0],
               "scale": [1.0, 1.0, 1.0],
               "material": "window"
             },
             {
-              "name": "Window(2)",
+              "name": "Window",
               "mesh": "window",
-              "position": [1.22, 0.0, -0.18],
+              "position": [0.0, 0.0, 0.0],
               "rotation": [0.0, 0.0, 0.0],
               "scale": [1.0, 1.0, 1.0],
               "material": "window"
@@ -360,14 +369,6 @@
               "material": "window"
             }
           ]
-        },
-        {
-          "name": "Terrace fence",
-          "mesh": "terracefence",
-          "position": [8.04, 0.0, 3.98],
-          "rotation": [0.0, -90.0, 0.0],
-          "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
         },
         {
           "name": "Wall shelf",
@@ -388,7 +389,7 @@
         {
           "name": "Door",
           "mesh": "door",
-          "position": [-3.87, 0.01, 7.89],
+          "position": [-3.90, 0.01, 7.89],
           "rotation": [0.0, 0.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid"
@@ -416,10 +417,10 @@
     {
       "name": "Light",
       "type": "point",
-      "position": [0.0, 1.5, -2.5],
+      "position": [5.91, 0.0, 1.27],
       "constant": 1.0,
-      "linear": 0.2,
-      "quadratic": 0.011
+      "linear": 0.02,
+      "quadratic": 0.001
     },
     {
       "name": "Spotlight",
@@ -435,7 +436,7 @@
   ],
   "cameras": [
     {
-      "name": "Free Camera",
+      "name": "Camera",
       "type": "free",
       "position": [-10.0, 0.0, 0.0],
       "rotation": [0.0, 0.0, 0.0]

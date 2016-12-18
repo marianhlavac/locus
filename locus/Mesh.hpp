@@ -61,6 +61,7 @@ public:
     void draw();
     static Mesh* loadFromFile(const string & filename);
     static Mesh* createCube(float size);
+    static Mesh* createICube(float size);
     static Mesh* createQuad(vec2 size);
     void addAttrib(GLuint location, GLint size, GLenum type, GLsizei stride, int start);
 private:

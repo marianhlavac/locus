@@ -65,6 +65,40 @@ Mesh* Mesh::createCube(float size) {
     };
     
     vector<GLuint> indices = {
+        1, 4, 0,
+        1, 5, 4,
+        2, 6, 3,
+        6, 7, 3,
+        3, 5, 1,
+        7, 5, 3,
+        4, 5, 7,
+        6, 4, 7,
+        2, 4, 6,
+        0, 4, 2,
+        1, 0, 2,
+        2, 3, 1
+    };
+    
+    Mesh* mesh = new Mesh(buffer, (GLuint)buffer.size(), indices, (GLuint)indices.size());
+    mesh->addAttrib(0, 3, GL_FLOAT, 3, 0);
+    return mesh;
+}
+
+Mesh* Mesh::createICube(float size) {
+    size *= 0.5f;
+    
+    vector<GLfloat> buffer = {
+        -size, size, -size,
+        -size, size, size,
+        -size, -size, -size,
+        -size, -size, size,
+        size, size, -size,
+        size, size, size,
+        size, -size, -size,
+        size, -size, size
+    };
+    
+    vector<GLuint> indices = {
         0, 4, 1,
         4, 5, 1,
         3, 6, 2,
@@ -95,8 +129,8 @@ Mesh* Mesh::createQuad(vec2 size) {
     };
     
     vector<GLuint> indices = {
-        1, 2, 3,
-        0, 2, 1
+        3, 2, 1,
+        1, 2, 0
     };
     
     Mesh* mesh = new Mesh(buffer, (GLuint)buffer.size(), indices, (GLuint)indices.size());

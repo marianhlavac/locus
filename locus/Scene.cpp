@@ -55,7 +55,7 @@ void Scene::addSpotLight(SpotLight* light) {
     children.push_back(light);
 }
 
-void Scene::updateMaterials() {
+void Scene::updateMaterials(float timeElapsed) {
     for (Material* mat : materials) {
         Shader* shader = mat->getShader();
         shader->use();
@@ -93,6 +93,7 @@ void Scene::updateMaterials() {
         }
         
         shader->setUniform("viewPos", camera->getPosition());
+        shader->setUniform("timeElapsed", timeElapsed);
         
         mat4 view = ((Camera*)camera)->getViewMatrix();
         mat4 projection = ((Camera*)camera)->getProjectionMatrix();

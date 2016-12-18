@@ -9,7 +9,7 @@
 #include "Skybox.hpp"
 
 Skybox::Skybox(float size, Material* material) : material(material) {
-    mesh = Mesh::createCube(size);
+    mesh = Mesh::createICube(size);
 }
 
 void Skybox::draw() {

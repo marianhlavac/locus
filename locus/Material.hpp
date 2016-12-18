@@ -46,6 +46,7 @@ public:
     void updateVP(mat4 viewTransform, mat4 projectionTransform);
     void updateM(mat4 modelTransform);
     void setTextureType(int textureType);
+    void setAnimatedUnlitProps(int tileDiv, float speed);
     vec3 ambient;
     vec3 diffuse;
     vec3 specular;

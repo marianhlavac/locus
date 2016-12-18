@@ -33,7 +33,7 @@ public:
     void addDirectionalLight(DirectionalLight* light);
     void addPointLight(PointLight* light);
     void addSpotLight(SpotLight* light);
-    void updateMaterials();
+    void updateMaterials(float timeElapsed);
     void draw();
     int getHoverId(Material* selectionMaterial, int x, int y);
     static Scene* fromFile(const string & filename);

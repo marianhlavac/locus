@@ -101,6 +101,20 @@ Scene* init(Window* window) {
     skybox = new Skybox(50, skyboxMaterial);
     scene->addMaterial(skyboxMaterial);
     
+    // Animated objects
+    Mesh* animMesh = Mesh::createQuad(vec2(5,5));
+    Material* animMat = Material::fromFile(resourcePath() + "Materials/Animated.mat");
+    animMat->setAnimatedUnlitProps(4, 3.5f);
+    scene->addMaterial(animMat);
+    Object* anim = new Object(animMesh, "Animated", vec3(0, 2.32f, -6.6), vec3(radians(-90.0f), radians(180.0f), 0), vec3(0.45f, 1, 0.20f), animMat);
+    scene->addChild(anim);
+    
+    Mesh* animCube = Mesh::createQuad(vec2(2,2));
+    Material* animCubeMat = Material::fromFile(resourcePath() + "Materials/Moving.mat");
+    scene->addMaterial(animCubeMat);
+    Object* anim2 = new Object(animCube, "Animated2", vec3(0, 0.1f, 2), animCubeMat);
+    scene->addChild(anim2);
+    
     return scene;
 }
 
