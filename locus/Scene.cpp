@@ -171,7 +171,7 @@ Scene* Scene::fromFile(const string &filename, void (*progress)(string, float)) 
         string name = camera.get("name", "Camera").asString();
         
         vec3 position(camera["position"][0].asFloat(), camera["position"][1].asFloat(), camera["position"][2].asFloat());
-        vec3 rotation(camera["rotation"][0].asFloat(), camera["rotation"][1].asFloat(), camera["rotation"][2].asFloat());
+        vec3 rotation(radians(camera["rotation"][0].asFloat()), radians(camera["rotation"][1].asFloat()), radians(camera["rotation"][2].asFloat()));
         
         if (camera.get("type", "default").asString() == "free") {
             cam = new FreeCamera(name, position, rotation);

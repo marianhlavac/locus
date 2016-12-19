@@ -185,7 +185,7 @@
         {
           "name": "Apple TV Remote",
           "mesh": "appletvremote",
-          "position": [-0.98, 0.83, -2.18],
+          "position": [-0.98, 0.82, -2.18],
           "rotation": [0.0, 35.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "appletvremote"
@@ -520,8 +520,20 @@
     {
       "name": "Primary Cam",
       "type": "static",
-      "position": [-10.0, 0.0, 0.0],
-      "rotation": [0.0, 0.0, 0.0]
+      "position": [5.25, 2.5, 1.00],
+      "rotation": [0.0, -45.0, 0.0]
+    },
+    {
+      "name": "Second Cam",
+      "type": "static",
+      "position": [0.0, 7.0, 0.0],
+      "rotation": [90.0, 0.0, 0.0]
+    },
+    {
+      "name": "Third Cam",
+      "type": "static",
+      "position": [5.25, 2.5, 1.00],
+      "rotation": [0.0, -45.0, 0.0]
     },
     {
       "name": "Free Cam",

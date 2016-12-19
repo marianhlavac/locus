@@ -14,7 +14,7 @@ map<string, vector<string>> configItemLabels = {
     make_pair("animations", vector<string> {"off", "on"}),
     make_pair("collisions", vector<string> {"off", "on"}),
     make_pair("scene", vector<string> {"stop", "play"}),
-    make_pair("camera", vector<string> {"primary", "free camera", "secondary"})
+    make_pair("camera", vector<string> {"primary", "free camera", "second", "third"})
 };
 
 int menuLeft = 60;
@@ -94,6 +94,7 @@ void GUI::update(Window* window, double elapsed) {
     
     if (glfwGetKey(window->getWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
         (*configuration)["scene"] = (*configuration)["scene"] == 1 ? 0 : 1;
+        (*configuration)["camera"] = 0;
         lastPressElapsed = elapsed;
     }
     if (glfwGetKey(window->getWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {

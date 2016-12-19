@@ -38,6 +38,8 @@ public:
 
     /// Adds single point to the curve.
     void addPoint(vec3 point);
+    
+    static Curve* loadFromFile(string filename);
 private:
     vector<vec3> getPoints(float t);
 };

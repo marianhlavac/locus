@@ -9,6 +9,7 @@
 #include "Curve.hpp"
 
 #include <iostream>
+#include <fstream>
 
 Curve::Curve() { }
 
@@ -48,4 +49,15 @@ vector<vec3> Curve::getPoints(float t) {
 
 void Curve::addPoint(vec3 point) {
     points.push_back(point);
+}
+
+Curve* Curve::loadFromFile(string filename) {
+    vector<vec3> points;
+    ifstream file(filename);
+    float x, y, z;
+    while (file >> x >> y >> z) {
+        points.push_back(vec3(x, y, z));
+    }
+    
+    return new Curve(points);
 }

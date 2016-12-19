@@ -48,6 +48,7 @@ Shader* text2Dshader;
 Text2D* fps;
 float fpsUpdateTimer = 0;
 float clickTimeout = 0;
+float sceneStartOffset = 0;
 Material* selectionMaterial;
 Material* graphic2Dmaterial;
 Material* skyboxMaterial;
@@ -98,9 +99,7 @@ Scene* init(Window* window) {
     gui = new GUI(fontFaceGravityRegular24Renderer, fontFaceGravityBold24Renderer, graphic2Dmaterial, &configuration);
     gui->init(resourcePath() + "Textures/gui_navigation.png");
     
-    testcurve = new Curve(vector<vec3> {
-        vec3(-2, 3, 0), vec3(0, 2, 2), vec3(2, 2, 0), vec3(0, 3, -2)
-    });
+    testcurve = Curve::loadFromFile(resourcePath() + "Scenes/Scene.curv");
     
     // Load skybox textures
     vector<string> textFilenames = { resourcePath() + "Textures/skybox/right.jpg", resourcePath() + "Textures/skybox/left.jpg", resourcePath() + "Textures/skybox/top.jpg", resourcePath() + "Textures/skybox/bottom.jpg", resourcePath() + "Textures/skybox/back.jpg", resourcePath() + "Textures/skybox/front.jpg" };
@@ -124,12 +123,6 @@ Scene* init(Window* window) {
     Object* anim2 = new Object(animCube, "Animated2", vec3(0, 0.1f, 2), animCubeMat);
     scene->addChild(anim2);
     
-    // Add secondary camera
-    Camera* secondary = new Camera("Secondary Cam", vec3(0), vec3(0));
-    Object* lc = ((Object*)scene->getChildByName("Light Cube"));
-    lc->addChild(secondary);
-    
-    
     return scene;
 }
 
@@ -151,7 +144,10 @@ void update(Window* window, double timeElapsed, double timeDelta) {
             cam->avoidBoundaries(vec3(-6.79f, 0.00, -1.96f), 3);
         }
     } else if (configuration["camera"] == 2) {
-        Camera* cam = (Camera*)sc->getChildByName("Secondary Cam");
+        Camera* cam = (Camera*)sc->getChildByName("Second Cam");
+        sc->attachCamera(cam);
+    } else if (configuration["camera"] == 3) {
+        Camera* cam = (Camera*)sc->getChildByName("Third Cam");
         sc->attachCamera(cam);
     } else if (configuration["camera"] == 0) {
         Camera* cam = (Camera*)sc->getChildByName("Primary Cam");
@@ -167,12 +163,17 @@ void update(Window* window, double timeElapsed, double timeDelta) {
         fpsUpdateTimer = 0.25f;
     }
     
+    // reset offset
+    if (glfwGetKey(window->getWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
+        sceneStartOffset = timeElapsed;
+    }
+    
     // --- animations
     if (configuration["animations"] == 1) {
         if (configuration["scene"] == 1) {
             Camera* cam = (Camera*)sc->getChildByName("Primary Cam");
-            cam->setPosition(testcurve->calc(timeElapsed));
-            cam->setRotation(toQuat(lookAt(vec3(0), testcurve->calcD(timeElapsed), vec3(0, 1, 0))));
+            cam->setPosition(testcurve->calc((timeElapsed - sceneStartOffset) * 0.25f));
+            cam->setRotation(toQuat(lookAt(vec3(0), -testcurve->calcD((timeElapsed - sceneStartOffset) * 0.25f), vec3(0, 1, 0))));
         }
         
         float fireIntensity = abs(sin(timeElapsed)) * abs(cos(timeElapsed * 6.0f)) * abs(sin(timeElapsed * 12.0f)) * 0.125f + 0.2f;
