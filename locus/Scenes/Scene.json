@@ -155,7 +155,8 @@
           "position": [0.00, 1.25, -7.54],
           "rotation": [0.0, 0.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
-          "material": "fireplace"
+          "material": "fireplace",
+          "selection": 2
         },
         {
           "name": "Room desk",
@@ -211,7 +212,8 @@
           "position": [-1.81, 0.0, -4.76],
           "rotation": [0.0, -42.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
-          "material": "nes"
+          "material": "nes",
+          "selection": 3
         },
         {
           "name": "NES Cartridge",
@@ -438,7 +440,7 @@
           "rotation": [0.0, 90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid",
-          "selection": 0
+          "selection": 1
         }
       ]
     }
@@ -464,6 +466,15 @@
       "type": "point",
       "position": [-5.16, 1.23, 1.54],
       "color": [1.00, 0.98, 0.70],
+      "constant": 1.0,
+      "linear": 0.22,
+      "quadratic": 0.20
+    },
+    {
+      "name": "Rotating light",
+      "type": "point",
+      "position": [0, 0, 0],
+      "color": [0.20, 0.20, 0.20],
       "constant": 1.0,
       "linear": 0.22,
       "quadratic": 0.20

@@ -47,11 +47,13 @@ Window* mainWindow;
 Shader* text2Dshader;
 Text2D* fps;
 float fpsUpdateTimer = 0;
+float clickTimeout = 0;
 Material* selectionMaterial;
 Material* graphic2Dmaterial;
 Material* skyboxMaterial;
 Graphic2D* loading;
 Graphic2D* loadingProgress;
+Graphic2D* cursor;
 Text2D* loadingText;
 GUI* gui;
 Curve* testcurve;
@@ -109,6 +111,7 @@ Scene* init(Window* window) {
     animMat->setAnimatedUnlitProps(4, 3.5f);
     scene->addMaterial(animMat);
     Object* anim = new Object(animMesh, "Animated", vec3(0, 2.32f, -6.6), vec3(radians(-90.0f), radians(180.0f), 0), vec3(0.45f, 1, 0.20f), animMat);
+    anim->setSelectionId(2);
     scene->addChild(anim);
     
     Mesh* animCube = Mesh::createQuad(vec2(2,2));
@@ -116,6 +119,12 @@ Scene* init(Window* window) {
     scene->addMaterial(animCubeMat);
     Object* anim2 = new Object(animCube, "Animated2", vec3(0, 0.1f, 2), animCubeMat);
     scene->addChild(anim2);
+    
+    // Add secondary camera
+    Camera* secondary = new Camera("Secondary Cam", vec3(0), vec3(0));
+    Object* lc = ((Object*)scene->getChildByName("Light Cube"));
+    lc->addChild(secondary);
+    
     
     return scene;
 }
@@ -133,8 +142,12 @@ void update(Window* window, double timeElapsed, double timeDelta) {
         cam->update(window, timeDelta);
         
         if (configuration["collisions"] == 1) {
-           cam->holdBoundaries(vec3(0, 2.5f, 0), vec3(10, 4, 14));
+            //cam->holdBoundaries(vec3(0, 2.5f, 0), vec3(10, 4, 14));
+            cam->avoidBoundaries(vec3(0.07f, 0, -1.3f), vec3(2, 2, 2));
         }
+    } else if (configuration["camera"] == 2) {
+        Camera* cam = (Camera*)sc->getChildByName("Secondary Cam");
+        sc->attachCamera(cam);
     } else if (configuration["camera"] == 0) {
         Camera* cam = (Camera*)sc->getChildByName("Primary Cam");
         sc->attachCamera(cam);
@@ -159,10 +172,32 @@ void update(Window* window, double timeElapsed, double timeDelta) {
         
         float fireIntensity = abs(sin(timeElapsed)) * abs(cos(timeElapsed * 6.0f)) * abs(sin(timeElapsed * 12.0f)) * 0.125f + 0.2f;
         ((PointLight*)sc->getChildByName("Fire light"))->setColor(vec3(1.00f, 0.64f, 0.33f) * fireIntensity);
+        
+        Object* lc = ((Object*)sc->getChildByName("Light Cube"));
+        Object* pl = ((Object*)sc->getChildByName("Rotating light"));
+        vec3 lpos = vec3(sin(timeElapsed / 2.0f)*2.0f, 3.0, cos(timeElapsed / 2.0f)*2.0);
+        lc->setPosition(lpos);
+        pl->setPosition(lpos);
     }
     // ---
     
+    // clicks on objects
+    if (glfwGetMouseButton(window->getWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && clickTimeout <= 0) {
+        if (objHover == 1) {
+            configuration["lights"] = configuration["lights"] == 0 ? 2 : 0;
+            clickTimeout = 0.25f;
+        } else if (objHover == 2) {
+            configuration["animations"] = configuration["animations"] == 0 ? 1 : 0;
+            clickTimeout = 0.25f;
+        } else if (objHover == 3) {
+            configuration["render"] = configuration["render"] == 0 ? 2 : 0;
+            clickTimeout = 0.25f;
+        }
+    }
+    
+    
     fpsUpdateTimer -= timeDelta;
+    clickTimeout -= timeDelta;
     
     gui->update(window, timeElapsed);
 }
@@ -189,6 +224,8 @@ void render(Window* window) {
     window->getAttachedScene()->draw();
     gui->draw();
     fps->draw();
+    
+    if (objHover > 0 && objHover != 255) cursor->draw();
     
     window->endDraw();
     
@@ -248,6 +285,12 @@ int main(int, char const**) {
     loadingText = new Text2D("-", fontFaceGravityBold24Renderer, vec2(630, 235), vec3(1), 0.4f);
     loadingText->setAlign(Text2D::ALIGN_CENTER);
     loadingScreenRedraw("Initializing application...", 0.1f);
+    
+    // load cursor
+    Texture* cursorTex = Texture::loadFromFile(resourcePath() + "Textures/cursor.png");
+    Material* cursorMat = graphic2Dmaterial->clone();
+    cursorMat->setTexture(cursorTex);
+    cursor = new Graphic2D(cursorMat, vec2(608, 328), vec2(64, 64));
     
     // init application
     Scene* scene = init(window);

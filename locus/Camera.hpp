@@ -31,6 +31,11 @@ public:
     /// \param center The center of boundary box
     /// \param size Actual size of boundary box
     void holdBoundaries(vec3 center, vec3 size);
+    
+    /// Avoids camera to be in boundaries. Inverse function of holdBoundaries().
+    /// \param center The center of boundary box
+    /// \param size Actual size of boundary box
+    void avoidBoundaries(vec3 center, vec3 size);
 protected:
 };
 

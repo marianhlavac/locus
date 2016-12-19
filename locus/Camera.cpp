@@ -8,6 +8,8 @@
 
 #include "Camera.hpp"
 
+#include "iostream"
+
 #include <glm/gtx/transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -44,4 +46,20 @@ void Camera::holdBoundaries(vec3 center, vec3 size) {
     if (position.z < center.z - size.z/2.0f) {
         position.z -= (position.z - (center.z - size.z/2.0f)) / 2.0f;
     }
+}
+
+void Camera::avoidBoundaries(vec3 center, vec3 size) {
+    /*vec3 relpos = position - center;
+    vec3 max = size / 2.0f;
+    cout << relpos.x << "," << relpos.y << "," << relpos.z << endl;
+    
+    if (relpos.x < max.x && relpos.x > -max.x &&
+        relpos.y < max.y && relpos.y > -max.y &&
+        relpos.z < max.z && relpos.z > -max.z) {
+        if (relpos.x > 0) {
+            position.x += (max.x - relpos.x) / 4.0f;
+        } else {
+            position.x += (max.x - relpos.x) / 4.0f;
+        }
+    }*/
 }

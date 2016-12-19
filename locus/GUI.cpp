@@ -14,7 +14,7 @@ map<string, vector<string>> configItemLabels = {
     make_pair("animations", vector<string> {"off", "on"}),
     make_pair("collisions", vector<string> {"off", "on"}),
     make_pair("scene", vector<string> {"stop", "play"}),
-    make_pair("camera", vector<string> {"primary", "free camera"})
+    make_pair("camera", vector<string> {"primary", "free camera", "secondary"})
 };
 
 int menuLeft = 60;
