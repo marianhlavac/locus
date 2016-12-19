@@ -427,25 +427,64 @@
   ],
   "lights": [
     {
-      "name": "Light",
+      "name": "Glob",
+      "type": "directional",
+      "position": [-1.0, -1.0, 0.0],
+      "color": [0.10, 0.09, 0.07]
+    },
+    {
+      "name": "Fire light",
       "type": "point",
-      "position": [5.91, 0.0, 1.27],
+      "position": [0.0, 3.0, -5.5],
       "color": [1.00, 1.00, 1.00],
       "constant": 1.0,
-      "linear": 0.2,
-      "quadratic": 0.1
+      "linear": 0.07,
+      "quadratic": 0.017
+    },
+    {
+      "name": "Small lamp light",
+      "type": "point",
+      "position": [-5.16, 1.23, 1.54],
+      "color": [1.00, 0.98, 0.70],
+      "constant": 1.0,
+      "linear": 0.22,
+      "quadratic": 0.20
     },
     {
       "name": "Spotlight",
       "type": "spot",
-      "position": [0.0, 1.5, -2.5],
-      "rotation": [0.0, 0.0, 0.0],
-      "color": [1.00, 0.00, 0.00],
+      "position": [2.5, 4.0, 6],
+      "rotation": [180.0, 0.0, 0.0],
+      "color": [1.00, 0.98, 0.70],
       "constant": 1.0,
       "linear": 0.2,
       "quadratic": 0.011,
-      "cutoff": 0.91,
-      "outercutoff": 0.82
+      "cutoff": 0.81,
+      "outercutoff": 0.62
+    },
+    {
+      "name": "Spotlight2",
+      "type": "spot",
+      "position": [2.5, 4.0, 1],
+      "rotation": [180.0, 0.0, 0.0],
+      "color": [1.00, 0.98, 0.70],
+      "constant": 1.0,
+      "linear": 0.2,
+      "quadratic": 0.011,
+      "cutoff": 0.81,
+      "outercutoff": 0.62
+    },
+    {
+      "name": "Spotlight3",
+      "type": "spot",
+      "position": [2.5, 4.0, -4],
+      "rotation": [180.0, 0.0, 0.0],
+      "color": [1.00, 0.98, 0.70],
+      "constant": 1.0,
+      "linear": 0.2,
+      "quadratic": 0.011,
+      "cutoff": 0.81,
+      "outercutoff": 0.62
     }
   ],
   "cameras": [

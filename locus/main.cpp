@@ -151,16 +151,14 @@ void update(Window* window, double timeElapsed, double timeDelta) {
     
     // --- animations
     if (configuration["animations"] == 1) {
-    
-        ((PointLight*)sc->getChildByName("Light"))->setPosition(vec3(0, 3, 0));
-        
         if (configuration["scene"] == 1) {
             Camera* cam = (Camera*)sc->getChildByName("Primary Cam");
             cam->setPosition(testcurve->calc(timeElapsed));
             cam->setRotation(toQuat(lookAt(vec3(0), testcurve->calcD(timeElapsed), vec3(0, 1, 0))));
         }
         
-        ((PointLight*)sc->getChildByName("Spotlight"))->setRotation(vec3(sin(timeElapsed)*2, 0, cos(timeElapsed)*3));
+        float fireIntensity = abs(sin(timeElapsed)) * abs(cos(timeElapsed * 6.0f)) * abs(sin(timeElapsed * 12.0f)) * 0.125f + 0.2f;
+        ((PointLight*)sc->getChildByName("Fire light"))->setColor(vec3(1.00f, 0.64f, 0.33f) * fireIntensity);
     }
     // ---
     

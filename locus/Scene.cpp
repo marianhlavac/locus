@@ -203,7 +203,7 @@ Scene* Scene::fromFile(const string &filename, void (*progress)(string, float)) 
             
             scene->addDirectionalLight((DirectionalLight *)li);
         } else if (type == "spot") {
-            vec3 rotation(light["rotation"][0].asFloat(), light["rotation"][1].asFloat(), light["rotation"][2].asFloat());
+            vec3 rotation(radians(light["rotation"][0].asFloat()), radians(light["rotation"][1].asFloat()), radians(light["rotation"][2].asFloat()));
             
             float constant = light["constant"].asFloat();
             float linear = light["linear"].asFloat();
