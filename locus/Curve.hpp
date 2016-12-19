@@ -18,6 +18,7 @@
 using namespace std;
 using namespace glm;
 
+//! Catmull-Rom curve
 class Curve {
 public:
     Curve();

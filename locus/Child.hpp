@@ -15,6 +15,7 @@
 
 using namespace std;
 
+//! Child class, used as base for all objects that behaves in parent-child structure
 class Child {
 public:
     string getName();

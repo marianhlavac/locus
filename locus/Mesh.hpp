@@ -21,6 +21,7 @@
 
 using namespace glm;
 
+//! VAO structure
 struct MeshVAO {
     MeshVAO() {
         glGenVertexArrays(1, &id);
@@ -34,6 +35,7 @@ struct MeshVAO {
     GLuint id;
 };
 
+//! VBO structure
 struct MeshVBO {
     MeshVBO(GLenum target, const GLvoid* data, GLsizeiptr size, GLenum usage) {
         glGenBuffers(1, &id);
@@ -54,6 +56,7 @@ struct MeshVBO {
     GLuint id;
 };
 
+//! Mesh class
 class Mesh {
 public:
     Mesh(WavefrontParserResult* parsed);

@@ -14,6 +14,7 @@
 #include "Shader.hpp"
 #include "Mesh.hpp"
 
+//! 2D graphics object
 class Graphic2D {
 public:
     Graphic2D(Material* material, vec2 position, vec2 scale);

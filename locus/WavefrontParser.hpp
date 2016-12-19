@@ -19,6 +19,7 @@
 using namespace glm;
 using namespace std;
 
+//! Result structure used in Wavefront parser output
 struct WavefrontParserResult {
     vector<vec3> vertices;
     vector<vec3> normals;
@@ -28,6 +29,7 @@ struct WavefrontParserResult {
     vector<GLuint> indices;
 };
 
+//! Wavefront .obj files parser
 class WavefrontParser {
 public:
     static WavefrontParserResult* parse(const string& filename);

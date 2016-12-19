@@ -16,6 +16,7 @@
 
 using namespace glm;
 
+//! Point light object
 class PointLight : public Object {
 public:
     PointLight(string name, vec3 position, vec3 color, float constant, float linear, float quadratic);

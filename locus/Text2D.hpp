@@ -19,6 +19,7 @@
 
 using namespace glm;
 
+//! 2D text graphic
 class Text2D {
 public:
     Text2D(string text, TextRenderer* renderer, vec2 position, vec3 color, float scale);

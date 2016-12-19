@@ -18,6 +18,7 @@
 
 using namespace std;
 
+//! Graphic User Interface
 class GUI {
 public:
     GUI(TextRenderer* regularFont, TextRenderer* boldFont, Material* graphic2Dmaterial, map<string, int>* configuration);

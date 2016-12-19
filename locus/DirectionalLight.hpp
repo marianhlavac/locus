@@ -12,6 +12,7 @@
 
 #include "Object.hpp"
 
+//! Directional light object
 class DirectionalLight : public Object {
 public:
     DirectionalLight(string name, vec3 rotation, vec3 color);

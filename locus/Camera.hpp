@@ -15,6 +15,7 @@
 
 using namespace glm;
 
+//! Camera object
 class Camera : public Object {
 public:
     Camera(string name, vec3 position, vec3 rotation);

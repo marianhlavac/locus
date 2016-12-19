@@ -17,6 +17,7 @@
 #include "Window.hpp"
 #include <glm/gtc/quaternion.hpp>
 
+//! Camera object, firstperson-like
 class FreeCamera : public Camera {
 public:
     FreeCamera(string name, vec3 position, vec3 rotation);

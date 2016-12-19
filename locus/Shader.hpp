@@ -21,7 +21,7 @@
 using namespace std;
 using namespace glm;
 
-
+//! Shader class
 class Shader {
 public:
     Shader(const string vertSrc, const string fragSrc, bool detach);
@@ -49,7 +49,7 @@ private:
 
 struct ShaderProgram {
     ShaderProgram(Shader* vertexShader, Shader* fragmentShader, bool detach) {
-        
+
     }
     GLuint id;
 };

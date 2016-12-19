@@ -3,6 +3,7 @@
 
 #include <string>
 
+//! Returns relative path to resources folder
 std::string resourcePath(void);
 
 #endif

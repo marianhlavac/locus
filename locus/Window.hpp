@@ -14,6 +14,7 @@
 
 #include "Scene.hpp"
 
+//! Basic window class
 class Window {
 public:
     Window(int width, int height);
