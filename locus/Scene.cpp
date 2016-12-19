@@ -36,6 +36,12 @@ void Scene::draw() {
     }
 }
 
+void Scene::draw(Material* forcedMaterial) {
+    for (Child* obj : children) {
+        if (obj->isDrawable) ((Object*)obj)->draw(forcedMaterial);
+    }
+}
+
 void Scene::addMaterial(Material* material) {
     materials.push_back(material);
 }

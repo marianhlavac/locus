@@ -41,6 +41,8 @@ public:
     void use();
     Shader* getShader();
     Texture* getTexture();
+    Texture* getSpecularMap();
+    void setSpecularMap(Texture* texture);
     void setTexture(Texture* texture);
     void unsetTexture();
     void updateMVP(mat4 modelTransform, mat4 viewTransform, mat4 projectionTransform);
@@ -55,6 +57,8 @@ private:
     Shader* shader;
     bool hasTexture;
     Texture* texture;
+    Texture* specularMap;
+    bool hasSpecularMap;
     int textureType;
 };
 

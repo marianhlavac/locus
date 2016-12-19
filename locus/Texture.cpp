@@ -14,6 +14,7 @@ Texture::Texture(unsigned char* image, int width, int height) : size(vec2(width,
     glGenTextures(1, &texture);
     bind();
     generateTexture(image);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     SOIL_free_image_data(image);
     unbind();
 }
@@ -51,19 +52,31 @@ Texture* Texture::loadCubemap(vector<string> filenames) {
     return new Texture(images);
 }
 
-void Texture::bind() {
+void Texture::bind(GLenum active) {
+    glActiveTexture(active);
     glBindTexture(GL_TEXTURE_2D, texture);
 }
 
+void Texture::bind() {
+    bind(GL_TEXTURE0);
+}
+
 void Texture::bindCubemap() {
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
 }
 
-void Texture::unbind() {
+void Texture::unbind(GLenum active) {
+    glActiveTexture(active);
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
+void Texture::unbind() {
+    unbind(GL_TEXTURE0);
+}
+
 void Texture::unbindCubemap() {
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 }
 

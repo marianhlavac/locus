@@ -474,10 +474,10 @@
       "name": "Rotating light",
       "type": "point",
       "position": [0, 0, 0],
-      "color": [0.20, 0.20, 0.20],
+      "color": [0.70, 0.70, 0.70],
       "constant": 1.0,
-      "linear": 0.22,
-      "quadratic": 0.20
+      "linear": 0.12,
+      "quadratic": 0.10
     },
     {
       "name": "Spotlight",

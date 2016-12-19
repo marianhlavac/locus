@@ -112,6 +112,13 @@ void Shader::setUniform(const std::string &name, GLfloat value) {
 void Shader::setUniform(const std::string &name, GLuint value) {
     glUniform1ui(getUniformLocation(name), value);
 }
+void Shader::setUniform(const std::string &name, GLint value) {
+    glUniform1i(getUniformLocation(name), value);
+}
+
+void Shader::setUniform(const std::string &name, GLboolean value) {
+    glUniform1i(getUniformLocation(name), value);
+}
 
 void Shader::setUniform(const std::string &target, int id, const std::string &name, vec3 value) {
     glUniform3f(getUniformLocation(target + "[" + to_string(id) + "]." + name), value.x, value.y, value.z);

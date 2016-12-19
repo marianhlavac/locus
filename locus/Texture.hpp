@@ -27,8 +27,10 @@ public:
     Texture(vector<pair<unsigned char*, vec2>> images);
     static Texture* loadFromFile(const string& filename);
     static Texture* loadCubemap(vector<string> filenames);
+    void bind(GLenum active);
     void bind();
     void bindCubemap();
+    static void unbind(GLenum active);
     static void unbind();
     static void unbindCubemap();
 private:

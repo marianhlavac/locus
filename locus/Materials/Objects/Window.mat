@@ -2,6 +2,6 @@ Shaders/Textured.vert
 Shaders/Textured.frag
 0.1
 1
-0
+1
 Textures/window.png
-!
+Textures/window_specmap.png

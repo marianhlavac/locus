@@ -35,6 +35,8 @@ public:
     void setUniform(const std::string& name, vec3 value);
     void setUniform(const std::string& name, GLfloat value);
     void setUniform(const std::string& name, GLuint value);
+    void setUniform(const std::string& name, GLint value);
+    void setUniform(const std::string& name, GLboolean value);
     void setUniform(const std::string& target, int id, const std::string& name, vec3 value);
     void setUniform(const std::string& target, int id, const std::string& name, GLfloat value);
     void setUniform(const std::string& target, int id, const std::string& name, GLuint value);

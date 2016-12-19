@@ -51,6 +51,8 @@ float clickTimeout = 0;
 Material* selectionMaterial;
 Material* graphic2Dmaterial;
 Material* skyboxMaterial;
+Material* solidMaterial;
+Material* solidUnlitMaterial;
 Graphic2D* loading;
 Graphic2D* loadingProgress;
 Graphic2D* cursor;
@@ -84,6 +86,8 @@ Scene* init(Window* window) {
                                        loadingScreenRedraw(progress, progressB);
                                    });
     window->attachScene(scene);
+    scene->addMaterial(solidMaterial);
+    scene->addMaterial(solidUnlitMaterial);
     
     loadingScreenRedraw("Finishing...", 0.95f);
     
@@ -176,7 +180,7 @@ void update(Window* window, double timeElapsed, double timeDelta) {
         
         Object* lc = ((Object*)sc->getChildByName("Light Cube"));
         Object* pl = ((Object*)sc->getChildByName("Rotating light"));
-        vec3 lpos = vec3(sin(timeElapsed / 2.0f)*2.0f, 3.0, cos(timeElapsed / 2.0f)*2.0);
+        vec3 lpos = vec3(sin(timeElapsed)*4.0f, 3.0, cos(timeElapsed)*6.0);
         lc->setPosition(lpos);
         pl->setPosition(lpos);
     }
@@ -222,7 +226,18 @@ void render(Window* window) {
     
     skybox->draw();
     
-    window->getAttachedScene()->draw();
+    Material* forcedMat = NULL;
+    if (configuration["lights"] < 1) {
+        forcedMat = solidUnlitMaterial;
+    } else if (configuration["render"] < 2) {
+        forcedMat = solidMaterial;
+    }
+    
+    if (forcedMat == NULL) {
+        window->getAttachedScene()->draw();
+    } else {
+        window->getAttachedScene()->draw(forcedMat);
+    }
     gui->draw();
     fps->draw();
     
@@ -268,6 +283,8 @@ int main(int, char const**) {
     graphic2Dmaterial = Material::fromFile(resourcePath() + "Materials/Graphic2DBase.mat");
     skyboxMaterial = Material::fromFile(resourcePath() + "Materials/Skybox.mat");
     skyboxMaterial->setTextureType(Material::TEXTURE_CUBEMAP);
+    solidMaterial = Material::fromFile(resourcePath() + "Materials/Solid.mat");
+    solidUnlitMaterial = Material::fromFile(resourcePath() + "Materials/SolidUnlit.mat");
     
     // load fonts from resources
     fontFaceGravityBook24Renderer = new TextRenderer(resourcePath() + "Fonts/Gravity-Book.otf", 24, text2Dshader);

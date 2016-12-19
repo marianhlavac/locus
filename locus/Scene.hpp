@@ -36,6 +36,7 @@ public:
     void addSpotLight(SpotLight* light);
     void updateMaterials(float timeElapsed);
     void draw();
+    void draw(Material* forcedMaterial);
     int getHoverId(Material* selectionMaterial, int x, int y);
     static Scene* fromFile(const string & filename);
     static Scene* fromFile(const string & filename, void (*progress)(string, float));

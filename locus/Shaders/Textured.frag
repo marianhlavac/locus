@@ -45,6 +45,8 @@ out vec4 color;
 uniform vec3 lightPos;
 uniform vec3 viewPos;
 uniform sampler2D tex;
+uniform sampler2D specmap;
+uniform bool hasSpecmap;
 uniform DirectionalLight directionalLights[MAX_LIGHTS];
 uniform PointLight pointLights[MAX_LIGHTS];
 uniform SpotLight spotLights[MAX_LIGHTS];
@@ -66,13 +68,15 @@ vec3 CalcDirectionalLight(DirectionalLight light, vec3 normal) {
         spec = pow(max(dot(h, normal), 0.0), 32);
     }
     
+    if (hasSpecmap) { spec *= texture(specmap, fragUv).r; }
+    
     return light.ambient + diff * light.diffuse + spec * light.specular;
 }
 
 vec3 CalcPointLight(PointLight light, vec3 normal) {
     vec3 lightDir = normalize(light.position - fragPos);
     vec3 reflectDir = reflect(-lightDir, normal);
-    vec3 viewDir = normalize(-viewPos + fragPos);
+    vec3 viewDir = normalize(viewPos - fragPos);
     
     float diff = max(dot(normal, lightDir), 0.0);
     
@@ -85,13 +89,15 @@ vec3 CalcPointLight(PointLight light, vec3 normal) {
     float dist = length(light.position - fragPos);
     float attenuation = 1.0f / (light.constant + light.linear * dist + light.quadratic * (dist * dist));
     
+    if (hasSpecmap) { spec *= texture(specmap, fragUv).r; }
+    
     return attenuation * (light.ambient + diff * light.diffuse + spec * light.specular);
 }
 
 vec3 CalcSpotLight(SpotLight light, vec3 normal) {
     vec3 lightDir = normalize(light.position - fragPos);
     vec3 reflectDir = reflect(-lightDir, normal);
-    vec3 viewDir = normalize(-viewPos + fragPos);
+    vec3 viewDir = normalize(viewPos - fragPos);
     
     float diff = max(dot(normal, lightDir), 0.0);
     float spec = 0.0;
@@ -106,6 +112,8 @@ vec3 CalcSpotLight(SpotLight light, vec3 normal) {
     
     float dist = length(light.position - fragPos);
     float attenuation = 1.0f / (light.constant + light.linear * dist + light.quadratic * (dist * dist));
+    
+    if (hasSpecmap) { spec *= texture(specmap, fragUv).r; }
     
     return attenuation * intensity * (light.ambient + diff * light.diffuse + spec * light.specular);
 }
