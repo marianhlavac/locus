@@ -21,7 +21,7 @@ void main() {
     gl_Position = mvp * vec4(position, 1);
     
     fragPos = vec3(M * vec4(position, 1));
-    fragNormal = normal;
+    fragNormal = mat3(transpose(inverse(M))) * normal;
     fragUv = vec2(uv.x / DIVIDE, uv.y / DIVIDE);
     
     fragUv.x += (int(floor(timeElapsed * 2 * DIVIDE )) % DIVIDE) * (1.00/DIVIDE);
