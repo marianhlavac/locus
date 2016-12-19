@@ -46,7 +46,8 @@
     "sofa": "Materials/Objects/Sofa.mat",
     "room": "Materials/Objects/Room.mat",
     "window": "Materials/Objects/Window.mat",
-    "fireplace": "Materials/Objects/Fireplace.mat"
+    "fireplace": "Materials/Objects/Fireplace.mat",
+    "appletv": "Materials/Objects/Apple TV.mat"
   },
   "objects": [
     {
@@ -240,7 +241,7 @@
           "position": [5.06, 0.83, -4.58],
           "rotation": [0.0, -92.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
-          "material": "solid"
+          "material": "appletv"
         },
         {
           "name": "Playstation",
