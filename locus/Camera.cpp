@@ -48,18 +48,11 @@ void Camera::holdBoundaries(vec3 center, vec3 size) {
     }
 }
 
-void Camera::avoidBoundaries(vec3 center, vec3 size) {
-    /*vec3 relpos = position - center;
-    vec3 max = size / 2.0f;
-    cout << relpos.x << "," << relpos.y << "," << relpos.z << endl;
+void Camera::avoidBoundaries(vec3 center, float size) {
+    float dist = distance(position, center);
     
-    if (relpos.x < max.x && relpos.x > -max.x &&
-        relpos.y < max.y && relpos.y > -max.y &&
-        relpos.z < max.z && relpos.z > -max.z) {
-        if (relpos.x > 0) {
-            position.x += (max.x - relpos.x) / 4.0f;
-        } else {
-            position.x += (max.x - relpos.x) / 4.0f;
-        }
-    }*/
+    if (dist < size) {
+        vec3 relative = position - center;
+        position += relative * 0.05f;
+    }
 }

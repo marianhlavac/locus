@@ -26,7 +26,7 @@
     "room": "Models/Room.obj",
     "smalllamp": "Models/Small Lamp.obj",
     "smalltable": "Models/Small Table.obj",
-    "!sofa": "Models/Sofa.obj",
+    "sofa": "Models/Sofa.obj",
     "!speaker": "Models/Speaker.obj",
     "subwoofer": "Models/Subwoofer.obj",
     "tvstand": "Models/TV stand.obj",
@@ -353,7 +353,7 @@
         },
         {
           "name": "Sofa",
-          "mesh": "none",
+          "mesh": "sofa",
           "position": [-4.79, 0.00, -1.96],
           "rotation": [0.0, 90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],

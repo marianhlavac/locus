@@ -142,8 +142,9 @@ void update(Window* window, double timeElapsed, double timeDelta) {
         cam->update(window, timeDelta);
         
         if (configuration["collisions"] == 1) {
-            //cam->holdBoundaries(vec3(0, 2.5f, 0), vec3(10, 4, 14));
-            cam->avoidBoundaries(vec3(0.07f, 0, -1.3f), vec3(2, 2, 2));
+            cam->holdBoundaries(vec3(0, 2.5f, 0), vec3(10, 4, 14));
+            cam->avoidBoundaries(vec3(0.07f, 0, -1.3f), 2);
+            cam->avoidBoundaries(vec3(-6.79f, 0.00, -1.96f), 3);
         }
     } else if (configuration["camera"] == 2) {
         Camera* cam = (Camera*)sc->getChildByName("Secondary Cam");
