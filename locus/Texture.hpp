@@ -25,13 +25,31 @@ class Texture {
 public:
     Texture(unsigned char* image, int width, int height);
     Texture(vector<pair<unsigned char*, vec2>> images);
+
+    /// Loads texture from file using SOIL.
     static Texture* loadFromFile(const string& filename);
+
+    /// Loads cubemap texture set from files using SOIL.
     static Texture* loadCubemap(vector<string> filenames);
+
+    /// Binds texture to specified texture unit.
+    /// \param active Active texture from GL_TEXTURE0 to GL_TEXTURE16.
     void bind(GLenum active);
+
+    /// Binds texture to first texture unit.
     void bind();
+
+    /// Binds texture as cubemap to first texture unit.
     void bindCubemap();
+
+    /// Unbinds texture at specified texture unit position.
+    /// \param active Active texture from GL_TEXTURE0 to GL_TEXTURE16.
     static void unbind(GLenum active);
+
+    /// Unbinds texture from first texture unit position.
     static void unbind();
+
+    /// Unbinds cubemap texture from first texture unit position.
     static void unbindCubemap();
 private:
     vec2 size;

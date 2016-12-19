@@ -32,6 +32,7 @@ struct WavefrontParserResult {
 /// Wavefront .obj files parser
 class WavefrontParser {
 public:
+    /// Parses .obj file.
     static WavefrontParserResult* parse(const string& filename);
 private:
     static void parseVertex(stringstream& ss, WavefrontParserResult* resultOut);

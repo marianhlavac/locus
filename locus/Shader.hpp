@@ -28,6 +28,8 @@ public:
     Shader(const string vertSrc, const string fragSrc);
     static Shader* fromFile(const string vertSrcFilename, const string fragSrcFilename);
     ~Shader();
+
+    /// Use the shader.
     void use();
     GLint getAttribLocation(const std::string& name);
     GLint getUniformLocation(const std::string& name);
@@ -47,13 +49,6 @@ private:
     GLuint id;
     GLuint vertexShaderId;
     GLuint fragmentShaderId;
-};
-
-struct ShaderProgram {
-    ShaderProgram(Shader* vertexShader, Shader* fragmentShader, bool detach) {
-
-    }
-    GLuint id;
 };
 
 #endif /* Shader_hpp */

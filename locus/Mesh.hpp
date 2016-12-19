@@ -61,11 +61,20 @@ class Mesh {
 public:
     Mesh(WavefrontParserResult* parsed);
     Mesh(vector<GLfloat> buffer, GLuint bufferSize, vector<GLuint> indices, GLuint indicesSize);
+
+    /// Draws the mesh.
     void draw();
-    static Mesh* loadFromFile(const string & filename);
+
+    /// Creates basic cube x*x*x.
     static Mesh* createCube(float size);
+
+    /// Creates cube x*x*x with inverted normals to the center.
     static Mesh* createICube(float size);
+
+    /// Creates a quad of specified size looking upwards (+Y).
     static Mesh* createQuad(vec2 size);
+
+    /// Adds mesh attribute
     void addAttrib(GLuint location, GLint size, GLenum type, GLsizei stride, int start);
 private:
     void createBuffer(GLuint* vbo, unsigned length, const GLvoid * data, GLenum target);
