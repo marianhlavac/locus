@@ -125,5 +125,7 @@ void main() {
         result += CalcSpotLight(spotLights[i], norm);
     }
     
-    color = vec4(result, 1);
+    float fog = clamp(distance(fragPos, viewPos) / 50.0, 0.0, 1.0);
+    
+    color = mix(vec4(result, 1), vec4(0.1, 0.1, 0.1, 1), fog);
 }
