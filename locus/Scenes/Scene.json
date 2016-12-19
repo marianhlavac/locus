@@ -35,7 +35,9 @@
     "wallshelf": "Models/Wall shelf.obj",
     "wallsocket": "Models/Wall socket.obj",
     "window": "Models/Window.obj",
-    "xbox": "Models/Xbox.obj"
+    "xbox": "Models/Xbox.obj",
+    "switchon": "Models/Switch On.obj",
+    "!switchoff": "Models/Switch Off.obj"
   },
   "materials": {
     "solid": "Materials/Solid.mat",
@@ -409,6 +411,15 @@
           "rotation": [0.0, 90.0, 0.0],
           "scale": [1.0, 1.0, 1.0],
           "material": "solid"
+        },
+        {
+          "name": "Switch",
+          "mesh": "switchon",
+          "position": [-1.95, 2.75, 8.0],
+          "rotation": [0.0, 90.0, 0.0],
+          "scale": [1.0, 1.0, 1.0],
+          "material": "solid",
+          "selection": 0
         }
       ]
     }
@@ -420,8 +431,8 @@
       "position": [5.91, 0.0, 1.27],
       "color": [1.00, 1.00, 1.00],
       "constant": 1.0,
-      "linear": 0.02,
-      "quadratic": 0.001
+      "linear": 0.2,
+      "quadratic": 0.1
     },
     {
       "name": "Spotlight",
