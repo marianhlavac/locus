@@ -26,7 +26,7 @@
 using namespace std;
 using namespace glm;
 
-//! Material class
+/// Material class
 class Material {
 public:
     static const int TEXTURE_BASE = 0;

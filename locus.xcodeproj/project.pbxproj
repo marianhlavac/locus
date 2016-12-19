@@ -15,7 +15,6 @@
 		CD3096901DFDC3E00062AF1A /* GUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD30968E1DFDC3E00062AF1A /* GUI.cpp */; };
 		CD3096921DFDC8DE0062AF1A /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = CD3096911DFDC8DE0062AF1A /* Fonts */; };
 		CD33E0D81DFC380800ABF15C /* libfreetype.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD33E0D71DFC380800ABF15C /* libfreetype.6.dylib */; };
-		CD33E0DB1DFC544600ABF15C /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD33E0D91DFC544600ABF15C /* Text.cpp */; };
 		CD33E0E11DFC55B200ABF15C /* Text2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD33E0DF1DFC55B200ABF15C /* Text2D.cpp */; };
 		CD33E0E41DFC56F700ABF15C /* TextRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD33E0E21DFC56F700ABF15C /* TextRenderer.cpp */; };
 		CD59D6621DF4EF8F00487DAB /* Scenes in Resources */ = {isa = PBXBuildFile; fileRef = CD59D6611DF4EF8F00487DAB /* Scenes */; };
@@ -56,8 +55,6 @@
 		CD30968F1DFDC3E00062AF1A /* GUI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GUI.hpp; sourceTree = "<group>"; };
 		CD3096911DFDC8DE0062AF1A /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		CD33E0D71DFC380800ABF15C /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../../../../usr/local/lib/libfreetype.6.dylib; sourceTree = "<group>"; };
-		CD33E0D91DFC544600ABF15C /* Text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
-		CD33E0DA1DFC544600ABF15C /* Text.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
 		CD33E0DF1DFC55B200ABF15C /* Text2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Text2D.cpp; sourceTree = "<group>"; };
 		CD33E0E01DFC55B200ABF15C /* Text2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Text2D.hpp; sourceTree = "<group>"; };
 		CD33E0E21DFC56F700ABF15C /* TextRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextRenderer.cpp; sourceTree = "<group>"; };
@@ -179,8 +176,6 @@
 				CD9D72931DA453F2005D2B00 /* Window.hpp */,
 				CD5CDE001DC3CAFE006B12A9 /* WavefrontParser.cpp */,
 				CD5CDE011DC3CAFE006B12A9 /* WavefrontParser.hpp */,
-				CD33E0D91DFC544600ABF15C /* Text.cpp */,
-				CD33E0DA1DFC544600ABF15C /* Text.hpp */,
 				CD33E0DF1DFC55B200ABF15C /* Text2D.cpp */,
 				CD33E0E01DFC55B200ABF15C /* Text2D.hpp */,
 				CD33E0E21DFC56F700ABF15C /* TextRenderer.cpp */,
@@ -328,7 +323,6 @@
 				CDDD34251DE679A300D52AED /* FreeCamera.cpp in Sources */,
 				CD9D72821DA450C3005D2B00 /* Material.cpp in Sources */,
 				CDCE8EC21DF44A9900DC3D2B /* Shader.cpp in Sources */,
-				CD33E0DB1DFC544600ABF15C /* Text.cpp in Sources */,
 				CD9D72651DA44E54005D2B00 /* main.cpp in Sources */,
 				CD9D72791DA450AC005D2B00 /* Mesh.cpp in Sources */,
 				CD9D72851DA450C9005D2B00 /* Camera.cpp in Sources */,

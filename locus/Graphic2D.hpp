@@ -14,12 +14,18 @@
 #include "Shader.hpp"
 #include "Mesh.hpp"
 
-//! 2D graphics object
+/// 2D graphics object
 class Graphic2D {
 public:
     Graphic2D(Material* material, vec2 position, vec2 scale);
+
+    /// Draws the graphic.
     void draw();
+
     void draw(vec4 proj);
+
+    /// Sets the size of graphic.
+    /// \param size Size.
     void setSize(vec2 size);
 private:
     Material* material;

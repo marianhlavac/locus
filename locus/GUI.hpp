@@ -18,13 +18,21 @@
 
 using namespace std;
 
-//! Graphic User Interface
+/// Graphic User Interface
 class GUI {
 public:
     GUI(TextRenderer* regularFont, TextRenderer* boldFont, Material* graphic2Dmaterial, map<string, int>* configuration);
+
+    /// Initializes the GUI.
     void init(string navBarTextureFile);
+
+    /// Draws the GUI.
     void draw();
+
+    /// Updates the GUI.
     void update(Window* window, double elapsed);
+
+    /// Is GUI meant to be displayed?
     bool displayed;
 private:
     TextRenderer* regularFont;

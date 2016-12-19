@@ -18,7 +18,7 @@
 
 using namespace glm;
 
-//! Object class
+/// Object class
 class Object : public Child {
 public:
     Object(Mesh* mesh, string name, vec3 position, vec3 rotation, vec3 scale, Material* mat);

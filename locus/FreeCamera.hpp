@@ -17,10 +17,14 @@
 #include "Window.hpp"
 #include <glm/gtc/quaternion.hpp>
 
-//! Camera object, firstperson-like
+/// Camera object, firstperson-like
 class FreeCamera : public Camera {
 public:
     FreeCamera(string name, vec3 position, vec3 rotation);
+
+    /// Updates the camera. Reacts on user input - mouse and keyboard.
+    /// \param window Parent window object.
+    /// \param deltaTime Time delta.
     void update(Window* window, float deltaTime);
 private:
     vec2 velocity;

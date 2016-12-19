@@ -11,7 +11,7 @@
 
 #include "Object.hpp"
 
-//! Spot light object
+/// Spot light object
 class SpotLight : public Object {
 public:
     SpotLight(string name, vec3 position, vec3 rotation, vec3 color, float constant, float linear, float quadratic, float cutOff, float outerCutOff);
@@ -20,7 +20,12 @@ public:
     float getQuadratic();
     float getCutOff();
     float getOuterCutOff();
+
+    /// Sets the light color.
+    /// \param color Light color.
     void setColor(vec3 color);
+
+    /// Gets the light color.
     vec3 getColor();
 private:
     vec3 color;

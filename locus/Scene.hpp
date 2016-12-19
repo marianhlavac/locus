@@ -24,7 +24,7 @@
 
 using namespace std;
 
-//! Scene graph class
+/// Scene graph class
 class Scene : public Child {
 public:
     Scene(string name);

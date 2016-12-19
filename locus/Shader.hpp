@@ -21,7 +21,7 @@
 using namespace std;
 using namespace glm;
 
-//! Shader class
+/// Shader class
 class Shader {
 public:
     Shader(const string vertSrc, const string fragSrc, bool detach);

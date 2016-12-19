@@ -20,7 +20,7 @@
 using namespace std;
 using namespace glm;
 
-//! Texture class
+/// Texture class
 class Texture {
 public:
     Texture(unsigned char* image, int width, int height);

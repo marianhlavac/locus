@@ -21,7 +21,7 @@
 using namespace glm;
 using namespace std;
 
-//! A character structure used in TextRenderer
+/// A character structure used in TextRenderer
 struct TextRendererChar {
     TextRendererChar(GLuint texId, ivec2 size, ivec2 bearing, GLuint advance) : textureId(texId), size(size), bearing(bearing), advance(advance) { };
     TextRendererChar() { };
@@ -31,7 +31,7 @@ struct TextRendererChar {
     GLuint advance;
 };
 
-//! Text renderer
+/// Text renderer
 class TextRenderer {
 public:
     TextRenderer(const string& fontface, int faceSize, Shader* shader);

@@ -13,7 +13,7 @@
 #include "Texture.hpp"
 #include "Material.hpp"
 
-//! Skybox object
+/// Skybox object
 class Skybox {
 public:
     Skybox(float size, Material* material);
