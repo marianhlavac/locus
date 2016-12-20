@@ -121,7 +121,7 @@ Scene* init(Window* window) {
     Material* animCubeMat = Material::fromFile(resourcePath() + "Materials/Moving.mat");
     scene->addMaterial(animCubeMat);
     Object* anim2 = new Object(animCube, "Animated2", vec3(0, 0.1f, 2), animCubeMat);
-    //scene->addChild(anim2);
+    scene->addChild(anim2);
     
     return scene;
 }

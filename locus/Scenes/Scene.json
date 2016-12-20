@@ -87,7 +87,7 @@
 
           {
             "name": "Light Cube",
-            "mesh": "none",
+            "mesh": "cube",
             "position": [0.0, 1.5, -2.5],
             "rotation": [0.0, 0.0, 0.0],
             "scale": [0.1, 0.1, 0.1],
