@@ -2,7 +2,7 @@
 
 OpenGL 3d room viewer, seminar project for BI-PGR subject at FIT CTU
 
-![locus](http://i.imgur.com/Xy3wVdC.png)
+![locus](http://i.imgur.com/ECYxH5P.png)
 
 # About
 
@@ -10,23 +10,18 @@ todo
 
 # Requirements
 
- - SFML libraries
- - XCode 
+ - GLFW
 
 # How to build
 
 todo
 
-# Configuration
-
-Use the `config.json` file.
-
 # Documentation
 
-Using Doxygen, you can generate the documentation by running:
+Using Doxygen, you can generate the documentation by running in root folder of project:
 
 ```
-  $ ???
+  $ doxygen
 ```
 
 # License
