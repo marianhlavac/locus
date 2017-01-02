@@ -1,6 +1,6 @@
 # locus
 
-OpenGL 3d room viewer, seminar project for BI-PGR subject at FIT CTU
+OpenGL 3d room viewer, course project for BI-PGR subject at FIT CTU
 
 ![locus](http://i.imgur.com/ECYxH5P.png)
 
